@@ -536,13 +536,16 @@ Os dispositivos móveis possuem arquiteturas distintas e para isso é necessári
 O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
 
 
-\subsubsection{Kernel2}
-Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
-O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
+\subsubsection{Android Runtime}
+O Android Runtime (ART) é um processo responsável pela compilação de códigos de alto nivel (DEX bytecode) em codigos de maquina.
+O processo usa uma técnica de compilação chamada AOT (Ahead of Time), sua principal diferença em relação ao Dalvik é que ela ocorre antes 
+da execução do aplicativo e não durante a execução. Com isso, há um aumento na velocidade de execução ao custo de um processo que ocupa mais memoria.
 
-\subsubsection{Kernel3}
-Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
-O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
+\subsubsection{Native C/C++ Libraries}
+Vários componentes e diversos serviços do sistema operacional Android são implementados em código nativo,
+ o que exige bibliotecas nativas desenvolvidas em C e C++.
+O framework Android oferece uma camada de abstração chamada de HAL (Hardware abstraction layer) para expor as funcionalidades de algumas dessas bibliotecas,
+ tal abstração permite a manipulação de vídeos, imagens, sons, animações, GPS, etc.
 
 
 
