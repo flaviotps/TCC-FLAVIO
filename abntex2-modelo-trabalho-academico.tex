@@ -557,8 +557,8 @@ Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto comp
 
 \section{Android SDK}
 
-O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e obfuscadores.
-Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). Neste projeto utilizaremos a IDE oficial da google, o Android Studio.
+O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
+Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). Neste projeto utilizaremos a IDE oficial da Google, o Android Studio.
 
 \newpage
 \section{Ambiente de desenvolvimento}
@@ -572,19 +572,46 @@ Nesta sessão serão apresentadas as instalações e configurações iniciais da
 \subsubsection{Gradle}
 \subsubsubsection{BuildTypes}
 \subsubsubsection{Dependencies}
-No build.gradle, o campo dependencias nos permite baixar bibliotecas externas, adicionar arquivos jar ou modulos em nosso projeto Android. Neste projetos utilizaremos as dependencias abaixo.
+No build.gradle, o campo dependencias nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projetos utilizaremos as dependencias abaixo.
+\\
 
+\begin{lstlisting}[
+    basicstyle=\small,
+]
+dependencies {
+  implementation 'com.google.android.gms:play-services-maps:15.0.1'
+  implementation 'com.google.android.gms:play-services-location:15.0.1'
+  implementation 'com.google.android.gms:play-services-places:15.0.1'
+  implementation 'com.android.volley:volley:1.1.0'
+  implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+  implementation 'com.google.firebase:firebase-database:16.0.1'
+  implementation 'com.github.bumptech.glide:glide:4.7.1'
+  implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+  implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+  implementation 'com.google.code.gson:gson:2.8.5'
+  implementation files('libs/YouTubeAndroidPlayerApi.jar')
+  implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+}
+\end{lstlisting}
+
+\newpage
  \begin{description}
+   \item[Play-services] Serviços da Google
+   \item[Volley] consumo de APIs REST.
    \item[MPAndroidChart] Criação de gráficos
+   \item[Firebase] Persistência de dados
    \item[Glide] Carregamento de imagens
    \item[SmartTabLayout] Tablayout centralizado 
    \item[Gson] Converter JSON em POJO
-   \item[YouTubeAndroidPlayerApi] Carregamento de videos
-   \item[Fabric] Monitorar erros e estatisticas 
-   \item[Firebase] Persistencia de dados
-   \item[Volley] consumo de APIs REST
-   \item[Play-services] Serviços da google
+   \item[YouTubeAndroidPlayerApi] Carregamento de vídeos
+   \item[Fabric] Monitorar erros e estatísticas 
+
+
+
  \end{description}
+ 
+
+
 \section{Ambiente de desenvolvimento}
 \section{Modelagem dos dados}
 \section{Desenvolvimento do aplicativo}
