@@ -58,6 +58,9 @@
 \usepackage{graphicx}			% Inclusão de gráficos
 \usepackage{microtype} 			% para melhorias de justificação
 % ---
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{xcolor}
 \usepackage[compact]{titlesec}
 \titlespacing{\section}{0pt}{*0}{*0}
 \titlespacing{\subsection}{0pt}{*0}{*0}
@@ -516,7 +519,7 @@ Nesta sessão serão apresentadas as principais características referentes ao s
 \section{Android O.S}
 O Google em parceria com outras empresas lançou o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus hardwares e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo como é, assim nasceu o Android. Uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin.
 
-Os aplicativos gerados são executados sobre o Dalvik, uma máquina virtual customizada para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
+Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
 
 \newpage
 \subsection{Arquitetura}
@@ -549,26 +552,39 @@ O framework Android oferece uma camada de abstração chamada de HAL (Hardware a
 
 
 
-\subsection{Java API Framework}
+\subsubsection{Java API Framework}
 Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto completo de APIs na linguagem java que permitem a interoperabilidade entre aplicativos e subsistemas Android, logo, essas APIs são a base para desenvolvimento de aplicativos Android, facilitando o acesso aos serviços do sistema como gerenciadores de janela, telefone e provedores de conteúdo.
 
+\section{Android SDK}
 
-
-
-\subsection{Aplicação Android}
-O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-
-\subsection{Android SDK}
-O Lorem Ipsum é um texto modelo da indústria tipográfica e de impressão. O Lorem Ipsum tem vindo a ser o texto padrão usado por estas indústrias desde o ano de 1500, quando uma misturou os caracteres de um texto para criar um espécime de livro. Este texto não só sobreviveu 5 séculos, mas também o salto para a tipografia electrónica, mantendo-se essencialmente inalterada. Foi popularizada nos anos 60 com a disponibilização das folhas de Letraset, que continham passagens com Lorem Ipsum, e mais recentemente com os programas de publicação como o Aldus PageMaker que incluem versões do Lorem Ipsum.
-
-
-
-
+O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e obfuscadores.
+Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). Neste projeto utilizaremos a IDE oficial da google, o Android Studio.
 
 \newpage
 \section{Ambiente de desenvolvimento}
+Nesta sessão serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android
 \subsection{Instalação}
+\subsubsection{Android Studio}
+\subsubsection{SDK}
+\subsubsection{JDK}
+
 \subsection{Configuração}
+\subsubsection{Gradle}
+\subsubsubsection{BuildTypes}
+\subsubsubsection{Dependencies}
+No build.gradle, o campo dependencias nos permite baixar bibliotecas externas, adicionar arquivos jar ou modulos em nosso projeto Android. Neste projetos utilizaremos as dependencias abaixo.
+
+ \begin{description}
+   \item[MPAndroidChart] Criação de gráficos
+   \item[Glide] Carregamento de imagens
+   \item[SmartTabLayout] Tablayout centralizado 
+   \item[Gson] Converter JSON em POJO
+   \item[YouTubeAndroidPlayerApi] Carregamento de videos
+   \item[Fabric] Monitorar erros e estatisticas 
+   \item[Firebase] Persistencia de dados
+   \item[Volley] consumo de APIs REST
+   \item[Play-services] Serviços da google
+ \end{description}
 \section{Ambiente de desenvolvimento}
 \section{Modelagem dos dados}
 \section{Desenvolvimento do aplicativo}
