@@ -589,7 +589,6 @@ A arquitetura do sistema operacional Android é divida em camadas, onde cada cam
      \label{fig:arquitetura}
 \end{figure}
 
-
 \subsubsection{Kernel}
 Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
 O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
@@ -610,12 +609,14 @@ O framework Android oferece uma camada de abstração chamada de HAL (Hardware a
 
 \subsubsection{Java API Framework}
 Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto completo de APIs na linguagem java que permitem a interoperabilidade entre aplicativos e subsistemas Android, logo, essas APIs são a base para desenvolvimento de aplicativos Android, facilitando o acesso aos serviços do sistema como gerenciadores de janela, telefone e provedores de conteúdo.
-
-\section{Android SDK}
-
+\section{SDK}
+\subsection{Android SDK}
 O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
-Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). Neste projeto utilizaremos a IDE oficial da Google, o Android Studio.
-
+Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
+\subsection{Java SDK}
+O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
+\section{Web Services}
+\subsection{API REST}
 \end{chapter}
 \begin{chapter}{Projeto}
 Nesta sessão serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android
@@ -636,43 +637,93 @@ No projeto Android, o arquivo de configuração do Gradle pode ser encontrado no
  No build.gradle, o campo \textit{dependencies} nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projetos utilizaremos as dependências abaixo.
 \\
  
-   \paragraph{Play-Services}
-   Serviços da Google
-   \paragraph{Volley}
-   consumo de APIs REST.
-   \paragraph{MPAndroidChart}
-   Criação de gráficos
-   \paragraph{Firebase}
-   Persistência de dados
-   \paragraph{Glide}
-   Carregamento de imagens
-   \paragraph{SmartTabLayout}
-   Tablayout centralizado 
-   \paragraph{Gson}
-   Converter JSON em POJO
-   \paragraph{YouTubeAndroidPlayerApi}
-   Carregamento de vídeos
-   \paragraph{Fabric}
-   Monitorar erros e estatísticas 
+   \paragraph{Google Play Services}
+   As bibliotecas criadas pela Google disponiveis em \url{https://developers.google.com/android/guides/setup}, oferecem aos desenvolvedores os últimos recursos e funcionalidades mantidas pela Google, como por exemplo, GPS e mapas.
+       \begin{lstlisting}[
+    basicstyle=\small,
+] 
+implementation 'com.google.android.gms:play-services-maps:15.0.1'
+implementation 'com.google.android.gms:play-services-location:15.0.1'
+implementation 'com.google.android.gms:play-services-places:15.0.1'
+  
+\end{lstlisting}
 
-\begin{lstlisting}[
+   \paragraph{Volley}
+   Também desenvolvida pela Google, disponível em \url{https://github.com/google/volley}, Volley é uma biblioteca que permite realizar requisições HTTP de forma simplificada, sem a necessidade de criação de chamadas assíncronas.
+       \begin{lstlisting}[
     basicstyle=\small,
 ]
-dependencies {
-  implementation 'com.google.android.gms:play-services-maps:15.0.1'
-  implementation 'com.google.android.gms:play-services-location:15.0.1'
-  implementation 'com.google.android.gms:play-services-places:15.0.1'
-  implementation 'com.android.volley:volley:1.1.0'
-  implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
-  implementation 'com.google.firebase:firebase-database:16.0.1'
-  implementation 'com.github.bumptech.glide:glide:4.7.1'
-  implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
-  implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
-  implementation 'com.google.code.gson:gson:2.8.5'
-  implementation files('libs/YouTubeAndroidPlayerApi.jar')
-  implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
-}
+implementation 'com.android.volley:volley:1.1.0'  
 \end{lstlisting}
+
+   \paragraph{MPAndroidChart}
+   A  MPAndoridChart disponível em \url{https://github.com/PhilJay/MPAndroidChart} é uma poderosa biblioteca que simplifica a criação de diversos tipos de gráficos. 
+        \begin{lstlisting}[
+    basicstyle=\small,
+] 
+implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
+  
+\end{lstlisting}
+   \paragraph{Firebase}
+O Firebase, disponível em \url{https://firebase.google.com} é um conjunto de soluções criadas pela Google para agilizar e melhorar o desenvolvimento de aplicações. Neste projeto usaremos somente o \textit{Firebase Realtime Database} , que é um banco de dados hospedado na nuvem. Os dados são armazenados como JSON e sincronizados em tempo real com todos os clientes conectados
+        \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.google.firebase:firebase-database:16.0.1'
+  
+\end{lstlisting}
+   \paragraph{Glide}
+   disponível em \url{https://github.com/bumptech/glide}, Glide é uma biblioteca de gerenciamento e carregamento de imagens 
+que simplifica tarefas como decodificação, cache em memoria e em disco. 
+        \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.github.bumptech.glide:glide:4.7.1'
+  
+\end{lstlisting}
+   \paragraph{SmartTabLayout}
+   A biblioteca SmartTabLayout disponível em \url{https://github.com/ogaclejapan/SmartTabLayout}, fornece uma implementação mais customizável 
+para criação de menus em componentes do sistema operacional Android.
+         \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
+   
+\end{lstlisting}
+        \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
+   
+\end{lstlisting}
+\newpage
+   \paragraph{Gson}
+   Desenvolvida pela Google, disponível em \url{https://github.com/google/gson}, Gson é uma biblioteca que pode ser usada para converter objetos Java (POJO) em representações JSON ou vice-versa.
+         \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.google.code.gson:gson:2.8.5'
+    
+\end{lstlisting}
+   \paragraph{YouTubeAndroidPlayerApi}
+   Desenvolvida pela Google, disponível em \url{https://developers.google.com/youtube/android/player}, YouTubeAndroidPlayerApi permite incorporar a funcionalidade de reprodução de video em aplicativos Android. A API  define métodos para carregar, reproduzir 
+e controlar a experiência de reprodução de vídeo.
+      \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation files('libs/YouTubeAndroidPlayerApi.jar')
+   
+\end{lstlisting}
+   \paragraph{Fabric}
+   A biblioteca Fabric, também conhecida como Crashlytics, disponível em \url{https://fabric.io/kits/android/crashlytics/install}, ajuda a rastrear, priorizar e corrigir problemas de instabilidade que podem prejudicar a qualidade do aplicativo e a experiencia do usuário.
+   \begin{lstlisting}[
+    basicstyle=\small,
+]
+implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
+   
+\end{lstlisting}
+
+
 
 \newpage
 
