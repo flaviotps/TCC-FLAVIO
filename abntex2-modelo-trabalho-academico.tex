@@ -572,12 +572,23 @@ Para utilizar o aplicativo é preciso efetuar a transferência na Google Play\ci
 
 Nesta sessão serão apresentadas as principais características referentes ao sistema operacional Android e ao desenvolvimento de aplicativos mobile.
 
+\section{Desenvolvimento Mobile}
+Existem diversas plataformas de sistemas operacionais mobile em uso nos \texttt{smartphones} atuais, grande parte desse mercado é dominado pelas plataformas Android e iOS. Neste projeto utilizaremos a plataforma Android devido a sua alta taxa de adesão.
+
+\begin{figure}[h]
+\centering
+   \caption{Divisão das plataformas mobile}
+   \includegraphics[scale=0.4]{media/grafico_plataformas.png}
+   \legend{Fonte: gs.statcounter.com}
+     \label{fig:plataformas_mobile}
+\end{figure}
+
+
 \section{Android O.S}
 O Google em parceria com outras empresas lançou o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus hardwares e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo como é, assim nasceu o Android. Uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin.
 
 Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
 
-\newpage
 \subsection{Arquitetura}
 A arquitetura do sistema operacional Android é divida em camadas, onde cada camada é responsável por gerenciar os seus processos. O diagrama na \autoref{fig:arquitetura} mostra essa divisão.
 
@@ -595,7 +606,7 @@ O sistema operacional Android utiliza o kernel do Linux, que é responsável por
 
 
 \subsubsection{Android Runtime}
-O Android Runtime (ART) é um processo responsável pela compilação de códigos de alto nivel (DEX bytecode) em codigos de maquina.
+O Android Runtime (ART) é um processo responsável pela compilação de códigos de alto nível (DEX bytecode) em códigos de maquina.
 O processo usa uma técnica de compilação chamada AOT (Ahead of Time), sua principal diferença em relação ao Dalvik é que ela ocorre antes 
 da execução do aplicativo e não durante a execução. Com isso, há um aumento na velocidade de execução ao custo de um processo que ocupa mais memoria.
 
@@ -610,12 +621,15 @@ O framework Android oferece uma camada de abstração chamada de HAL (Hardware a
 \subsubsection{Java API Framework}
 Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto completo de APIs na linguagem java que permitem a interoperabilidade entre aplicativos e subsistemas Android, logo, essas APIs são a base para desenvolvimento de aplicativos Android, facilitando o acesso aos serviços do sistema como gerenciadores de janela, telefone e provedores de conteúdo.
 \section{SDK}
+Nessa sessão falaremos dos principais \textit{Software Development Kit} envolvidos no desenvolvimento de aplicativos Android nativo.
 \subsection{Android SDK}
 O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
 Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
 \subsection{Java SDK}
 O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
 \section{Web Services}
+Os \textit{Web Services} permitem a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam os \textit{Web Services} atrativos é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol).
+\subsection{JSON}
 \subsection{API REST}
 \end{chapter}
 \begin{chapter}{Projeto}
@@ -626,9 +640,10 @@ Nesta sessão será abordado os  recursos necessários para iniciar o desenvolvi
   \item{Android Studio} \\
   Neste projeto usaremos o Android Studio, IDE recomendada pela Google para o desenvolvimento de aplicativos nativos. O Android Studio está disponível em \url{https://developer.android.com/studio/install}.
   \item{SDK e JDK} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
-  O JDK está disponível em \url{https://www.oracle.com/technetwork/java/javase/downloads/index.html} e o SDK em \url{https://developer.android.com/studio}.
+  O JDK esta disponível em \url{https://www.oracle.com/technetwork/java/javase/downloads/index.html} e o SDK em \url{https://developer.android.com/studio}.
   \item{GIT} \\
-  Para realizar o controle de versão do aplicativo usaremos o GIT, que está disponível em \url{https://www.git-scm.com/}.
+  Para realizar o controle de versão do aplicativo usaremos o GIT, um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo. 
+  GIT está disponível em \url{https://www.git-scm.com/}.
   
 \end{enumerate}
 
@@ -708,7 +723,6 @@ implementation 'com.ogaclejapan.smarttablayout:library:1.6.1@aar'
 implementation 'com.ogaclejapan.smarttablayout:utils-v4:1.6.1@aar'
    
 \end{lstlisting}
-\newpage
    \paragraph{Gson}
    Desenvolvida pela Google, disponível em \url{https://github.com/google/gson}, Gson é uma biblioteca que pode ser usada para converter objetos Java (POJO) em representações JSON ou vice-versa.
          \begin{lstlisting}[
