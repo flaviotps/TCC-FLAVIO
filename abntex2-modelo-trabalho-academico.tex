@@ -443,7 +443,7 @@ O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile 
 \chapter{Trabalhos relacionados}
 % ----------------------------------------------------------
 
-Nesta sessão serão apresentados três trabalhados, dois aplicativos móveis e uma pagina da internet que possuem funcionalidades similares ao projeto atual descrito nesse documento. Funcionalidades não relevantes não serão apresentadas.
+Neste capítulo serão apresentados três trabalhados, dois aplicativos móveis e uma pagina da internet que possuem funcionalidades similares ao projeto atual descrito nesse documento. Funcionalidades não relevantes não serão apresentadas.
 
 \section{Cataki}
 O aplicativo atua conectando os catadores com qualquer um que tenha resíduos ou material reciclável a ser recolhido. A ideia é reconhecer o pequeno empreendedorismo ambiental desempenhado por estes profissionais e colaborar com o descarte adequado dos resíduos.
@@ -569,7 +569,7 @@ Para utilizar o aplicativo é preciso efetuar a transferência na Google Play\ci
 % ----------------------------------------------------------
 \begin{chapter}{Referencial Teórico}
 % ----------------------------------------------------------
-Nesta sessão serão apresentadas as principais características referentes ao sistema operacional Android e ao desenvolvimento de aplicativos mobile.
+Neste capítulo serão apresentadas as principais características referentes ao sistema operacional Android e ao desenvolvimento de aplicativos mobile.
 
 \section{Desenvolvimento Mobile}
 Existem diversas plataformas de sistemas operacionais mobile em uso nos \textit{smartphones} atuais, grande parte desse mercado é dominado pelas plataformas Android e iOS. Neste projeto utilizaremos a plataforma Android devido a sua alta taxa de adesão.
@@ -626,14 +626,22 @@ O kit de desenvolvimento de software Android (Android SDK) é um pacote com dive
 Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
 \subsection{Java SDK}
 O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
-\section{Web Services}
-Os \textit{Web Services} permitem a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam os \textit{Web Services} atrativos é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol).
-\subsection{JSON}
+\section{API}
+A \textit{Application Programming Interface} (API) permite a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam o uso de uma \textit{API} atrativo é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol). Os dados transferidos entres essas aplicações seguem um formato padrão, os mais utilizados são \textit{JavaScript Object Notation} (JSON) e \textit{Extensible Markup Languag} (XML). Neste projeto utilizaremos JSON.
+
+\section{JSON}
 \textit{JavaScript Object Notation} (JSON) é um formato leve de troca de dados entre sistemas independente de linguagem de programação. O formato foi derivado do JavaScript, sendo fácil para humanos ler e escrever.
-\subsection{RESTful}
+
+\section{Firebase}
+\subsection{Firebase Realtime Database}
+O \textit{Firebase Realtime Database} é um banco de dados NoSQL hospedado na nuvem, com ele, você armazena os dados em um formato JSON e sincroniza dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver off-line.
+
+\subsection{Firebase Authentication}
+O objetivo do \textit{Firebase Authentication} é facilitar o desenvolvimento de um sistema de autenticação seguro e melhorar a experiência de login e ambientação para os usuários finais. Ele oferece uma solução de identidade completa, compatível com contas de e-mail/senha, autenticação por telefone, login do Google, Twitter, Facebook, GitHub e outros.
+
 \end{chapter}
 \begin{chapter}{Projeto}
-Nesta sessão serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android
+Neste capítulo serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android
 \section{Instalação}
 Nesta sessão será abordado os  recursos necessários para iniciar o desenvolvimento desse projeto.
 \begin{enumerate}
@@ -749,16 +757,26 @@ implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
    
 \end{lstlisting}
 
-
-
 \newpage
 
- 
+\section{Desenvolvimento}
+Nesta sessão, serão abordadas as etapas do desenvolvimento da solução proposta nesse documento, desde a criação do subsistema que irá gerenciar todo conteúdo até o aplicativo Android. 
+
+\subsection{Arquitetura}
+Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são populados com informações relevantes ao aplicativo através de uma pagina \textit{web} administrativa. O processo de desenvolvimento dessa pagina será abstraído neste documento.
 
 
-\section{Ambiente de desenvolvimento}
-\section{Modelagem dos dados}
-\section{Desenvolvimento do aplicativo}
+\begin{figure}[h]
+\centering
+   \caption{Arquitetura}
+   \includegraphics[scale=0.85]{media/arquitetura_app.png}
+   \legend{Fonte: Autor}
+     \label{fig:arquitetura_app}
+\end{figure}
+
+
+\subsection{Banco de dados}
+Para a prestância da dados foi escolhido o banco de dados mais popular entre os desenvolvedores mobile, o \textit{Firebase Realtime Database}. O \textit{Firebase}, através da sua SDK, oferece um desenvolvimento simplificado, facilitando processos comuns em aplicações \textit{mobile}, como autenticação, leitura e escrita de dados.
 
 \end{chapter}
 
