@@ -81,7 +81,6 @@
 \usepackage{cite}
 \usepackage{hyperref}
 \usepackage{cleveref}
-\setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{5}
 
 % --- 
@@ -762,16 +761,36 @@ implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
 \section{Desenvolvimento}
 Nesta sessão, serão abordadas as etapas do desenvolvimento da solução proposta nesse documento, desde a criação do subsistema que irá gerenciar todo conteúdo até o aplicativo Android. 
 
-\subsection{Arquitetura}
-Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são populados com informações relevantes ao aplicativo através de uma pagina \textit{web} administrativa. O processo de desenvolvimento dessa pagina será abstraído neste documento.
+\subsection{Arquitetura Geral}
+Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são populados com informações relevantes ao aplicativo através de uma pagina \textit{web} administrativa. O processo de desenvolvimento dessa pagina será abstraído neste documento.\\
 
 
 \begin{figure}[h]
 \centering
-   \caption{Arquitetura}
+   \caption{Arquitetura geral}
    \includegraphics[scale=0.85]{media/arquitetura_app.png}
    \legend{Fonte: Autor}
-     \label{fig:arquitetura_app}
+     \label{fig:arquitetura_geral}
+\end{figure}
+
+\subsection{Arquitetura do Aplicativo}
+\textit{Model-View-Controller} (MVC),  \textit{Model-View-Presenter} (MVP) e \textit{Model-View-ViewModel} (MVVM) são três padrões de arquitetura populares no desenvolvimento de aplicativos Android. Todos esses padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter. o Padrão MVC é usado em projetos de pequeno porte, pois o possui um acoplamento maior do que os outros padrões como MVP e MVVM, que são padrões para projetos de médio e grande porte respectivamente. Neste projeto usaremos MVC.\\
+
+
+
+\newpage
+\begin{itemize}
+  \item{Model}\\ Identificador único do produto.
+     \item{View}\\ Titulo ou nome do produto.
+       \item{Controller}\\ A camada \textit{controller} é responsável por implementar as regras de negocio e fornecer os dados do modelo para a camada \textit{view}. Quaisquer alterações ao controlador são transparentes para a \textit{view} e as mudanças de interface do usuário não afetarão a lógica de negócios e vice-versa.
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+   \caption{Arquitetura do aplicativo}
+   \includegraphics[scale=0.40]{media/MVC.png}
+   \legend{Fonte: www.simform.com}
+     \label{fig:arquitetura_mvc}
 \end{figure}
 
 
@@ -779,45 +798,75 @@ Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida 
 Para a prestância da dados foi escolhido o banco de dados mais popular entre os desenvolvedores mobile, o \textit{Firebase Realtime Database}. O \textit{Firebase}, através da sua SDK, oferece um desenvolvimento simplificado, facilitando processos comuns em aplicações \textit{mobile}, como autenticação, leitura e escrita de dados.
  Os diagramas a seguir representam as entidades que serão utilizadas neste projeto.
 
-\newpage
-\subsection{Entidades}.
 
- 
+\subsubsection{Entidades}
 \begin{enumerate}
-
- \item{Material} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+ \item{Material} \\ A classe \textit{MaterialModel} representa a estrutura de um material reciclável, como por exemplo, ferro, plástico e papel. Esta classe possui os seguintes atributos:
+ 
+ \begin{itemize}
+  \item{Cod}\\ Identificador único do material.
+   \item{PopularName}\\ Nome popular do material.
+     \item{Name}\\ Nome cientifico do material.
+       \item{Content}\\ informações detalhadas do material.
+         \item{Type}\\ Tipo de material
+           \item{Image}\\ Imagem ilustrativa do material.
+\end{itemize}
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Material}
-   \includegraphics[scale=0.85]{media/materialModel.png}
+   \includegraphics[scale=1.0]{media/materialModel.png}
    \legend{Fonte: Autor}
      \label{fig:materialmodel}
 \end{figure}
 
-  \item{Video} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+\newpage
+  \item{Video}  \\ A classe \textit{VideoModel} representa a estrutura de um video que será disponibilizado através de uma \textit{url} do \textit{YouTube}. Esta classe possui os seguintes atributos:
+   \begin{itemize}
+  \item{Cod}\\ Identificador único do video.
+   \item{Url}\\ Endereço do video no YouTube.
+     \item{Title}\\ Titulo do video que será apresentado no aplicativo.
+       \item{Description}\\ Descrição do video que será apresentado no aplicativo.
+         \item{Page}\\  O identificador único da pagina em que será apresentado o video.
+\end{itemize}
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Video}
-   \includegraphics[scale=0.85]{media/VideoModel.png}
+   \includegraphics[scale=1.0]{media/VideoModel.png}
    \legend{Fonte: Autor}
      \label{fig:videomodel}
 \end{figure}
 
  \newpage
-  \item{Product} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+  \item{Product} \\ A classe \textit{ProductModel} representa a estrutura de um produto, como por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
+  
+     \begin{itemize}
+  \item{Cod}\\ Identificador único do produto.
+     \item{Title}\\ Titulo ou nome do produto.
+       \item{Desc}\\ Descrição do produto.
+         \item{Synonymous}\\ Nomes alternativos do produto.
+                  \item{Discard}\\ Identificador único de um tipo de descarte.
+\end{itemize}
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Product}
-   \includegraphics[scale=0.85]{media/ProductModel.png}
+   \includegraphics[scale=1.0]{media/ProductModel.png}
    \legend{Fonte: Autor}
      \label{fig:productModel}
 \end{figure}
 
-
-  \item{Location} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+\newpage
+  \item{Location}  \\ A classe \textit{LocationModel} representa a estrutura de uma localização no mapa, como por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
+  
+       \begin{itemize}
+  \item{UniqueID}\\ Identificador único de uma localização.
+     \item{FormattedAddress}\\ O endereço formatado de um local.
+       \item{Name}\\ Nome do local.
+         \item{Location}\\ Posição baseada no sistema de posicionamento global (GPS), com latitude e longitude.
+\end{itemize}
+  
   
 \begin{figure}[h]
 \centering
@@ -828,34 +877,46 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \end{figure}
 
 \newpage
-  \item{Chart} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+  \item{Chart}   \\ A classe \textit{ChartModel} representa a estrutura de um gráfico do tipo \textit{PieChart} ou \textit{BarChart}. Esta classe possui os seguintes atributos:
+  
+  \begin{itemize}
+  \item{UniqueID}\\ Identificador único de um gráfico.
+     \item{Data}\\ Um conjunto pré formatado de dados a serem inseridos no gráfico.
+       \item{Label}\\ Etiquetas que descreve os dados apresentados no gráfico.
+         \item{Type}\\ O tipo de gráfico.
+         \item{Title}\\ O titulo do gráfico.
+         \item{Page}\\  O identificador único da pagina em que será apresentado o gráfico.
+\end{itemize}
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Chart}
-   \includegraphics[scale=0.85]{media/chartModel.png}
+   \includegraphics[scale=1.0]{media/chartModel.png}
    \legend{Fonte: Autor}
      \label{fig:chartModel}
 \end{figure}
 
 
+
+\newpage
   \item{Discard} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Discard}
-   \includegraphics[scale=0.85]{media/discardModel.png}
+   \includegraphics[scale=1.0]{media/discardModel.png}
    \legend{Fonte: Autor}
      \label{fig:discardModel}
 \end{figure}
 
 \newpage
+
   \item{Page} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
   
 \begin{figure}[h]
 \centering
    \caption{Entidade - Page}
-   \includegraphics[scale=0.85]{media/PageModel.png}
+   \includegraphics[scale=1.0]{media/PageModel.png}
    \legend{Fonte: Autor}
      \label{fig:pageModel}
 \end{figure}
