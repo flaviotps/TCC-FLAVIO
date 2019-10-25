@@ -776,12 +776,12 @@ Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida 
 \subsection{Arquitetura do Aplicativo}
 \textit{Model-View-Controller} (MVC),  \textit{Model-View-Presenter} (MVP) e \textit{Model-View-ViewModel} (MVVM) são três padrões de arquitetura populares no desenvolvimento de aplicativos Android. Todos esses padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter. o Padrão MVC é usado em projetos de pequeno porte, pois o possui um acoplamento maior do que os outros padrões como MVP e MVVM, que são padrões para projetos de médio e grande porte respectivamente. Neste projeto usaremos MVC.\\
 
+\subsubsection{MVC}
+A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{model}, \textit{view} e \textit{controller}. Por questões da arquitetura do sistema operacional Android e sua SDK, não é possível implementar um padrão arquitetural MVC da forma convencional, pois \textit{fragments} e \textit{activities} assumem papeis da camada \textit{controller} e \textit{view} simultaneamente.
 
-
-\newpage
 \begin{itemize}
-  \item{Model}\\ Identificador único do produto.
-     \item{View}\\ Titulo ou nome do produto.
+  \item{Model}\\ Essa camada fica responsável pelo acesso aos repositórios para salvar e entregar dados a camada controladora.
+     \item{View}\\ Essa camada fica responsável pela apresentação da interface gráfica.
        \item{Controller}\\ A camada \textit{controller} é responsável por implementar as regras de negocio e fornecer os dados do modelo para a camada \textit{view}. Quaisquer alterações ao controlador são transparentes para a \textit{view} e as mudanças de interface do usuário não afetarão a lógica de negócios e vice-versa.
 \end{itemize}
 
