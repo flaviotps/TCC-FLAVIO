@@ -820,7 +820,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:materialmodel}
 \end{figure}
 
-\newpage
+
   \item{Video}  \\ A classe \textit{VideoModel} representa a estrutura de um video que será disponibilizado através de uma \textit{url} do \textit{YouTube}. Esta classe possui os seguintes atributos:
    \begin{itemize}
   \item{Cod}\\ Identificador único do video.
@@ -838,7 +838,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:videomodel}
 \end{figure}
 
- \newpage
+
   \item{Product} \\ A classe \textit{ProductModel} representa a estrutura de um produto, como por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
   
      \begin{itemize}
@@ -857,7 +857,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:productModel}
 \end{figure}
 
-\newpage
+
   \item{Location}  \\ A classe \textit{LocationModel} representa a estrutura de uma localização no mapa, como por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
   
        \begin{itemize}
@@ -876,7 +876,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:locationModel}
 \end{figure}
 
-\newpage
+
   \item{Chart}   \\ A classe \textit{ChartModel} representa a estrutura de um gráfico do tipo \textit{PieChart} ou \textit{BarChart}. Esta classe possui os seguintes atributos:
   
   \begin{itemize}
@@ -897,9 +897,15 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \end{figure}
 
 
-
-\newpage
-  \item{Discard} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
+  \item{Discard}   \\ A classe \textit{DiscardModel} representa a estrutura de um método de descarte de materiais, por exemplo, lixão, aterro e centro de reuso. Esta classe possui os seguintes atributos:
+  
+  \begin{itemize}
+  \item{Cod}\\ Identificador único de um gráfico.
+       \item{Title}\\Titulo do tipo descarte.
+         \item{Desc}\\ Descrição do tipo de descarte.
+  
+    
+\end{itemize}
   
 \begin{figure}[h]
 \centering
@@ -909,10 +915,13 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:discardModel}
 \end{figure}
 
-\newpage
-
-  \item{Page} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma maquina virtual Java customizada, a ART.
-  
+  \item{Page}   \\ A classe \textit{PageModel} representa a estrutura de uma página que pertence a uma categoria. Esta classe possui os seguintes atributos:
+  \begin{itemize}
+  \item{Cod}\\ Identificador único de um gráfico.
+       \item{Number}\\Número da pagina.
+         \item{Type}\\ Categoria da página
+         . \item{Type}\\ Título da página
+\end{itemize}
 \begin{figure}[h]
 \centering
    \caption{Entidade - Page}
