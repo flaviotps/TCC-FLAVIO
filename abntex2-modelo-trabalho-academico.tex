@@ -598,6 +598,8 @@ A arquitetura do sistema operacional Android é divida em camadas, onde cada cam
      \label{fig:arquitetura}
 \end{figure}
 
+\newpage
+
 \subsubsection{Kernel}
 Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
 O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
@@ -625,6 +627,52 @@ O kit de desenvolvimento de software Android (Android SDK) é um pacote com dive
 Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
 \subsection{Java SDK}
 O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
+\subsection{Componentes Android}
+\subsubsection{Activity} 
+É um componente que fornece uma tela a qual o usuário pode interagir, um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usa-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
+
+\subsubsection{Fragment}
+Esse componente permite a criação de interfaces ou módulos de interface reutilizáveis, esse componente só existe dentro de uma \textit{activity}, logo, apesar de possuir seu próprio ciclo de vida, alterações no ciclo da vida da \textit{activity} afetam o ciclo de vida do \textit{fragment}.  
+
+\subsection{Gerenciamento de memória}
+Em aplicativos moveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações, por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memoria a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} no componente \textit{activity} para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema, esses estados são controlados pelo ciclo de vida.
+
+\begin{figure}[h]
+\centering
+   \caption{Empilhamento de activities}
+   \includegraphics[scale=0.70]{media/diagram_backstack.png}
+   \legend{Fonte: developer.android.com}
+     \label{fig:arquitetura}
+\end{figure}
+
+\subsection{Ciclo de vida}
+À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \textit{Activity} no aplicativo transitam entre diferentes estados no ciclo de vida. A classe Activity fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
+
+
+\subsubsection{Fluxo do ciclo de vida}
+O Diagrama a seguir mostra quando os \textit{callback} são executados durante a mudança do ciclo de vida da \textit{activity}.
+\begin{figure}[h]
+\centering
+   \caption{Ciclo de vida - Activity}
+   \includegraphics[scale=0.70]{media/activity_lifecycle.png}
+   \legend{Fonte: developer.android.com}
+     \label{fig:arquitetura}
+\end{figure}
+
+\newpage
+\subsubsection{OnCreate} 
+     É chamado assim que uma \textit{activity} é iniciada, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de inflação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity} para liberar recursos para \textit{activities} com maior prioridade.
+     \subsubsection{OnStart}
+     Chamado após o \textit{OnCreate} ou após o \textit{OnRestart}, o \textit{Onstart} é executado quando a interface gráfica está visível, porem o usuário ainda não pode interagir. Esse \textit{callback} é normalmente utilizado inicializações adicionais, desenhar componentes e executar animações.
+     \subsubsection{OnResume}
+      Chamado quando a atividade vai iniciar a interação com o usuário. Nesse ponto, sua atividade está no topo da pilha de atividades.
+      \subsubsection{OnRestart}
+     \subsubsection{OnPause}
+     Chamado quando o sistema está por resumir a \textit{activity} anterior. É tipicamente usado para persistir mudanças ainda não efetivadas, parar animações e liberar recursos. A partir desse ponto o sistema operacional pode forçar a liberação de recursos consumidos pela \textit{activity} pausada.
+     \subsubsection{OnStop}
+     \subsubsection{OnDestroy}
+
+\newpage
 \section{API}
 A \textit{Application Programming Interface} (API) permite a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam o uso de uma \textit{API} atrativo é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol). Os dados transferidos entres essas aplicações seguem um formato padrão, os mais utilizados são \textit{JavaScript Object Notation} (JSON) e \textit{Extensible Markup Languag} (XML). Neste projeto utilizaremos JSON.
 
@@ -930,12 +978,46 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \label{fig:pageModel}
 \end{figure}
 
-
-  
+\item{DataWrapper}   \\ A classe \textit{DataWrapper} engloba todos os dados que serão utilizados na aplicação, essa classe foi criada para facilitar a requisição de dados em uma única requisição ao servidor. Vale ressaltar que dados como imagens e vídeos são enviados para o aplicativo de acordo com a necessidade, logo, não há sobrecarga ao realizar uma única requisição.
+\newline
+  \begin{itemize}
+  \item{GraphList}\\ Todos os gráficos .
+       \item{PageList}\\  Todas as páginas 
+         \item{VideoList}\\ Todos os vídeos
+         . \item{LocationList}\\ Todas as localizações pesquisadas pelo usuario.
+         \item{ProductList}\\  Todos os produtos
+         \item{DiscardList}\\ Todos os métodos de descarte 
+         \item{MaterialList}\\  Todos os materiais
+         
+\end{itemize}
+\begin{figure}[h]
+\centering
+   \caption{Entidade - DataWrapper}
+   \includegraphics[scale=1.0]{media/DataWrapperModel.png}
+   \legend{Fonte: Autor}
+     \label{fig:datawrapper}
+\end{figure}
 \end{enumerate}
 
+\newpage
+\subsubsection{Diagrama de classe geral}
+As imagens a seguir representam as dependências entre as entidades.
 
+\begin{figure}[h]
+\centering
+   \caption{Diagrama Geral - Simplificado}
+   \includegraphics[scale=0.7]{media/DataWrapper_.png}
+   \legend{Fonte: Autor}
+     \label{fig:datawrapper_simp}
+\end{figure}
 
+\begin{figure}[h]
+\centering
+   \caption{Diagrama Geral - Completo}
+   \includegraphics[scale=0.85]{media/DataWrapper.png}
+   \legend{Fonte: Autor}
+     \label{fig:datawrapper_comp}
+\end{figure}
 
 \end{chapter}
 
