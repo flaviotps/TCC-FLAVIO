@@ -449,7 +449,7 @@ O aplicativo atua conectando os catadores com qualquer um que tenha resíduos ou
 
 Para utilizar o aplicativo basta efetuar a transferência na Google Play\cite{googleplay} ou na App Store\cite{appstore} e começar a utiliza-lo, o Cataki permite o uso dos seus recursos de forma anônima, facilitando o acesso rápido as suas funcionalidades. É possível também, ainda de forma anônima, cadastrar um novo catador dando visibilidade aos indivíduos que tem dificuldade em manipular recursos de um aplicativo móvel, ou não possuem acesso à internet.
 
-Na \autoref{fig:figura1} pode-se observar a funcionalidade principal do aplicativo, onde um mapa mostrando ícones nas localizações dos catadores, centros de coleta e cooperativas é exibido na tela possibilitando a interação do usuário com esses pontos. Caso um ícone seja selecionado, as informações referente a este fica disponível. A \autoref{fig:figura2} mostra a tela exibida após o ícone do catador ser selecionado, informações como o resíduo que esse catador trabalha e dados relevantes para o contato fica disponível. \\
+Na \autoref{fig:figura1} pode-se observar a funcionalidade principal do aplicativo, onde um mapa mostrando ícones nas localizações dos catadores, centros de coleta e cooperativas é exibido na tela possibilitando a interação do usuário com esses pontos. Caso um ícone seja selecionado, as informações referente a este fica disponível. A \autoref{fig:figura2} mostra a tela exibida após o ícone do catador ser selecionado, informações como o resíduo que esse catador trabalha e dados relevantes para o contato fica disponível. 
     
 
     \begin{figure}[htb]    
@@ -501,7 +501,7 @@ Para utilizar a Recicloteca é preciso acessar a pagina na internet \href{http:/
 \begin{figure}[h]
 \centering
    \caption{Recicloteca - Página Inicial}
-   \includegraphics[scale=0.45]{media/reciclotecahome.jpg}
+   \includegraphics[scale=0.40]{media/reciclotecahome.jpg}
    \legend{Fonte: Recicloteca.org.br}
      \label{fig:reciclotecahome}
 \end{figure}
@@ -513,7 +513,7 @@ Ao clicar em pesquisa escolar, o usuário é redirecionado para uma pagina que c
 \begin{figure}[h]
 \centering
    \caption{Recicloteca - Pesquisa Escolar}
-   \includegraphics[scale=0.45]{media/reciclotecaescola.jpg}
+   \includegraphics[scale=0.40]{media/reciclotecaescola.jpg}
    \legend{Fonte: Recicloteca.org.br}
      \label{fig:reciclotecaescola}
 \end{figure}
@@ -543,7 +543,7 @@ Para utilizar o aplicativo é preciso efetuar a transferência na Google Play\ci
     
 
     
-         \begin{figure}[htb]    
+\begin{figure}[htb]    
  \centering
   \begin{minipage}{0.45\textwidth}
     \centering
@@ -581,12 +581,21 @@ Existem diversas plataformas de sistemas operacionais mobile em uso nos \textit{
      \label{fig:plataformas_mobile}
 \end{figure}
 
+\newpage
+\section{SDK}
+Nessa sessão falaremos dos principais \textit{Software Development Kit} envolvidos no desenvolvimento de aplicativos Android nativo.
+\subsection{Android SDK}
+O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
+Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
+\subsection{Java SDK}
+O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
 
 \section{Android O.S}
 O Google em parceria com outras empresas lançou o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus hardwares e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo como é, assim nasceu o Android. Uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin.
 
 Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
 
+\newpage
 \subsection{Arquitetura}
 A arquitetura do sistema operacional Android é divida em camadas, onde cada camada é responsável por gerenciar os seus processos. O diagrama na \autoref{fig:arquitetura} mostra essa divisão.
 
@@ -604,7 +613,6 @@ A arquitetura do sistema operacional Android é divida em camadas, onde cada cam
 Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
 O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
 
-
 \subsubsection{Android Runtime}
 O Android Runtime (ART) é um processo responsável pela compilação de códigos de alto nível (DEX bytecode) em códigos de maquina.
 O processo usa uma técnica de compilação chamada AOT (Ahead of Time), sua principal diferença em relação ao Dalvik é que ela ocorre antes 
@@ -616,17 +624,9 @@ Vários componentes e diversos serviços do sistema operacional Android são imp
 O framework Android oferece uma camada de abstração chamada de HAL (Hardware abstraction layer) para expor as funcionalidades de algumas dessas bibliotecas,
  tal abstração permite a manipulação de vídeos, imagens, sons, animações, GPS, etc.
 
-
-
 \subsubsection{Java API Framework}
 Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto completo de APIs na linguagem java que permitem a interoperabilidade entre aplicativos e subsistemas Android, logo, essas APIs são a base para desenvolvimento de aplicativos Android, facilitando o acesso aos serviços do sistema como gerenciadores de janela, telefone e provedores de conteúdo.
-\section{SDK}
-Nessa sessão falaremos dos principais \textit{Software Development Kit} envolvidos no desenvolvimento de aplicativos Android nativo.
-\subsection{Android SDK}
-O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
-Embora o SDK possa ser usado por linha de comando, o método mais comum é usar um ambiente de desenvolvimento integrado (IDE). 
-\subsection{Java SDK}
-O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
+
 \subsection{Componentes Android}
 \subsubsection{Activity} 
 É um componente que fornece uma tela a qual o usuário pode interagir, um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usa-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
@@ -642,35 +642,38 @@ Em aplicativos moveis os recursos do sistema são fatores importantes para garan
    \caption{Empilhamento de activities}
    \includegraphics[scale=0.70]{media/diagram_backstack.png}
    \legend{Fonte: developer.android.com}
-     \label{fig:arquitetura}
+     \label{fig:backstack}
 \end{figure}
 
 \subsection{Ciclo de vida}
 À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \textit{Activity} no aplicativo transitam entre diferentes estados no ciclo de vida. A classe Activity fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
 
-
-\subsubsection{Fluxo do ciclo de vida}
 O Diagrama a seguir mostra quando os \textit{callback} são executados durante a mudança do ciclo de vida da \textit{activity}.
 \begin{figure}[h]
 \centering
    \caption{Ciclo de vida - Activity}
    \includegraphics[scale=0.70]{media/activity_lifecycle.png}
    \legend{Fonte: developer.android.com}
-     \label{fig:arquitetura}
+     \label{fig:lifecycle}
 \end{figure}
 
 \newpage
-\subsubsection{OnCreate} 
+\begin{itemize}
+\item{OnCreate} \\
      É chamado assim que uma \textit{activity} é iniciada, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de inflação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity} para liberar recursos para \textit{activities} com maior prioridade.
-     \subsubsection{OnStart}
+     \item{OnStart} \\
      Chamado após o \textit{OnCreate} ou após o \textit{OnRestart}, o \textit{Onstart} é executado quando a interface gráfica está visível, porem o usuário ainda não pode interagir. Esse \textit{callback} é normalmente utilizado inicializações adicionais, desenhar componentes e executar animações.
-     \subsubsection{OnResume}
+     \item{OnResume} \\
       Chamado quando a atividade vai iniciar a interação com o usuário. Nesse ponto, sua atividade está no topo da pilha de atividades.
-      \subsubsection{OnRestart}
-     \subsubsection{OnPause}
+      \item{OnRestart} \\
+      Chamada após o \textit{OnStop} quando uma \textit{activity} que está na pilha é recriada.
+     \item{OnPause} \\
      Chamado quando o sistema está por resumir a \textit{activity} anterior. É tipicamente usado para persistir mudanças ainda não efetivadas, parar animações e liberar recursos. A partir desse ponto o sistema operacional pode forçar a liberação de recursos consumidos pela \textit{activity} pausada.
-     \subsubsection{OnStop}
-     \subsubsection{OnDestroy}
+     \item{OnStop} \\
+    Chamado quando a \textit{activity} não está mais visível para o usuário. Isso pode acontecer porque ela está sendo destruída ou porque outra  \textit{activity} foi reiniciada e está em sua frente. Aqui é o lugar para liberar todos os recursos que não são mais utilizados pelo usuário.
+     \item{OnDestroy} \\
+     Chamado quando a \textit{activity} vai ser destruída. É a última chamada que a \textit{activity} receberá antes de ser finalizada.
+  \end{itemize}
 
 \newpage
 \section{API}
@@ -717,7 +720,6 @@ No projeto Android, o arquivo de configuração do Gradle pode ser encontrado no
 \end{lstlisting}
 \subsubsection{Dependências}
  No build.gradle, o campo \textit{dependencies} nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projetos utilizaremos as dependências abaixo.
-\\
  
    \paragraph{Google Play Services}
    As bibliotecas criadas pela Google disponiveis em \url{https://developers.google.com/android/guides/setup}, oferecem aos desenvolvedores os últimos recursos e funcionalidades mantidas pela Google, como por exemplo, GPS e mapas.
@@ -754,6 +756,7 @@ O Firebase, disponível em \url{https://firebase.google.com} é um conjunto de s
 implementation 'com.google.firebase:firebase-database:16.0.1'
   
 \end{lstlisting}
+\newpage
    \paragraph{Glide}
    disponível em \url{https://github.com/bumptech/glide}, Glide é uma biblioteca de gerenciamento e carregamento de imagens 
 que simplifica tarefas como decodificação, cache em memoria e em disco. 
@@ -1023,6 +1026,7 @@ As imagens a seguir representam as dependências entre as entidades.
 
 % ----------------------------------------------------------
 \chapter{Conclusão}
+
 % ----------------------------------------------------------
 \chapter{Trabalhos futuros}
 
