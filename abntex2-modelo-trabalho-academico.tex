@@ -1157,9 +1157,10 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
    \legend{Fonte: Autor}
      \label{fig:tela_descarte_site_2}
 \end{figure}
+\newpage
 \subsection{Aplicativo}
 Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e arquivos \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os arquivos \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
-\subsubsection{Tela de carregamento}
+\subsubsection{Tela de carregamento} \label{tela_de_carregamento}
 A tela de carregamento também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \textit{DataRequestManager} que é recuperado a partir do método estático \textit{getInstance}. 
 
 As animações de carregamento foram desenvolvidas utilizando a biblioteca \nameref{Lottie}.
@@ -1221,7 +1222,7 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 \end{lstlisting}
 
 \newpage
-\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - XML}, title={Tela de carregamento - XML}, label={ActivitySplash.java}]<?xml version="1.0" encoding="utf-8"?>
+\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - XML}, title={Tela de carregamento - XML}, label={activity_splash.xml}]<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -1285,6 +1286,199 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 </androidx.constraintlayout.widget.ConstraintLayout>
 \end{lstlisting}
 \subsubsection{Tela principal}
+Após o carregamento dos dados na \nameref{tela_de_carregamento} o usuário é redirecionado para a tela principal, essa tela é responsável por criar vários fragmentos que levam o usuário para diferentes partes do aplicativo através de um menu de navegação inferior. Para melhorar a experiencia do usuário foi utilizado um \textit{view pager}, o que possibilita uma troca de conteúdo rápida de acordo com as ações do usuário. Por padrão a tela principal possui somente o menu de navegação inferior, o fragmento padrão é adicionado em tempo de execução, neste caso, usaremos o Fragmento Principal, que é responsável por mostrar o  principal.
+
+\newpage
+
+\begin{figure}[h]
+\centering
+   \caption{Tela Principal}
+   \includegraphics[scale=1.0]{media/activity_main.png}
+   \legend{Fonte: Autor}
+     \label{fig:activity_main_app}
+\end{figure}
+
+
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={Tela Principal - Java},
+title={Tela Principal - Java},
+label={MainActivity.java}]
+
+public class ActivityMain extends AppCompatActivity implements ViewPager.OnPageChangeListener, IPageViewSetup {
+
+
+    private DataRequestManager mDataRequestManager;
+    private CustomFragmentManagerAdapter mCustomFragmentManagerAdapter;
+    private CustomViewPager mViewPager;
+    private BottomNavigationView navigation;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+            switch (item.getItemId()) {
+
+                case R.id.main:
+                    setViewPager(Constants.MAIN_FRAGMENT_MAIN);
+                    return true;
+                case R.id.material:
+                    setViewPager(Constants.MAIN_FRAGMENT_MATERIAL);
+                    return true;
+
+                case R.id.products:
+                    setViewPager(Constants.MAIN_FRAGMENT_PRODUCTS);
+                    return true;
+
+                case R.id.location:
+                    Intent intent = new Intent(ActivityMain.this, ActivityLocation.class);
+                    startActivity(intent);
+                    return true;
+
+            }
+
+
+            return false;
+
+        }
+
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
+        setContentView(R.layout.activity_main);
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(R.string.app_name);
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+      
+        navigation = findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        mCustomFragmentManagerAdapter = new CustomFragmentManagerAdapter(getSupportFragmentManager());
+        mViewPager = findViewById(R.id.CustomViewPager);
+        mViewPager.setEnableTouch(true);
+        mViewPager.addOnPageChangeListener(this);
+
+        setupViewPager(mViewPager);
+
+        Helper.PreLoadMap(getApplicationContext());
+
+
+    }
+
+
+    public void ChangeMenuCurrentItem(int id) {
+        navigation.setSelectedItemId(id);
+    }
+
+
+    @Override
+    public void setupViewPager(ViewPager viewPager) {
+        CustomFragmentManagerAdapter adapter = new CustomFragmentManagerAdapter(getSupportFragmentManager());
+        adapter.AddFragment(new CustomFragmentManagerAdapter.Page(new FragmentMain()));
+        adapter.AddFragment(new CustomFragmentManagerAdapter.Page(new FragmentMaterialMenu()));
+        adapter.AddFragment(new CustomFragmentManagerAdapter.Page(new FragmentProduct()));
+        viewPager.setAdapter(adapter);
+    }
+
+    @Override
+    public void setViewPager(int fragmentNumber) {
+        mViewPager.setCurrentItem(fragmentNumber);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+
+        switch (position) {
+
+            case 0:
+                navigation.setSelectedItemId(R.id.main);
+                break;
+            case 1:
+                navigation.setSelectedItemId(R.id.material);
+                break;
+
+            case 2:
+                navigation.setSelectedItemId(R.id.products);
+                break;
+
+        }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+                return true;
+    }
+
+
+}
+\end{lstlisting}
+
+
+\newpage
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={Tela Principal - XML},
+title={Tela Principal - XML},
+label={activity_main.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:background="@drawable/main_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.flaviotps.apptcc.Custom.CustomViewPager
+        android:id="@+id/CustomViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.flaviotps.apptcc.Custom.CustomViewPager>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:background="@color/white"
+        app:itemIconTint="@drawable/menu_icon_background"
+        app:itemTextColor="@drawable/menu_icon_background"
+        android:id="@+id/navigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        app:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/navigation" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+\end{lstlisting}
+
+\newpage
+\subsubsection{Fragmento Principal}
+TESTE
 \subsubsection{Tela de materiais}
 \subsubsection{Tela de produtos}
 \subsubsection{Tela de estatísticas}
