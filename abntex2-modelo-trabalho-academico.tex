@@ -677,7 +677,7 @@ O Diagrama a seguir mostra quando os \textit{callback} são executados durante a
 
 \newpage
 \section{API}
-A \textit{Application Programming Interface} (API) permite a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam o uso de uma \textit{API} atrativo é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol). Os dados transferidos entres essas aplicações seguem um formato padrão, os mais utilizados são \textit{JavaScript Object Notation} (JSON) e \textit{Extensible Markup Languag} (XML). Neste projeto utilizaremos JSON.
+A \textit{Application Programming Interface} (API) permite a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam o uso de uma \textit{API} atrativo é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol). Os dados transferidos entres essas aplicações seguem um formato padrão, os mais utilizados são \textit{JavaScript Object Notation} (JSON) e \textit{Extensible Markup Languag} (XML). Neste projeto utilizaremos JSON no desenvolvimento de API.
 
 \section{JSON}
 \textit{JavaScript Object Notation} (JSON) é um formato leve de troca de dados entre sistemas independente de linguagem de programação. O formato foi derivado do JavaScript, sendo fácil para humanos ler e escrever.
@@ -731,7 +731,6 @@ implementation 'com.google.android.gms:play-services-location:15.0.1'
 implementation 'com.google.android.gms:play-services-places:15.0.1'
   
 \end{lstlisting}
-
    \paragraph{Volley}
    Também desenvolvida pela Google, disponível em \url{https://github.com/google/volley}, Volley é uma biblioteca que permite realizar requisições HTTP de forma simplificada, sem a necessidade de criação de chamadas assíncronas.
        \begin{lstlisting}[
@@ -739,6 +738,9 @@ implementation 'com.google.android.gms:play-services-places:15.0.1'
 ]
 implementation 'com.android.volley:volley:1.1.0'  
 \end{lstlisting}
+
+\paragraph{Lottie}
+\label{Lottie}
 
    \paragraph{MPAndroidChart}
    A  MPAndoridChart disponível em \url{https://github.com/PhilJay/MPAndroidChart} é uma poderosa biblioteca que simplifica a criação de diversos tipos de gráficos. 
@@ -1022,6 +1024,272 @@ As imagens a seguir representam as dependências entre as entidades.
      \label{fig:datawrapper_comp}
 \end{figure}
 
+\newpage
+\subsection{Sistema Administrativo}
+Para disponibilizar dados para o aplicativo mobile foi desenvolvido um sistema administrativo responsável por inserir ou modificar o conteúdo exibido. O sistema foi desenvolvido usando tecnologias web, como HTML, Javascript e CSS. Nesta sessão sera abordado as principais funcionalidades do sistema, abstraindo a implementação.
+\subsubsection{Tela de autenticação}
+Para controlar o acesso ao sistema foi desenvolvido um sistema de autenticação por e-mail utilizando o \textit{firebase authentication}, dessa forma somente usuários cadastrados e com perfis de acesso podem realizar alterações e inclusões de conteúdo pelo sistema administrativo. 
+A alteração e inclusão de novos usuários é feita diretamente pelo painel administrativo do \textit{firebase}.
+
+
+\begin{figure}[h]
+\centering
+   \caption{Tela de autenticação}
+   \includegraphics[scale=0.85]{media/tela_login_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_login_site_1}
+\end{figure}
+
+\newpage
+\subsubsection{Tela de materiais}
+A tela de materiais é responsável por inserir e modificar materiais recicláveis, como por exemplo, plástico, metais e papeis. As informações do material podem ser escritas em HTML, tornando menu mais flexível.
+\begin{figure}[h]
+\centering
+   \caption{Material - Todos}
+   \includegraphics[scale=0.45]{media/tela_material_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_material_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Material - Edição}
+   \includegraphics[scale=0.40]{media/tela_material_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_material_site_2}
+\end{figure}
+
+\newpage
+\subsubsection{Tela de produtos}
+A área de produtos permite adicionar produtos de uso diário, como por exemplo, telefones, brinquedos e utensílios domésticos. 
+
+\begin{figure}[h]
+\centering
+   \caption{Produto - Todos}
+   \includegraphics[scale=0.45]{media/tela_produto_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_produto_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Produto - Edição}
+   \includegraphics[scale=0.40]{media/tela_produto_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_produto_site_2}
+\end{figure}
+
+\newpage
+\subsubsection{Tela de estatísticas}
+A área de estatísticas permite adicionar gráficos do tipo \textit{PieChart} ou \textit{BarChart}. Os dados exibidos devem seguir uma sintaxe para que sejam exibidos corretamente.
+
+\begin{figure}[h]
+\centering
+   \caption{Gráfico - Todos}
+   \includegraphics[scale=0.45]{media/tela_graficos_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_graficos_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Gráfico - Edição}
+   \includegraphics[scale=0.40]{media/tela_graficos_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_graficos_site_2}
+\end{figure}
+
+\newpage
+\subsubsection{Tela de vídeos}
+Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao tema através de um link. O vídeo fica disponível na sessão do vídeos do aplicativo.
+
+\begin{figure}[h]
+\centering
+   \caption{Vídeo - Todos}
+   \includegraphics[scale=0.40]{media/tela_video_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_video_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Vídeo - Edição}
+   \includegraphics[scale=0.40]{media/tela_video_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_video_site_2}
+\end{figure}
+
+\newpage
+\subsubsection{Tela de páginas}
+Nesta área é possível criar paginas. As áreas de vídeos e gráficos fazem uso desse recurso para organização do conteúdo.
+
+\begin{figure}[h]
+\centering
+   \caption{Página - Todas}
+   \includegraphics[scale=0.40]{media/tela_pagina_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_pagina_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Página - Edição}
+   \includegraphics[scale=0.40]{media/tela_pagina_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_pagina_site_2}
+\end{figure}
+\newpage
+\subsubsection{Tela de descartes}
+Nesta área é possível criar formas de descarte para materiais. A área de produtos faz uso desse recurso.
+
+\begin{figure}[h]
+\centering
+   \caption{Descarte - Todos}
+   \includegraphics[scale=0.40]{media/tela_descarte_site_1.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_descarte_site_1}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+   \caption{Descarte - Edição}
+   \includegraphics[scale=0.40]{media/tela_descarte_site_2.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_descarte_site_2}
+\end{figure}
+\subsection{Aplicativo}
+Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e arquivos \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os arquivos \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
+\subsubsection{Tela de carregamento}
+A tela de carregamento também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \textit{DataRequestManager} que é recuperado a partir do método estático \textit{getInstance}. 
+
+As animações de carregamento foram desenvolvidas utilizando a biblioteca \nameref{Lottie}.
+
+    \begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.5\textwidth}
+    \centering
+    \caption{ Carregando}
+    \includegraphics[scale=0.35]{media/tela_splash_1.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_splash_1_app}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Carregado}
+    \includegraphics[scale=0.35]{media/tela_splash_2.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_splash_2_app}
+  \end{minipage}
+\end{figure}
+
+\newpage
+\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - Java}, title={Tela de carregamento - Java}, label={ActivitySplash.java}]
+public class ActivitySplash extends AppCompatActivity implements ICustomDialogClickListener {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
+        if ((getIntent().getFlags() & Intent.FLAG_ACTIVITY_BROUGHT_TO_FRONT) != 0) {
+            finish();
+            return;
+        }
+        getWindow().requestFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+        WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_splash);
+        getSupportActionBar().hide();
+        switch (Helper.CheckConnection(this)) {
+            case Constants.CONNECTION_OFFLINE:
+                CustomConnectionDialog alert = new CustomConnectionDialog(this);
+                alert.showDialog(this, getString(R.string.err_connection));
+                break;
+            default:
+                DataRequestManager.getInstance(this).getData();
+        }
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        finish();
+    }
+    @Override
+    public void OnOK() {
+        DataRequestManager.getInstance(this).getData();
+    }
+}
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - XML}, title={Tela de carregamento - XML}, label={ActivitySplash.java}]<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <TextView
+        android:id="@+id/SplashAppTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/anton"
+        android:text="Reciclando"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Reciclando" />
+
+    <TextView
+        android:id="@+id/splash_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="1.6"
+        android:text="Carregando..."
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SplashAppTitle" />
+        
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animation_view"
+        android:scaleType="centerCrop"
+        app:lottie_rawRes="@raw/loading_trash"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="196dp"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/white"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/splash_status"
+        app:layout_constraintStart_toStartOf="@+id/splash_status"
+        app:layout_constraintTop_toBottomOf="@+id/splash_status" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+\end{lstlisting}
+\subsubsection{Tela principal}
+\subsubsection{Tela de materiais}
+\subsubsection{Tela de produtos}
+\subsubsection{Tela de estatísticas}
+\subsubsection{Tela de vídeos}
+\subsubsection{Tela de locais}
 \end{chapter}
 
 % ----------------------------------------------------------
