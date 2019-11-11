@@ -96,7 +96,7 @@
   breaklines=true,
   backgroundcolor=\color{cyan!10},
   breakautoindent=true,
-  captionpos=b,
+  captionpos=t,
   xleftmargin=0pt,
   tabsize=4
 }
@@ -421,10 +421,10 @@ According to IBGE in 2015, 77.1 \% of Brazilians have a cell phone and 64.7 \% h
 \section{Motivação}
 Com o aumento exponencial da população cresce também de forma exponencial o consumo de matéria prima e a quantidade de lixo produzido. Ao longo dos anos surgiram novas maneiras de reaproveitar esses materiais que antes eram descartados em lixões e aterros, como plásticos, papeis, metais e vidros. Muito desses componentes quando não descartados ou tratados de forma adequadas demoram anos e até séculos para de decompor. O acúmulo desses resíduos tem um grande impacto ambiental, destruindo ecossistemas e espécies no seu processo de decomposição. Além disso, o acúmulo desses resíduos tem um grande impacto na saúde e na economia. Os resíduos não descartados de forma correta atuam como facilitadores na disseminação de doenças, o que gera um aumento significativo dos gastos com a saúde. O impacto econômico da reciclagem vai além dos gastos convencionais com a saúde, através dessa prática é possível obter renda extra com produtos reciclados, diminuir a extração de matéria prima tornando os produtos mais baratos e incentivando empreendedores a investir neste ramo e assim gerando mais empregos diretos e indiretos. 
 \section{Objetivo}
-\subsection{Objetivo Geral}
+\subsection{Objetivo geral}
 O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile (software) nativo para sistemas Android, essa tecnologia permitirá usuários interessados em adquirir novos conhecimentos sobre o processo, composição e impacto dos resíduos produzidos em todo o mundo.
 
-\subsection{Objetivos Específicos}
+\subsection{Objetivos específicos}
 \begin{itemize}
 	\item Este projeto também tem como objetivo entregar conteúdo dinâmico através de um painel administrativo e um serviço web, que será usado para inserir e manter o conteúdo apresentado no aplicativo.
     \item Solucionar problemas de conectividade causados pela mobilidade dos dispositivos, permitindo que o usuário acesse o conteúdo quando estiver sem acesso à internet.
@@ -633,7 +633,11 @@ O \textit{Intent} é um componente do SDK Android que permite a comunicação en
 
 \subsubsection{ViewPager} \label{ViewPager}
 
+\subsection{TabLayout} \label{TabLayout}
+
 \subsubsection{RecyclerView} \label{RecyclerView}
+
+\subsection{WebView} \label{WebView}
 
 \subsection{Gerenciamento de memória}
 Em aplicativos moveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações, por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memoria a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} no componente \textit{activity} para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema, esses estados são controlados pelo ciclo de vida.
@@ -685,7 +689,7 @@ A \textit{Application Programming Interface} (API) permite a comunicação e con
 
 \section{Firebase}
 \subsection{Firebase Realtime Database}
-O \textit{Firebase Realtime Database} é um banco de dados NoSQL hospedado na nuvem, com ele, você armazena os dados em um formato JSON e sincroniza dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver off-line.
+O \textit{Firebase Realtime Database} é um banco de dados NoSQL hospedado na nuvem, com ele é possível armazenar os dados em um formato JSON e sincronizar dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver off-line.
 
 \subsection{Firebase Authentication}
 O objetivo do \textit{Firebase Authentication} é facilitar o desenvolvimento de um sistema de autenticação seguro e melhorar a experiência de login e ambientação para os usuários finais. Ele oferece uma solução de identidade completa, compatível com contas de e-mail/senha, autenticação por telefone, login do Google, Twitter, Facebook, GitHub e outros.
@@ -1189,8 +1193,8 @@ As animações de carregamento foram desenvolvidas utilizando a biblioteca \name
 \newpage
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={ActivitySplash - Java},
-title={ActivitySplash - Java},
+caption={ActivitySplash.java},
+title={ActivitySplash.java},
 label={ActivitySplash.java}]
 public class ActivitySplash extends AppCompatActivity implements ICustomDialogClickListener {
     @Override
@@ -1228,7 +1232,7 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 \end{lstlisting}
 
 \newpage
-\begin{lstlisting}[numbers=none,basicstyle=\small,caption={ActivitySplash - XML}, title={ActivitySplash - XML}, label={activity_splash.xml}]
+\begin{lstlisting}[numbers=none,basicstyle=\small,caption={ActivitySplash.xml}, title={ActivitySplash.xml}, label={activity_splash.xml}]
     <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -1308,8 +1312,8 @@ Após o carregamento dos dados na \nameref{splash_activity} o usuário é redire
 
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={MainActivity - Java},
-title={MainActivity - Java},
+caption={MainActivity.java},
+title={MainActivity.java},
 label={MainActivity.java}]
 
 public class ActivityMain extends AppCompatActivity implements ViewPager.OnPageChangeListener, IPageViewSetup {
@@ -1443,8 +1447,8 @@ public class ActivityMain extends AppCompatActivity implements ViewPager.OnPageC
 \newpage
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={Tela Principal - XML},
-title={Tela Principal - XML},
+caption={Tela Principal.xml},
+title={Tela Principal.xml},
 label={activity_main.xml}]
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -1494,8 +1498,8 @@ O \nameref{main_fragment} é responsável por criar o menu principal do aplicati
 
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={FragmentMain - Java},
-title={FragmentMain - Java},
+caption={FragmentMain.java},
+title={FragmentMain.java},
 label={FragmentMain.java}]
 
 public class FragmentMain extends Fragment implements View.OnClickListener{
@@ -1557,8 +1561,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
 \end{lstlisting}
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={Fragment Main - XML},
-title={Fragment Main - XML},
+caption={Fragment Main.xml},
+title={Fragment Main.xml},
 xleftmargin=4pt,
 label={fragment_main.xml}]
 <?xml version="1.0" encoding="utf-8"?>
@@ -1945,8 +1949,8 @@ Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref
 \newpage
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={FragmentMaterialMenu - Java},
-title={FragmentMaterialMenu - Java},
+caption={FragmentMaterialMenu.java},
+title={FragmentMaterialMenu.java},
 label={FragmentMaterialMenu.java}]
 public class FragmentMaterialMenu extends Fragment implements View.OnClickListener {
 
@@ -2039,8 +2043,8 @@ private void Init(int[] res) {
 
 \newpage
 \begin{lstlisting}[numbers=none,basicstyle=\small,
-caption={FragmentMaterialMenu - XML},
-title={FragmentMaterialMenu - XML},
+caption={FragmentMaterialMenu.xml},
+title={FragmentMaterialMenu.xml},
 label={fragment_material_menu.xml}]
     <?xml version="1.0" encoding="utf-8"?>
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -2543,13 +2547,15 @@ label={fragment_material_menu.xml}]
 
 \newpage
 \subsubsection{ActivityMaterial} \label{ActivityMaterial}
-Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref{fragment} e exibe o \nameref{FragmentMaterialMenu}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da interface \textit{OnClickListener} é acionado e a informação do tipo de material é passada para próxima tela através do \nameref{Intent}.
+A \textit{ActivityMaterial} é utilizada para exibir um \nameref{RecyclerView} de materiais recicláveis e um campo de busca para filtrar os resultados carregados.
+
+Essa \nameref{activity} é criada a partir de um \nameref{Intent} que recebe como parâmetro o tipo do material, com esse parâmetro a lista de todos os materiais é filtrada e o \nameref{RecyclerView} é construído a partir da classe \nameref{MaterialAdapter.java} e do \nameref{fig:include_material}.
 
     \begin{figure}[htb]    
  \centering
   \begin{minipage}{0.45\textwidth}
     \centering
-    \caption{Lista de Materiais -  Plásticos}
+    \caption{Materiais -  Plásticos}
     \includegraphics[scale=0.35]{media/tela_material_act_1.jpg}
     \legend{Fonte: Autor}
      \label{fig:tela_material_act_1}
@@ -2557,18 +2563,27 @@ Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref
   \hfill
   \begin{minipage}{0.45\textwidth}
     \centering
-    \caption{Lista de Materiais -  Plásticos}
+    \caption{Materiais -  Plásticos}
     \includegraphics[scale=0.35]{media/tela_material_act_2.jpg}
     \legend{Fonte: Autor}
      \label{fig:tela_material_act_2}
   \end{minipage}
 \end{figure}
 
+
+\begin{figure}[h]
+\centering
+   \caption{RecyclerView Material Layout}
+   \includegraphics[scale=0.6]{media/tela_material_act_3.jpg}
+   \legend{Fonte: Autor}
+     \label{fig:include_material}
+\end{figure}
+
 \newpage
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={ActivityMaterial - Java},
-title={ActivityMaterial - Java},
+caption={ActivityMaterial.java},
+title={ActivityMaterial.java},
 label={ActivityMaterial.java}]
 public class ActivityMaterial extends AppCompatActivity {
 
@@ -2639,18 +2654,81 @@ public boolean onSupportNavigateUp() {
 }
 \end{lstlisting}
 
-\newpage
+
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={MaterialAdapter.java},
+title={MaterialAdapter.java},
+label={MaterialAdapter.java}] 
+public class MaterialAdapter extends RecyclerView.Adapter<MaterialAdapter.MaterialViewHolder> {
+
+private List<MaterialModel> materialModels;
+private Activity activity;
+
+public MaterialAdapter(List<MaterialModel> materialModels, Activity activity) {
+		this.materialModels = materialModels;
+		this.activity = activity;
+}
+@NonNull
+@Override
+public MaterialViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+		View mCustomView = LayoutInflater.from(parent.getContext()).inflate(R.layout.include_material, parent, false);
+
+		MaterialViewHolder materialViewHolder = new MaterialViewHolder(mCustomView);
+		return materialViewHolder;
+}
+
+@Override
+public void onBindViewHolder(@NonNull MaterialViewHolder holder, final int position) {
+
+		Glide.with(activity).load(materialModels.get(position).Image).into(holder.Thumbnail);
+		holder.Title.setText(materialModels.get(position).Name);
+		holder.view.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+
+						Intent intent = new Intent(activity, ActivityMaterialDetails.class);
+						intent.putExtra(Constants.BUNDLE_ARG_MATERIAL, materialModels.get(position));
+						activity.startActivity(intent);
+				}
+		});
+
+
+}
+
+@Override
+public int getItemCount() {
+		return materialModels.size();
+}
+
+public class MaterialViewHolder extends RecyclerView.ViewHolder {
+
+		TextView Title;
+		ImageView Thumbnail;
+		View view;
+
+		public MaterialViewHolder(@NonNull View itemView) {
+				super(itemView);
+
+				Title = itemView.findViewById(R.id.materialTitle);
+				Thumbnail = itemView.findViewById(R.id.materialImage);
+				view = itemView;
+		}
+}
+}
+
+\end{lstlisting}
+
 \begin{lstlisting}[numbers=none,basicstyle=\small,
-caption={ActivityMaterial - XML},
-title={ActivityMaterial - XML},
+caption={ActivityMaterial.xml},
+title={ActivityMaterial.xml},
 label={activity_material.xml}]
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		tools:context=".Activities.ActivityStatistics">
+		android:layout_height="match_parent">
 
 
 <androidx.recyclerview.widget.RecyclerView
@@ -2668,8 +2746,380 @@ label={activity_material.xml}]
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 \end{lstlisting}
-\subsubsection{Tela de produtos}
-\subsubsection{Tela de estatísticas}
+
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={MaterialLayout.xml},
+title={MaterialLayout.xml},
+label={MaterialLayout.xml}]
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:id="@+id/view"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="8dp"
+		android:clickable="true"
+		app:cardElevation="4dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:clickable="false"
+		android:orientation="vertical">
+
+<LinearLayout
+		android:id="@+id/linearLayout"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/colorPrimary"
+		android:clickable="false"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+<TextView
+		android:id="@+id/materialTitle"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:clickable="false"
+		android:paddingLeft="8dp"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="Bartitdwdwle"
+		android:textAlignment="viewStart"
+		android:textAllCaps="true"
+		android:textColor="#fff"
+		android:textStyle="bold"
+		tools:text="pet" />
+
+</LinearLayout>
+
+
+<ImageView
+		android:id="@+id/materialImage"
+		android:layout_width="0dp"
+		android:layout_height="200dp"
+		android:clickable="false"
+		android:scaleType="fitXY"
+		android:src="@drawable/pet"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+\end{lstlisting}
+\newpage
+\subsubsection{ActivityMaterialDetails} \label{ActivityMaterialDetails}
+Quando um item da \nameref{ActivityMaterial} é selecionado a \nameref{activity} \textit{ActivityMaterialDetails} é aberta através de um \nameref{Intent} que leva os dados do material a ser exibido. Essa \nameref{activity} exibe o conteúdo dos dados do material em HTML através de um \nameref{WebView}.
+
+    \begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Materiais - Detalhes}
+    \includegraphics[scale=0.35]{media/tela_material__details_act_1.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_material__details_act_1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Materiais - Detalhes}
+    \includegraphics[scale=0.35]{media/tela_material__details_act_2.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_material__details_act_2}
+  \end{minipage}
+\end{figure}
+
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ActivityMaterialDetails.java},
+title={ActivityMaterialDetails.java},
+label={ActivityMaterialDetails.java}]
+
+public class ActivityMaterialDetails extends AppCompatActivity {
+
+private WebView mWebView;
+private MaterialModel materialModel;
+private ImageView materialImage;
+private Toolbar toolbar;
+private CollapsingToolbarLayout collapsingToolbarLayout;
+
+
+private void LoadWebView() {
+
+		mWebView = findViewById(R.id.webview);
+		mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+		mWebView.getSettings().setJavaScriptEnabled(true);
+		WebSettings settings = mWebView.getSettings();
+		settings.setJavaScriptEnabled(true);
+		settings.setLoadWithOverviewMode(true);
+		settings.setUseWideViewPort(true);
+		settings.setBuiltInZoomControls(false);
+		settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN);
+		settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+		settings.setDomStorageEnabled(true);
+		mWebView.setScrollBarStyle(WebView.SCROLLBARS_OUTSIDE_OVERLAY);
+		mWebView.setScrollbarFadingEnabled(true);
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+				mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+		} else {				mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+		}
+		mWebView.setWebChromeClient(new WebChromeClient());
+
+    String infos =
+    "<html lang=\"pt-br\">" +
+    "<head>" +
+    "<link href=\"css/bootstrap.css\" rel=\"stylesheet\">"+
+    "<link href=\"css/summernote.css\" rel=\"stylesheet\">"+
+    "</head>"+
+    "<body>" + materialModel.Content + "</body>"+
+    "</html>";
+			
+    mWebView.loadDataWithBaseURL(
+    "file:///android_asset/Internal/",
+    infos,"text/html",
+    "UTF-8",null);
+  }
+  
+
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Fabric.with(this, new Crashlytics());
+
+		setContentView(R.layout.activity_material_details);
+
+
+		materialModel = (MaterialModel) getIntent().getSerializableExtra(Constants.BUNDLE_ARG_MATERIAL);
+
+		toolbar = findViewById(R.id.toolbar);
+		setSupportActionBar(toolbar);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+		collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
+		materialImage = findViewById(R.id.materialImage);
+
+		Glide.with(this).load(materialModel.Image).into(materialImage);
+		collapsingToolbarLayout.setTitle(materialModel.Name);
+
+		LoadWebView();
+}
+
+@Override
+public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ActivityMaterialDetails.xml},
+title={ActivityMaterialDetails.xml},
+label={ActivityMaterialDetails.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout	xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fitsSystemWindows="true">
+
+<com.google.android.material.appbar.AppBarLayout
+		android:id="@+id/appBar"
+		android:layout_width="match_parent"
+		android:layout_height="300dp"
+		android:fitsSystemWindows="true"
+		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+<com.google.android.material.appbar.CollapsingToolbarLayout
+		android:id="@+id/collapsingToolbar"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fitsSystemWindows="true"
+		app:contentScrim="?attr/colorPrimary"
+		app:expandedTitleMarginEnd="56dp"
+		app:expandedTitleMarginStart="40dp"
+		app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+<ImageView
+		android:id="@+id/materialImage"
+		android:layout_width="match_parent"
+		android:layout_height="300dp"
+		android:fitsSystemWindows="true"
+		android:scaleType="fitXY"
+		android:src="@drawable/pet"
+		app:layout_collapseMode="parallax" />
+
+<androidx.appcompat.widget.Toolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="?attr/actionBarSize"
+		app:layout_collapseMode="pin"
+		app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+</com.google.android.material.appbar.CollapsingToolbarLayout>
+</com.google.android.material.appbar.AppBarLayout>
+
+<androidx.core.widget.NestedScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+<WebView
+		android:id="@+id/webview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="32dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="1.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/materialImage" />
+</androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+\end{lstlisting}
+
+\subsubsection{ActivityStatistics} \label{ActivityStatistics}
+\subsubsection{FragmentStatistics} \label{FragmentStatistics}
+Quando um item da \nameref{ActivityMaterial} é selecionado a \nameref{activity} \textit{ActivityMaterialDetails} é aberta através de um \nameref{Intent} que leva os dados do material a ser exibido. Essa \nameref{activity} exibe o conteúdo dos dados do material em HTML através de um \nameref{WebView}.
+
+    \begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Estatísticas}
+    \includegraphics[scale=0.35]{media/tela_stats_1.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_stats_1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Estatísticas}
+    \includegraphics[scale=0.35]{media/tela_stats_2.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_stats_2}
+  \end{minipage}
+\end{figure}
+
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={FragmentStatistics.java},
+title={FragmentStatistics.java},
+label={FragmentStatistics.java}]
+
+package com.flaviotps.apptcc.Fragments;
+
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.flaviotps.apptcc.Adapter.ChartAdapter;
+import com.flaviotps.apptcc.Data.ChartModel;
+import com.flaviotps.apptcc.Data.DataRequestManager;
+import com.flaviotps.apptcc.R;
+import com.flaviotps.apptcc.Utils.Constants;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+public class FragmentStatistics extends Fragment {
+
+private View fragmentView;
+private RecyclerView mRecyclerView;
+private RecyclerView.LayoutManager mLayoutManager;
+private int PageID;
+private ChartAdapter chartAdapter;
+
+public static FragmentStatistics newInstance(int page_id) {
+		FragmentStatistics f = new FragmentStatistics();
+		Bundle args = new Bundle();
+		args.putInt(Constants.BUNDLE_ARG_PAGE_ID, page_id);
+		f.setArguments(args);
+		f.setChartAdapter(new ChartAdapter(ChartModel.getChartsByPage(page_id, DataRequestManager.data.graphList)));
+		return f;
+}
+
+public void setChartAdapter(ChartAdapter chartAdapter) {
+		this.chartAdapter = chartAdapter;
+
+}
+
+@Nullable
+@Override
+public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+		fragmentView = inflater.inflate(R.layout.fragment_statistics, container, false);
+
+		Bundle args = getArguments();
+		PageID = args.getInt(Constants.BUNDLE_ARG_PAGE_ID, 0);
+		LoadGraphs();
+
+		return fragmentView;
+}
+
+
+private void LoadGraphs() {
+
+		mLayoutManager = new LinearLayoutManager(getContext());
+		mRecyclerView = fragmentView.findViewById(R.id.Chart1Recycler);
+		mRecyclerView.setHasFixedSize(false);
+		mRecyclerView.setLayoutManager(mLayoutManager);
+		mRecyclerView.setAdapter(chartAdapter);
+
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={FragmentStatistics.xml},
+title={FragmentStatistics.xml},
+label={FragmentStatistics.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		tools:context=".Activities.ActivityMain">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:baselineAligned="false">
+
+<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/Chart1Recycler"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+</androidx.recyclerview.widget.RecyclerView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+
+\end{lstlisting}
 \subsubsection{Tela de vídeos}
 \subsubsection{Tela de locais}
 \end{chapter}
