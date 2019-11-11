@@ -61,10 +61,59 @@
 \usepackage[utf8]{inputenc}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[compact]{titlesec}
-\titlespacing{\section}{0pt}{*0}{*0}
-\titlespacing{\subsection}{0pt}{*0}{*0}
-\titlespacing{\subsubsection}{0pt}{*0}{*0}
+% Definindo novas cores
+\definecolor{verde}{rgb}{0.25,0.5,0.35}
+\definecolor{jpurple}{rgb}{0.5,0,0.35}
+\definecolor{dkgreen}{rgb}{0,.6,0}
+\definecolor{dkblue}{rgb}{0,0,.6}
+\definecolor{dkyellow}{cmyk}{0,0,.8,.3}
+% Configurando layout para mostrar codigos Java
+\usepackage{listings}
+\lstset{
+     literate=%
+         {á}{{\'a}}1
+         {ã}{{\~a}}1
+         {â}{{\^a}}1
+         {í}{{\'i}}1
+         {é}{{\'e}}1
+         {ê}{{\^e}}1
+         {ú}{{\'u}}1
+         {ó}{{\'o}}1
+         {õ}{{\~o}}1
+}
+\lstset{
+  language=Java,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{jpurple}\bfseries,
+  stringstyle=\color{red},
+  commentstyle=\color{verde},
+  morecomment=[s][\color{blue}]{/**}{*/},
+  extendedchars=true,
+  showspaces=false,
+  showstringspaces=false,
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true,
+  backgroundcolor=\color{cyan!10},
+  breakautoindent=true,
+  captionpos=b,
+  xleftmargin=0pt,
+  tabsize=4
+}
+\lstdefinelanguage{XML}{
+  basicstyle=\ttfamily\footnotesize,
+  morestring=[b]",
+  moredelim=[s][\bfseries\color{Maroon}]{<}{\ },
+  moredelim=[s][\bfseries\color{Maroon}]{</}{>},
+  moredelim=[l][\bfseries\color{Maroon}]{/>},
+  moredelim=[l][\bfseries\color{Maroon}]{>},
+  morecomment=[s]{<?}{?>},
+  morecomment=[s]{<!--}{-->},
+  commentstyle=\color{DarkOliveGreen},
+  stringstyle=\color{blue},
+  identifierstyle=\color{black}
+}
+% ---
 
 		
 % ---
@@ -132,61 +181,6 @@
 % ---
 % Configurações de aparência do PDF final
 
-% alterando o aspecto da cor azul
-\definecolor{blue}{RGB}{41,5,195}
-% Definindo novas cores
-\definecolor{verde}{rgb}{0.25,0.5,0.35}
-\definecolor{jpurple}{rgb}{0.5,0,0.35}
-\definecolor{dkgreen}{rgb}{0,.6,0}
-\definecolor{dkblue}{rgb}{0,0,.6}
-\definecolor{dkyellow}{cmyk}{0,0,.8,.3}
-% Configurando layout para mostrar codigos Java
-\usepackage{listings}
-\lstset{
-     literate=%
-         {á}{{\'a}}1
-         {ã}{{\~a}}1
-         {â}{{\^a}}1
-         {í}{{\'i}}1
-         {é}{{\'e}}1
-         {ê}{{\^e}}1
-         {ú}{{\'u}}1
-         {ó}{{\'o}}1
-         {õ}{{\~o}}1
-}
-\lstset{
-  language=Java,
-  basicstyle=\ttfamily\small,
-  keywordstyle=\color{jpurple}\bfseries,
-  stringstyle=\color{red},
-  commentstyle=\color{verde},
-  morecomment=[s][\color{blue}]{/**}{*/},
-  extendedchars=true,
-  showspaces=false,
-  showstringspaces=false,
-  numbers=left,
-  numberstyle=\tiny,
-  breaklines=true,
-  backgroundcolor=\color{cyan!10},
-  breakautoindent=true,
-  captionpos=b,
-  xleftmargin=0pt,
-  tabsize=4
-}
-\lstdefinelanguage{XML}{
-  basicstyle=\ttfamily\footnotesize,
-  morestring=[b]",
-  moredelim=[s][\bfseries\color{Maroon}]{<}{\ },
-  moredelim=[s][\bfseries\color{Maroon}]{</}{>},
-  moredelim=[l][\bfseries\color{Maroon}]{/>},
-  moredelim=[l][\bfseries\color{Maroon}]{>},
-  morecomment=[s]{<?}{?>},
-  morecomment=[s]{<!--}{-->},
-  commentstyle=\color{DarkOliveGreen},
-  stringstyle=\color{blue},
-  identifierstyle=\color{black}
-}
-% ---
 
 % informações do PDF
 \makeatletter
@@ -628,11 +622,18 @@ O framework Android oferece uma camada de abstração chamada de HAL (Hardware a
 Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto completo de APIs na linguagem java que permitem a interoperabilidade entre aplicativos e subsistemas Android, logo, essas APIs são a base para desenvolvimento de aplicativos Android, facilitando o acesso aos serviços do sistema como gerenciadores de janela, telefone e provedores de conteúdo.
 
 \subsection{Componentes Android}
-\subsubsection{Activity} 
+\subsubsection{Activity}  \label{activity}
 É um componente que fornece uma tela a qual o usuário pode interagir, um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usa-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
 
-\subsubsection{Fragment}
+\subsubsection{Fragment} \label{fragment}
 Esse componente permite a criação de interfaces ou módulos de interface reutilizáveis, esse componente só existe dentro de uma \textit{activity}, logo, apesar de possuir seu próprio ciclo de vida, alterações no ciclo da vida da \textit{activity} afetam o ciclo de vida do \textit{fragment}.  
+
+\subsubsection{Intent} \label{Intent}
+O \textit{Intent} é um componente do SDK Android que permite a comunicação entre outros componentes, descrevendo como o mesmo será iniciado e que dados serão recebidos durante a inicialização. O \textit{intent} é comumente utilizado para inicializar uma \nameref{activity}.
+
+\subsubsection{ViewPager} \label{ViewPager}
+
+\subsubsection{RecyclerView} \label{RecyclerView}
 
 \subsection{Gerenciamento de memória}
 Em aplicativos moveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações, por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memoria a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} no componente \textit{activity} para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema, esses estados são controlados pelo ciclo de vida.
@@ -1160,8 +1161,9 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
 \newpage
 \subsection{Aplicativo}
 Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e arquivos \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os arquivos \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
-\subsubsection{Tela de carregamento} \label{tela_de_carregamento}
-A tela de carregamento também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \textit{DataRequestManager} que é recuperado a partir do método estático \textit{getInstance}. 
+
+\subsubsection{Activity Splash} \label{splash_activity}
+A \nameref{splash_activity} também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \textit{DataRequestManager} que é recuperado a partir do método estático \textit{getInstance}. 
 
 As animações de carregamento foram desenvolvidas utilizando a biblioteca \nameref{Lottie}.
 
@@ -1169,7 +1171,7 @@ As animações de carregamento foram desenvolvidas utilizando a biblioteca \name
  \centering
   \begin{minipage}{0.5\textwidth}
     \centering
-    \caption{ Carregando}
+    \caption{Carregando}
     \includegraphics[scale=0.35]{media/tela_splash_1.jpg}
     \legend{Fonte: Autor}
      \label{fig:tela_splash_1_app}
@@ -1185,7 +1187,11 @@ As animações de carregamento foram desenvolvidas utilizando a biblioteca \name
 \end{figure}
 
 \newpage
-\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - Java}, title={Tela de carregamento - Java}, label={ActivitySplash.java}]
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={ActivitySplash - Java},
+title={ActivitySplash - Java},
+label={ActivitySplash.java}]
 public class ActivitySplash extends AppCompatActivity implements ICustomDialogClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -1222,15 +1228,16 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 \end{lstlisting}
 
 \newpage
-\begin{lstlisting}[numbers=none,basicstyle=\small,caption={Tela de carregamento - XML}, title={Tela de carregamento - XML}, label={activity_splash.xml}]<?xml version="1.0" encoding="utf-8"?>
+\begin{lstlisting}[numbers=none,basicstyle=\small,caption={ActivitySplash - XML}, title={ActivitySplash - XML}, label={activity_splash.xml}]
+    <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
     <TextView
         android:id="@+id/SplashAppTitle"
         android:layout_width="0dp"
@@ -1265,11 +1272,9 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SplashAppTitle" />
-        
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/animation_view"
-        android:scaleType="centerCrop"
-        app:lottie_rawRes="@raw/loading_trash"
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="32dp"
@@ -1277,22 +1282,24 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
         android:indeterminate="true"
         android:indeterminateTint="@color/white"
         android:indeterminateTintMode="src_atop"
+        android:scaleType="centerCrop"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/splash_status"
         app:layout_constraintStart_toStartOf="@+id/splash_status"
-        app:layout_constraintTop_toBottomOf="@+id/splash_status" />
+        app:layout_constraintTop_toBottomOf="@+id/splash_status"
+        app:lottie_rawRes="@raw/loading_trash" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 \end{lstlisting}
-\subsubsection{Tela principal}
-Após o carregamento dos dados na \nameref{tela_de_carregamento} o usuário é redirecionado para a tela principal, essa tela é responsável por criar vários fragmentos que levam o usuário para diferentes partes do aplicativo através de um menu de navegação inferior. Para melhorar a experiencia do usuário foi utilizado um \textit{view pager}, o que possibilita uma troca de conteúdo rápida de acordo com as ações do usuário. Por padrão a tela principal possui somente o menu de navegação inferior, o fragmento padrão é adicionado em tempo de execução, neste caso, usaremos o Fragmento Principal, que é responsável por mostrar o  principal.
+\subsubsection{Activity Main} \label{main_activity}
+Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a \nameref{main_activity}, essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu de um \textit{BottomNavigationView}. Para melhorar a experiencia do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo método \textit{onPageSelected}. Por padrão a \nameref{main_activity} possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usaremos o \nameref{main_fragment}.
 
 \newpage
 
 \begin{figure}[h]
 \centering
-   \caption{Tela Principal}
+   \caption{Activity Main}
    \includegraphics[scale=1.0]{media/activity_main.png}
    \legend{Fonte: Autor}
      \label{fig:activity_main_app}
@@ -1301,8 +1308,8 @@ Após o carregamento dos dados na \nameref{tela_de_carregamento} o usuário é r
 
 \begin{lstlisting}[numbers=none,
 basicstyle=\small,
-caption={Tela Principal - Java},
-title={Tela Principal - Java},
+caption={MainActivity - Java},
+title={MainActivity - Java},
 label={MainActivity.java}]
 
 public class ActivityMain extends AppCompatActivity implements ViewPager.OnPageChangeListener, IPageViewSetup {
@@ -1441,14 +1448,12 @@ title={Tela Principal - XML},
 label={activity_main.xml}]
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-
-xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:background="@drawable/main_background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <com.flaviotps.apptcc.Custom.CustomViewPager
         android:id="@+id/CustomViewPager"
         android:layout_width="match_parent"
@@ -1458,7 +1463,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
     </com.flaviotps.apptcc.Custom.CustomViewPager>
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:background="@color/white"
         app:itemIconTint="@drawable/menu_icon_background"
@@ -1477,9 +1481,1193 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 \end{lstlisting}
 
 \newpage
-\subsubsection{Fragmento Principal}
-TESTE
-\subsubsection{Tela de materiais}
+\subsubsection{Fragment Main} \label{main_fragment}
+O \nameref{main_fragment} é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
+
+\begin{figure}[h]
+\centering
+   \caption{Fragment Main}
+   \includegraphics[scale=0.4]{media/fragment_main.jpg}
+   \legend{Fonte: Autor}
+     \label{fig:fragment_main_app}
+\end{figure}
+
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={FragmentMain - Java},
+title={FragmentMain - Java},
+label={FragmentMain.java}]
+
+public class FragmentMain extends Fragment implements View.OnClickListener{
+
+    private View fragmentView;
+    private ActivityMain activityMain;
+    private CardView[] mCardView = new CardView[Constants.BUTTONS_MAIN_MENU_COUNT];
+    private static final int[] res = {R.id.MainCardViewButtonMaterial,R.id.MainCardViewButtonLocation,
+                         R.id.MainCardViewButtonProducts,R.id.MainCardViewStatistics,
+                         R.id.MainCardViewButtonLearn,R.id.MainCardViewButtonVideos};
+
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        fragmentView  = inflater.inflate(R.layout.fragment_main,container,false);
+        activityMain = (ActivityMain) getActivity();
+        Init(res);
+        return fragmentView;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()) {
+            case R.id.MainCardViewStatistics:
+                startActivity(new Intent(getActivity(), ActivityStatistics.class));
+                break;
+            case R.id.MainCardViewButtonLocation:
+                startActivity(new Intent(getActivity(), ActivityLocation.class));
+                break;
+            case R.id.MainCardViewButtonMaterial:
+                activityMain.setViewPager(Constants.MAIN_FRAGMENT_MATERIAL);
+                break;
+
+            case R.id.MainCardViewButtonProducts:
+                activityMain.setViewPager(Constants.MAIN_FRAGMENT_PRODUCTS);
+                break;
+
+            case R.id.MainCardViewButtonVideos:
+
+                startActivity(new Intent(getActivity(), ActivityVideos.class));
+                break;
+        }
+
+    }
+
+
+    private void Init(int[] res){
+        for(int i=0;i<res.length;i++){
+            mCardView[i] = fragmentView.findViewById(res[i]);
+            mCardView[i].setOnClickListener(this);
+        }
+    }
+
+
+}
+
+\end{lstlisting}
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={Fragment Main - XML},
+title={Fragment Main - XML},
+xleftmargin=4pt,
+label={fragment_main.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activities.ActivityMain">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1">
+
+                <LinearLayout
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/MainCardViewButtonMaterial"
+                    android:foreground="@drawable/button_material_background"
+                    android:layout_margin="4dp"
+                    app:cardBackgroundColor="#9DB561"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+                        android:contentDescription="@string/menu_material"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/recycle"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:shadowColor="#000000"
+                        android:shadowDx="1.5"
+                        android:shadowDy="1.3"
+                        android:shadowRadius="1.6"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="@font/anton"
+                        android:text="@string/menu_material"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/MainCardViewButtonLocation"
+                    android:foreground="@drawable/button_material_background"
+                    android:layout_margin="4dp"
+                    app:cardBackgroundColor="#F15D5D"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="0dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <ImageView
+
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginBottom="40dp"
+                        android:layout_marginTop="5dp"
+                        android:scaleX="0.8"
+                        android:scaleY="0.8"
+                        android:src="@drawable/location"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:contentDescription="@string/menu_location" />
+
+                    <TextView
+                        android:shadowColor="#000000"
+                        android:shadowDx="1.5"
+                        android:shadowDy="1.3"
+                        android:shadowRadius="1.6"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:fontFamily="@font/anton"
+                        android:text="@string/menu_location"
+                        android:textAlignment="center"
+                        android:textColor="#ffffff"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
+                </androidx.cardview.widget.CardView>
+
+           </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/MainCardViewButtonProducts"
+                        android:foreground="@drawable/button_material_background"
+                        app:cardBackgroundColor="#F18F44"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp"
+                        android:layout_gravity="start"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_marginStart="32dp"
+                                android:id="@+id/imageView2"
+                                android:layout_width="120dp"
+                                android:layout_height="0dp"
+                                android:contentDescription="@string/menu_product"
+                                android:scaleX="0.8"
+                                android:scaleY="0.8"
+                                android:src="@drawable/produto"
+                                android:tint="@android:color/white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/textView2"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+
+                                android:id="@+id/textView2"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="@font/anton"
+                                android:shadowColor="#000000"
+                                android:shadowDx="1.5"
+                                android:shadowDy="1.3"
+                                android:shadowRadius="1.6"
+                                android:text="@string/menu_product"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                   android:layout_margin="4dp"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/MainCardViewStatistics"
+                        android:foreground="@drawable/button_material_background"
+                        app:cardBackgroundColor="#86C5EE"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp"
+                        android:layout_gravity="start"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent" >
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:layout_marginStart="32dp"
+                                android:id="@+id/imageView4"
+                                android:layout_width="120dp"
+                                android:layout_height="0dp"
+                                android:contentDescription="@string/menu_statistcs"
+                                android:scaleX="0.8"
+                                android:scaleY="0.8"
+                                android:src="@drawable/chart"
+                                android:tint="@android:color/white"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/textView"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/textView"
+                                android:layout_width="0dp"
+                                android:layout_height="47dp"
+                                android:layout_gravity="bottom"
+                                android:fontFamily="@font/anton"
+                                android:shadowColor="#000000"
+                                android:shadowDx="1.5"
+                                android:shadowDy="1.3"
+                                android:shadowRadius="1.6"
+                                android:text="@string/stats"
+                                android:textAlignment="center"
+                                android:textColor="#ffffff"
+                                android:textSize="26sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/MainCardViewButtonLearn"
+                        android:foreground="@drawable/button_material_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#FCC143"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="40dp"
+                            android:contentDescription="learn"
+                            android:scaleX="0.8"
+                            android:scaleY="0.8"
+                            android:src="@drawable/learn" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/anton"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1.5"
+                            android:shadowDy="1.3"
+                            android:shadowRadius="1.6"
+                            android:text="Aprenda"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/MainCardViewButtonVideos"
+                        android:foreground="@drawable/button_material_background"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        app:cardBackgroundColor="#8C7E6B"
+                        app:cardCornerRadius="5dp"
+                        app:cardElevation="0dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="40dp"
+                            android:contentDescription="@string/menu_location"
+                            android:scaleX="0.8"
+                            android:scaleY="0.8"
+                            android:src="@drawable/video" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="8dp"
+                            android:fontFamily="@font/anton"
+                            android:shadowColor="#000000"
+                            android:shadowDx="1.5"
+                            android:shadowDy="1.3"
+                            android:shadowRadius="1.6"
+                            android:text="Videos"
+                            android:textAlignment="center"
+                            android:textColor="#ffffff"
+                            android:textSize="26sp"
+                            android:textStyle="bold" />
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </TableLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>
+\end{lstlisting}
+
+
+\newpage
+\subsubsection{FragmentMaterialMenu} \label{FragmentMaterialMenu}
+Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref{fragment} e exibe o \nameref{FragmentMaterialMenu}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da interface \textit{OnClickListener} é acionado e a informação do tipo de material é passada para próxima tela através do \nameref{Intent}.
+
+    \begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Menu Materiais}
+    \includegraphics[scale=0.35]{media/tela_menu_material_1.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_menu_material_1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Menu Materiais}
+    \includegraphics[scale=0.35]{media/tela_menu_material_2.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_menu_material_2}
+  \end{minipage}
+\end{figure}
+
+\newpage
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={FragmentMaterialMenu - Java},
+title={FragmentMaterialMenu - Java},
+label={FragmentMaterialMenu.java}]
+public class FragmentMaterialMenu extends Fragment implements View.OnClickListener {
+
+private View fragmentView;
+
+private int[] res = {R.id.CardBtnMaterialPaper, R.id.CardBtnMaterialPlastic,
+						R.id.CardBtnMaterialGlass, R.id.CardBtnMaterialMetal,
+						R.id.CardBtnMateriaOrganic, R.id.CardBtnMateriaBattery,
+						R.id.CardBtnMaterialLamps, R.id.CardBtnMaterialEletronics,
+						R.id.CardBtnMaterialMixed};
+
+private CardView[] mCardView = new CardView[Constants.BUTTONS_MATERIAL_MENU_COUNT];
+
+@Nullable
+@Override
+public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+	fragmentView = inflater.inflate(R.layout.fragment_material_menu, container, false);
+
+	Init(res);
+
+	return fragmentView;
+}
+
+
+@Override
+public void onClick(View view) {
+
+	Intent intent = new Intent(getContext(), ActivityMaterial.class);
+
+	switch (view.getId()) {
+
+		case R.id.CardBtnMaterialPaper:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_PAPER);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMaterialPlastic:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_PLASTIC);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMaterialGlass:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_GLASS);
+			startActivity(intent);
+			break;
+
+
+		case R.id.CardBtnMaterialMetal:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_METAL);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMateriaOrganic:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_ORGANIC);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMateriaBattery:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_BATTERY);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMaterialLamps:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_LIGHT_BULB);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMaterialEletronics:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_ELETRONIC);
+			startActivity(intent);
+			break;
+
+		case R.id.CardBtnMaterialMixed:
+			intent.putExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE, Constants.MATERIAL_TYPE_MIXED);
+			startActivity(intent);
+			break;
+
+	}
+
+}
+
+private void Init(int[] res) {
+	for (int i = 0; i < res.length; i++) {
+		mCardView[i] = fragmentView.findViewById(res[i]);
+		mCardView[i].setOnClickListener(this);
+	}
+}
+}
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={FragmentMaterialMenu - XML},
+title={FragmentMaterialMenu - XML},
+label={fragment_material_menu.xml}]
+    <?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		tools:context=".Activities.ActivityMain">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:baselineAligned="false">
+
+
+    <ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:fillViewport="true"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+<TableLayout
+		android:id="@+id/tableLayout1"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:stretchColumns="0,1">
+
+<TableRow
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+
+		android:id="@+id/CardBtnMaterialPaper"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="0"
+		android:backgroundTint="#83C7EC"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="8dp"
+		android:src="@drawable/png_paper"
+		app:layout_constraintBottom_toTopOf="@+id/textView3"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+
+		android:id="@+id/textView3"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_paper"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialPlastic"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="1"
+		android:backgroundTint="#F15D5D"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_plasttic"
+		app:layout_constraintBottom_toTopOf="@+id/textView4"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+		android:id="@+id/textView4"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_plastic"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</TableRow>
+
+<TableRow
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialGlass"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="0"
+		android:backgroundTint="#9DB561"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_glass"
+		app:layout_constraintBottom_toTopOf="@+id/textView5"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+
+		android:id="@+id/textView5"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_glass"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialMetal"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="1"
+		android:backgroundTint="#F18F44"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_metal"
+		app:layout_constraintBottom_toTopOf="@+id/textView6"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+
+		android:id="@+id/textView6"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_metal"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</TableRow>
+
+
+<TableRow
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMateriaOrganic"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="0"
+		android:backgroundTint="#8E7D69"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_organic"
+		app:layout_constraintBottom_toTopOf="@+id/textView7"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+
+		android:id="@+id/textView7"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_organic"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMateriaBattery"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="1"
+		android:backgroundTint="#F7917B"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_batteries"
+		app:layout_constraintBottom_toTopOf="@+id/textView8"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+
+		android:id="@+id/textView8"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_batteries"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
+</TableRow>
+
+<TableRow
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialLamps"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="0"
+		android:backgroundTint="#05AB7D"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_lightbulb"
+		app:layout_constraintBottom_toTopOf="@+id/textView9"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+		android:id="@+id/textView9"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_lightbulb"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialEletronics"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="1"
+		android:backgroundTint="#FDC043"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_eletronics"
+		app:layout_constraintBottom_toTopOf="@+id/textView10"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+		android:id="@+id/textView10"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_eletronic"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</TableRow>
+
+<TableRow
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+<androidx.cardview.widget.CardView
+		android:id="@+id/CardBtnMaterialMixed"
+		android:layout_width="match_parent"
+		android:layout_height="150dp"
+		android:layout_column="0"
+		android:backgroundTint="#667F89"
+		android:clickable="true"
+		android:foreground="@drawable/button_material_background"
+		app:cardCornerRadius="0dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+
+<ImageView
+		android:layout_width="80dp"
+		android:layout_height="80dp"
+		android:layout_marginTop="16dp"
+		android:src="@drawable/png_mixed"
+		app:layout_constraintBottom_toTopOf="@+id/textView11"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+<TextView
+		android:id="@+id/textView11"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="bottom"
+		android:layout_marginBottom="8dp"
+		android:fontFamily="@font/anton"
+		android:shadowColor="#000000"
+		android:shadowDx="1.5"
+		android:shadowDy="1.3"
+		android:shadowRadius="1.6"
+		android:text="@string/mateirla_menu_mixed"
+		android:textAlignment="center"
+		android:textColor="#ffffff"
+		android:textSize="26sp"
+		android:textStyle="bold"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
+</TableRow>
+</TableLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+\end{lstlisting}
+
+
+\newpage
+\subsubsection{ActivityMaterial} \label{ActivityMaterial}
+Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref{fragment} e exibe o \nameref{FragmentMaterialMenu}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da interface \textit{OnClickListener} é acionado e a informação do tipo de material é passada para próxima tela através do \nameref{Intent}.
+
+    \begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Lista de Materiais -  Plásticos}
+    \includegraphics[scale=0.35]{media/tela_material_act_1.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_material_act_1}
+  \end{minipage}
+  \hfill
+  \begin{minipage}{0.45\textwidth}
+    \centering
+    \caption{Lista de Materiais -  Plásticos}
+    \includegraphics[scale=0.35]{media/tela_material_act_2.jpg}
+    \legend{Fonte: Autor}
+     \label{fig:tela_material_act_2}
+  \end{minipage}
+\end{figure}
+
+\newpage
+\begin{lstlisting}[numbers=none,
+basicstyle=\small,
+caption={ActivityMaterial - Java},
+title={ActivityMaterial - Java},
+label={ActivityMaterial.java}]
+public class ActivityMaterial extends AppCompatActivity {
+
+private String type;
+private RecyclerView mRecyclerView;
+private RecyclerView.LayoutManager mLayoutManager;
+private MaterialAdapter materialAdapter;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Fabric.with(this, new Crashlytics());
+		setContentView(R.layout.activity_material);
+
+		type = getIntent().getStringExtra(Constants.BUNDLE_ARG_MATERIAL_TYPE);
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setTitle(R.string.menu_material);
+		setupRecyclerView();
+
+
+}
+
+@Override
+public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.search_menu, menu);
+		MenuItem search = menu.findItem(R.id.app_bar_search);
+		SearchView searchView = (SearchView) search.getActionView();
+
+ EditText et = searchView.findViewById(searchView.getContext()
+.getResources()
+.getIdentifier("android:id/search_src_text", null, null));
+		
+et.setFilters(new InputFilter[]{new InputFilter.LengthFilter(50)});
+		searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+				@Override
+				public boolean onQueryTextSubmit(String query) {
+						materialAdapter = new MaterialAdapter(MaterialModel.filterByName(query, DataRequestManager.data.materialList), ActivityMaterial.this);
+						mRecyclerView.setAdapter(materialAdapter);
+						return false;
+				}
+
+				@Override
+				public boolean onQueryTextChange(String query) {
+						materialAdapter = new MaterialAdapter(MaterialModel.filterByName(query, DataRequestManager.data.materialList), ActivityMaterial.this);
+						mRecyclerView.setAdapter(materialAdapter);
+						return false;				}
+		});
+		return true;
+}
+
+public void setupRecyclerView() {
+		List<MaterialModel> materialModelList = MaterialModel.filterByString(type, DataRequestManager.data.materialList);
+		materialAdapter = new MaterialAdapter(materialModelList, this);
+		mLayoutManager = new LinearLayoutManager(this);
+		mRecyclerView = findViewById(R.id.RecyclerViewMaterial);
+		mRecyclerView.setHasFixedSize(false);
+		mRecyclerView.setLayoutManager(mLayoutManager);
+		mRecyclerView.setAdapter(materialAdapter);
+
+}
+@Override
+public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+}
+}
+\end{lstlisting}
+
+\newpage
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ActivityMaterial - XML},
+title={ActivityMaterial - XML},
+label={activity_material.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Activities.ActivityStatistics">
+
+
+<androidx.recyclerview.widget.RecyclerView
+		android:id="@+id/RecyclerViewMaterial"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		android:layout_marginTop="8dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent">
+
+</androidx.recyclerview.widget.RecyclerView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+\end{lstlisting}
 \subsubsection{Tela de produtos}
 \subsubsection{Tela de estatísticas}
 \subsubsection{Tela de vídeos}
