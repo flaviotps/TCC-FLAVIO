@@ -631,6 +631,8 @@ Esse componente permite a criação de interfaces ou módulos de interface reuti
 \subsubsection{Intent} \label{Intent}
 O \textit{Intent} é um componente do SDK Android que permite a comunicação entre outros componentes, descrevendo como o mesmo será iniciado e que dados serão recebidos durante a inicialização. O \textit{intent} é comumente utilizado para inicializar uma \nameref{activity}.
 
+\subsubsection{Bundle} \label{Bundle}
+
 \subsubsection{ViewPager} \label{ViewPager}
 
 \subsection{TabLayout} \label{TabLayout}
@@ -681,14 +683,14 @@ O Diagrama a seguir mostra quando os \textit{callback} são executados durante a
   \end{itemize}
 
 \newpage
-\section{API}
+\section{API} \label{API}
 A \textit{Application Programming Interface} (API) permite a comunicação e consumo de dados entre aplicações. Um dos motivos que tornam o uso de uma \textit{API} atrativo é a abstração, já que não é necessário conhecer a plataforma ou maneira que o aplicativo consumidor foi desenvolvido. Outra vantagem é o fato deste modelo ser baseado em tecnologias padrões, em particular o HTTP (Hypertext Transfer Protocol). Os dados transferidos entres essas aplicações seguem um formato padrão, os mais utilizados são \textit{JavaScript Object Notation} (JSON) e \textit{Extensible Markup Languag} (XML). Neste projeto utilizaremos JSON no desenvolvimento de API.
 
 \section{JSON}
 \textit{JavaScript Object Notation} (JSON) é um formato leve de troca de dados entre sistemas independente de linguagem de programação. O formato foi derivado do JavaScript, sendo fácil para humanos ler e escrever.
 
 \section{Firebase}
-\subsection{Firebase Realtime Database}
+\subsection{Firebase Realtime Database} \label{Firebase Realtime Database}
 O \textit{Firebase Realtime Database} é um banco de dados NoSQL hospedado na nuvem, com ele é possível armazenar os dados em um formato JSON e sincronizar dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver off-line.
 
 \subsection{Firebase Authentication}
@@ -1030,7 +1032,7 @@ As imagens a seguir representam as dependências entre as entidades.
 \end{figure}
 
 \newpage
-\subsection{Sistema Administrativo}
+\subsection{Sistema Administrativo} \label{Sistema Administrativo}
 Para disponibilizar dados para o aplicativo mobile foi desenvolvido um sistema administrativo responsável por inserir ou modificar o conteúdo exibido. O sistema foi desenvolvido usando tecnologias web, como HTML, Javascript e CSS. Nesta sessão sera abordado as principais funcionalidades do sistema, abstraindo a implementação.
 \subsubsection{Tela de autenticação}
 Para controlar o acesso ao sistema foi desenvolvido um sistema de autenticação por e-mail utilizando o \textit{firebase authentication}, dessa forma somente usuários cadastrados e com perfis de acesso podem realizar alterações e inclusões de conteúdo pelo sistema administrativo. 
@@ -1166,7 +1168,7 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
 \subsection{Aplicativo}
 Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e arquivos \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os arquivos \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
 
-\subsubsection{Activity Splash} \label{splash_activity}
+\subsubsection{ActivitySplash} \label{splash_activity}
 A \nameref{splash_activity} também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \textit{DataRequestManager} que é recuperado a partir do método estático \textit{getInstance}. 
 
 As animações de carregamento foram desenvolvidas utilizando a biblioteca \nameref{Lottie}.
@@ -1296,7 +1298,7 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 \end{lstlisting}
-\subsubsection{Activity Main} \label{main_activity}
+\subsubsection{ActivityMain} \label{main_activity}
 Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a \nameref{main_activity}, essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu de um \textit{BottomNavigationView}. Para melhorar a experiencia do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo método \textit{onPageSelected}. Por padrão a \nameref{main_activity} possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usaremos o \nameref{main_fragment}.
 
 \newpage
@@ -1485,7 +1487,7 @@ label={activity_main.xml}]
 \end{lstlisting}
 
 \newpage
-\subsubsection{Fragment Main} \label{main_fragment}
+\subsubsection{FragmentMain} \label{main_fragment}
 O \nameref{main_fragment} é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
 
 \begin{figure}[h]
@@ -2922,16 +2924,21 @@ public boolean onSupportNavigateUp() {
 }
 \end{lstlisting}
 
+\newpage
 \begin{lstlisting}[numbers=none,basicstyle=\small,
 caption={ActivityMaterialDetails.xml},
 title={ActivityMaterialDetails.xml},
 label={ActivityMaterialDetails.xml}]
+
+
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.coordinatorlayout.widget.CoordinatorLayout	xmlns:android="http://schemas.android.com/apk/res/android"
 		xmlns:app="http://schemas.android.com/apk/res-auto"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		android:fitsSystemWindows="true">
+		
 
 <com.google.android.material.appbar.AppBarLayout
 		android:id="@+id/appBar"
@@ -2939,6 +2946,7 @@ label={ActivityMaterialDetails.xml}]
 		android:layout_height="300dp"
 		android:fitsSystemWindows="true"
 		android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+		
 
 <com.google.android.material.appbar.CollapsingToolbarLayout
 		android:id="@+id/collapsingToolbar"
@@ -2951,6 +2959,7 @@ label={ActivityMaterialDetails.xml}]
 		app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
 <ImageView
+
 		android:id="@+id/materialImage"
 		android:layout_width="match_parent"
 		android:layout_height="300dp"
@@ -2966,15 +2975,19 @@ label={ActivityMaterialDetails.xml}]
 		app:layout_collapseMode="pin"
 		app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
 </com.google.android.material.appbar.AppBarLayout>
 
 <androidx.core.widget.NestedScrollView
+
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
 		app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
 <WebView
+
 		android:id="@+id/webview"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -2985,15 +2998,164 @@ label={ActivityMaterialDetails.xml}]
 		app:layout_constraintHorizontal_bias="1.0"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toBottomOf="@+id/materialImage" />
+		
 </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 \end{lstlisting}
 
-\subsubsection{ActivityStatistics} \label{ActivityStatistics}
+\newpage
+\subsubsection{ActivityStatistics}
+\label{ActivityStatistics}
+A \nameref{activity} \textit{ActivityStatistics} também faz uso do \nameref{ViewPager} com \nameref{fragment} para alternar o conteúdo exibido, neste caso utilizamos um \nameref{TabLayout} para alternar entre o conteúdo. O \nameref{TabLayout} é construído a partir de informações carregadas no \nameref{Sistema Administrativo}, o que possibilita a criação de categorias de forma dinâmica.
+
+\begin{figure}[h]
+\centering
+   \caption{Activity - Estatísticas}
+   \includegraphics[scale=1.0]{media/tela_stats_act.png}
+   \legend{Fonte: Autor}
+     \label{fig:tela_stats_act}
+\end{figure}
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ActivityStatistics.java},
+title={ActivityStatistics.java},
+label={ActivityStatistics.java}]
+
+public class ActivityStatistics extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+
+
+private CustomFragmentManagerAdapter mCustomFragmentManagerAdapter;
+private ViewPager mViewPager;
+
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		Fabric.with(this, new Crashlytics());
+		setContentView(R.layout.activity_statistics);
+
+		mViewPager = findViewById(R.id.ViewPagerStatistics);
+
+		mCustomFragmentManagerAdapter = new CustomFragmentManagerAdapter(getSupportFragmentManager(), true);
+
+		mViewPager.addOnPageChangeListener(this);
+
+		setupViewPager(mViewPager);
+
+		ActionBar actionBar = getSupportActionBar();
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		actionBar.setDisplayShowHomeEnabled(true);
+		actionBar.setTitle(R.string.menu_statistcs);
+}
+
+
+@Override
+public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+}
+
+@Override
+public void onPageSelected(int position) {
+		setViewPager(position);
+}
+
+@Override
+public void onPageScrollStateChanged(int state) {
+}
+
+public void setupViewPager(ViewPager viewPager) {
+		if (DataRequestManager.data.graphList == null) {
+				return;
+		}
+
+		List<PageModel> pages = CustomChart.GetUniquePages(DataRequestManager.data.graphList);
+
+		for (int i = 0; i < pages.size(); i++) {
+				mCustomFragmentManagerAdapter.AddFragment(new Page(FragmentStatistics.newInstance(pages.get(i).getIntPage()), pages.get(i).Title, i));
+		}
+		viewPager.setAdapter(mCustomFragmentManagerAdapter);
+		SmartTabLayout smartTabLayout = findViewById(R.id.smartTabLayout);
+		smartTabLayout.setViewPager(viewPager);
+
+}
+
+public void setViewPager(int fragmentNumber) {
+		mViewPager.setCurrentItem(fragmentNumber);
+}
+
+@Override
+public boolean onSupportNavigateUp() {
+		onBackPressed();
+		return true;
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ActivityStatistics.xml},
+title={ActivityStatistics.xml},
+label={ActivityStatistics.xml}]
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".Activities.ActivityStatistics">
+
+<com.ogaclejapan.smarttablayout.SmartTabLayout
+		android:id="@+id/smartTabLayout"
+		android:layout_width="match_parent"
+		android:layout_height="48dp"
+		android:background="@color/colorPrimary"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:stl_clickable="true"
+		app:stl_defaultTabTextAllCaps="true"
+		app:stl_defaultTabTextColor="@android:color/white"
+		app:stl_defaultTabTextHorizontalPadding="16dp"
+		app:stl_defaultTabTextMinWidth="0dp"
+		app:stl_defaultTabTextSize="12sp"
+		app:stl_distributeEvenly="true"
+		app:stl_dividerColor="#4D000000"
+		app:stl_dividerThickness="1dp"
+		app:stl_drawDecorationAfterTab="false"
+		app:stl_indicatorAlwaysInCenter="false"
+		app:stl_indicatorColor="@android:color/white"
+		app:stl_indicatorCornerRadius="2dp"
+		app:stl_indicatorGravity="bottom"
+		app:stl_indicatorInFront="false"
+		app:stl_indicatorInterpolation="linear"
+		app:stl_indicatorThickness="4dp"
+		app:stl_indicatorWidth="auto"
+		app:stl_indicatorWithoutPadding="false"
+		app:stl_overlineColor="#4D000000"
+		app:stl_overlineThickness="0dp"
+		app:stl_titleOffset="24dp"
+		app:stl_underlineColor="#4D000000"
+		app:stl_underlineThickness="1dp" />
+
+<androidx.viewpager.widget.ViewPager
+		android:id="@+id/ViewPagerStatistics"
+		android:layout_width="0dp"
+		android:layout_height="0dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toBottomOf="@+id/smartTabLayout">
+
+</androidx.viewpager.widget.ViewPager>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+\end{lstlisting}
+
+\newpage
 \subsubsection{FragmentStatistics} \label{FragmentStatistics}
-Quando um item da \nameref{ActivityMaterial} é selecionado a \nameref{activity} \textit{ActivityMaterialDetails} é aberta através de um \nameref{Intent} que leva os dados do material a ser exibido. Essa \nameref{activity} exibe o conteúdo dos dados do material em HTML através de um \nameref{WebView}.
+Quando uma categoria do \nameref{TabLayout} é selecionada a \nameref{ActivityStatistics} cria um novo \textit{FragmentStatistics} com o argumento identificador da página no seu \nameref{Bundle}.
+Para exibir o conteúdo do \nameref{fragment} utilizamos \nameref{RecyclerView}, \nameref{ChartAdapter.java} e o \nameref{CustomChart.java} para realizar as transformações necessárias.
+  
 
     \begin{figure}[htb]    
  \centering
@@ -3014,29 +3176,339 @@ Quando um item da \nameref{ActivityMaterial} é selecionado a \nameref{activity}
   \end{minipage}
 \end{figure}
 
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={CustomChart.java},
+title={CustomChart.java},
+label={CustomChart.java}]
+
+public class CustomChart {
+
+
+public static String empty = "";
+
+public static List<ChartModel> getChartsByPage(int PageID, List<ChartModel> charts) {
+		List<ChartModel> newCharts = new ArrayList<>();
+
+		for (int i = 0; i < charts.size(); i++) {
+				if (charts.get(i).getTabPage().getIntPage() == PageID) {
+						newCharts.add(charts.get(i));
+				}
+		}
+
+
+		return newCharts;
+}
+
+
+public static List<PageModel> GetUniquePages(List<ChartModel> charts) {
+
+		if (charts == null) {
+				return null;
+		}
+
+		List<PageModel> tabPages = new ArrayList<>();
+
+		for (int i = 0; i < charts.size(); i++) {
+				boolean found = false;
+				for (int j = 0; j < tabPages.size(); j++) {
+						if (tabPages.get(j).Cod.equals(charts.get(i).Page)) {
+								found = true;
+						}
+				}
+
+				if (!found) {
+						tabPages.add(charts.get(i).getTabPage());
+				}
+		}
+
+
+		return tabPages;
+}
+
+public static String getPieChartLabel(String Label, int pos) {
+		String[] splitedLabel = Label.split(",");
+
+		if (splitedLabel[pos - 1] != null) {
+				return splitedLabel[pos - 1];
+		} else {
+				return "";
+		}
+}
+
+public static Float StringToFloat(String s) {
+		s = s.replace(".", "");
+		return Float.valueOf(s);
+
+}
+
+public int[] getColor(String Data, String Type, int POSITION_COLOR) {
+
+		String[] DataArray = Data.trim().replace(" ", "").split(";");
+		List<Integer> colors = new ArrayList<>();
+
+		for (int i = 0; i < DataArray.length; i++) {
+				switch (Type) {
+
+						case Constants.CHART_TYPE_BAR:
+								String[] info = DataArray[i].split(",");
+								int color = Color.parseColor(String.valueOf(info[POSITION_COLOR]).trim());
+								colors.add(color);
+								break;
+				}
+		}
+
+		int[] colorArray = new int[colors.size()];
+
+		for (int i = 0; i < colorArray.length; i++) {
+				colorArray[i] = colors.get(i).intValue();
+		}
+		return colorArray;
+}
+
+public static <T> List<T> getChartData(String Data, String Label, String Type, int POSITION_X, int POSITION_VALUE) {
+
+		List<T> entries = new ArrayList<T>();
+		String[] DataArray = Data.trim().replace(" ", "").split(";");
+
+		for (int i = 0; i < DataArray.length; i++) {
+				switch (Type) {
+
+						case Constants.CHART_TYPE_BAR:
+								String[] BarInfo = DataArray[i].split(",");
+								float BarPos = Float.valueOf(BarInfo[POSITION_X]);
+								float BarValue = CustomChart.StringToFloat(BarInfo[POSITION_VALUE]);
+								entries.add((T) new BarEntry(BarPos, BarValue));
+								break;
+
+
+						case Constants.CHART_TYPE_PIE:
+								String[] PieInfo = DataArray[i].split(",");
+								float PieTitlePos = Float.valueOf(PieInfo[POSITION_X]);
+								float PíeValue = CustomChart.StringToFloat(PieInfo[POSITION_VALUE]);
+								entries.add((T) new PieEntry(PíeValue, CustomChart.getPieChartLabel(Label, (int) PieTitlePos)));
+
+								break;
+
+
+				}
+		}
+		return entries;
+}
+
+public static void CreateBarChart(ChartAdapter.BarViewHolder barViewHolder, ChartModel chartModel) {
+
+
+		barViewHolder.Title.setText(chartModel.Title);
+		barViewHolder.Chart.getDescription().setText(empty);
+		barViewHolder.Chart.getXAxis().setDrawLabels(false);
+		barViewHolder.Chart.setPinchZoom(false);
+		barViewHolder.Chart.setScaleEnabled(true);
+		barViewHolder.Chart.setDrawBarShadow(false);
+		barViewHolder.Chart.setDrawGridBackground(false);
+		barViewHolder.Chart.getAxisRight().setEnabled(false);
+
+		YAxis leftAxis = barViewHolder.Chart.getAxisLeft();
+		leftAxis.setDrawGridLines(true);
+		leftAxis.setSpaceTop(32f);
+		leftAxis.setAxisMinimum(0f);
+
+
+		BarDataSet dataSet = new BarDataSet(CustomChart.<BarEntry>getChartData(chartModel.Data, chartModel.Label, chartModel.Type, chartModel.POSITION_X, chartModel.POSITION_VALUE), chartModel.Label);
+		dataSet.setColors(RandomColor());
+
+
+		BarData data = new BarData(dataSet);
+		data.setValueTextSize(14f);
+		data.setValueTextColor(Color.GRAY);
+		data.setBarWidth(0.3f);
+		barViewHolder.Chart.setData(data);
+		barViewHolder.Chart.setFitBars(true);
+		barViewHolder.Chart.invalidate();
+}
+
+
+private static List<Integer> RandomColor() {
+
+		ArrayList<Integer> colors = new ArrayList<Integer>();
+
+		for (int c : Constants.COLORS_MAIN)
+				colors.add(c);
+
+		for (int c : ColorTemplate.JOYFUL_COLORS)
+				colors.add(c);
+
+		for (int c : ColorTemplate.COLORFUL_COLORS)
+				colors.add(c);
+
+		for (int c : ColorTemplate.LIBERTY_COLORS)
+				colors.add(c);
+
+		for (int c : ColorTemplate.PASTEL_COLORS)
+				colors.add(c);
+
+		colors.add(ColorTemplate.getHoloBlue());
+
+		return colors;
+
+}
+
+public static void CreatePieChart(ChartAdapter.PieViewHolder pieViewHolder, ChartModel chartModel) {
+
+
+		int colorBlack = Color.parseColor("#000000");
+		pieViewHolder.Chart.setEntryLabelColor(colorBlack);
+		pieViewHolder.Chart.setDrawCenterText(true);
+		pieViewHolder.Title.setText(chartModel.Title);
+		pieViewHolder.Chart.getDescription().setText(empty);
+		pieViewHolder.Chart.setDrawHoleEnabled(true);
+		pieViewHolder.Chart.setHoleRadius(7);
+		pieViewHolder.Chart.setTransparentCircleRadius(10);
+		pieViewHolder.Chart.setRotationAngle(0);
+		pieViewHolder.Chart.setRotationEnabled(true);
+
+		PieDataSet set = new PieDataSet(CustomChart.<PieEntry>getChartData(chartModel.Data, chartModel.Label, chartModel.Type, chartModel.POSITION_X, chartModel.POSITION_VALUE), empty);
+		PieData data = new PieData(set);
+
+		if (chartModel.Title.contains("(%)")) {
+				pieViewHolder.Chart.setUsePercentValues(true);
+				data.setValueFormatter(new PercentFormatter());
+		}
+
+		set.setColors(RandomColor());
+
+		pieViewHolder.Chart.setData(data);
+		pieViewHolder.Chart.highlightValues(null);
+
+		data.setValueTextSize(8f);
+		data.setValueTextColor(Color.GRAY);
+		set.setValueLinePart1OffsetPercentage(90f);
+		set.setValueLinePart1Length(1f);
+		set.setValueLinePart2Length(.2f);
+		set.setXValuePosition(PieDataSet.ValuePosition.OUTSIDE_SLICE);
+		set.setSliceSpace(2f);
+
+		pieViewHolder.Chart.invalidate();
+
+}
+}
+\end{lstlisting}
+
+\begin{lstlisting}[numbers=none,basicstyle=\small,
+caption={ChartAdapter.java},
+title={ChartAdapter.java},
+label={ChartAdapter.java}]
+
+public class ChartAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+private List<ChartModel> charts;
+
+public ChartAdapter(List<ChartModel> charts) {
+
+		this.charts = charts;
+}
+
+public List<ChartModel> getCharts() {
+		return charts;
+}
+
+@Override
+public int getItemViewType(int position) {
+
+		switch (charts.get(position).Type) {
+
+				case Constants.CHART_TYPE_BAR:
+						return R.layout.include_bar_chart;
+
+				case Constants.CHART_TYPE_MULTI_BAR:
+						return R.layout.include_bar_chart;
+
+
+				case Constants.CHART_TYPE_PIE:
+						return R.layout.include_pie_chart;
+		}
+
+		return 0;
+}
+
+@NonNull
+@Override
+public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+		RecyclerView.ViewHolder viewHolder = null;
+		View view;
+
+		switch (viewType) {
+				case R.layout.include_bar_chart:
+						view = LayoutInflater.from(parent.getContext()).inflate(R.layout.include_bar_chart, parent, false);
+						viewHolder = new BarViewHolder(view);
+						break;
+
+				case R.layout.include_pie_chart:
+						view = LayoutInflater.from(parent.getContext()).inflate(R.layout.include_pie_chart, parent, false);
+						viewHolder = new PieViewHolder(view);
+						break;
+
+
+		}
+
+		return viewHolder;
+}
+
+@Override
+public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+
+		if (holder instanceof BarViewHolder) {
+				// bind BarData
+				ChartModel chartModel = charts.get(position);
+				CustomChart.CreateBarChart((BarViewHolder) holder, chartModel);
+
+		}
+
+		if (holder instanceof PieViewHolder) {
+				ChartModel chartModel = charts.get(position);
+				CustomChart.CreatePieChart((PieViewHolder) holder, chartModel);
+
+		}
+
+}
+
+@Override
+public int getItemCount() {
+		return charts.size();
+}
+
+public class BarViewHolder extends RecyclerView.ViewHolder {
+
+
+		public TextView Title;
+		public BarChart Chart;
+
+		public BarViewHolder(@NonNull View itemView) {
+				super(itemView);
+				Title = itemView.findViewById(R.id.BarChartTitle);
+				Chart = itemView.findViewById(R.id.BarChart);
+		}
+}
+
+public class PieViewHolder extends RecyclerView.ViewHolder {
+
+
+		public TextView Title;
+		public PieChart Chart;
+
+		public PieViewHolder(@NonNull View itemView) {
+				super(itemView);
+				Title = itemView.findViewById(R.id.PieChartTitle);
+				Chart = itemView.findViewById(R.id.PieChart);
+		}
+}
+}
+\end{lstlisting}
 
 \begin{lstlisting}[numbers=none,basicstyle=\small,
 caption={FragmentStatistics.java},
 title={FragmentStatistics.java},
 label={FragmentStatistics.java}]
-
-package com.flaviotps.apptcc.Fragments;
-
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.flaviotps.apptcc.Adapter.ChartAdapter;
-import com.flaviotps.apptcc.Data.ChartModel;
-import com.flaviotps.apptcc.Data.DataRequestManager;
-import com.flaviotps.apptcc.R;
-import com.flaviotps.apptcc.Utils.Constants;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 public class FragmentStatistics extends Fragment {
 
@@ -3051,7 +3523,7 @@ public static FragmentStatistics newInstance(int page_id) {
 		Bundle args = new Bundle();
 		args.putInt(Constants.BUNDLE_ARG_PAGE_ID, page_id);
 		f.setArguments(args);
-		f.setChartAdapter(new ChartAdapter(ChartModel.getChartsByPage(page_id, DataRequestManager.data.graphList)));
+		f.setChartAdapter(new ChartAdapter(CustomChart.getChartsByPage(page_id, DataRequestManager.data.graphList)));
 		return f;
 }
 
