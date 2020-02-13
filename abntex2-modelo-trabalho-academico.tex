@@ -304,8 +304,7 @@
    \vspace*{\fill}
    \centering
    \noindent
-   \textit{ Este trabalho é dedicado às crianças adultas que,\\
-   quando pequenas, sonharam em se tornar cientistas.} \vspace*{\fill}
+   \textit{ A fazer.} \vspace*{\fill}
 \end{dedicatoria}
 % ---
 
@@ -442,7 +441,7 @@ According to IBGE in 2015, 77.1 \% of Brazilians have a cell phone and 64.7 \% h
 Com o aumento exponencial da população cresce também de forma exponencial o consumo de matéria prima e a quantidade de lixo produzido. Ao longo dos anos surgiram novas maneiras de reaproveitar esses materiais que antes eram descartados em lixões e aterros, como plásticos, papeis, metais e vidros. Muito desses componentes quando não descartados ou tratados de forma adequadas demoram anos e até séculos para de decompor. O acúmulo desses resíduos tem um grande impacto ambiental, destruindo ecossistemas e espécies no seu processo de decomposição. Além disso, o acúmulo desses resíduos tem um grande impacto na saúde e na economia. Os resíduos não descartados de forma correta atuam como facilitadores na disseminação de doenças, o que gera um aumento significativo dos gastos com a saúde. O impacto econômico da reciclagem vai além dos gastos convencionais com a saúde, através dessa prática é possível obter renda extra com produtos reciclados, diminuir a extração de matéria prima tornando os produtos mais baratos e incentivando empreendedores a investir neste ramo e assim gerando mais empregos diretos e indiretos. 
 \section{Objetivo}
 \subsection{Objetivo geral}
-O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile (software) nativo para sistemas Android, essa tecnologia permitirá usuários interessados em adquirir novos conhecimentos sobre o processo, composição e impacto dos resíduos produzidos em todo o mundo.
+O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile (\textit{software}) nativo para sistemas Android, essa tecnologia permitirá usuários interessados em adquirir novos conhecimentos sobre o processo, composição e impacto dos resíduos produzidos em todo o mundo.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
@@ -605,7 +604,7 @@ O kit de desenvolvimento de software Android (Android SDK) é um pacote com dive
 O Java SDK, também conhecido como Java Development Kit (JDK) é um conjunto de utilitários que permitem o desenvolvimento de programas capazes de rodar em uma maquina virtual Java (JVM).
 
 \section{Android O.S}
-O Google em parceria com outras empresas lançou o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus hardwares e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo como é, assim nasceu o Android. Uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin.
+O Google em parceria com outras empresas lançaram o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus \textit{hardwares} e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo. Assim nasceu o Android, uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin.
 
 Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
 
@@ -624,18 +623,18 @@ A arquitetura do sistema operacional Android é divida em camadas, onde cada cam
 \newpage
 
 \subsubsection{Kernel}
-Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma interface simplificada com o hardware.
-O sistema operacional Android utiliza o kernel do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e drivers.
+Os dispositivos móveis possuem arquiteturas distintas e para isso é necessária uma camada capaz de gerenciar os recursos do sistema, além de fornecer aos programas do usuário uma \textit{interface} simplificada com o \textit{hardware}.
+O sistema operacional Android utiliza o \textit{kernel} do Linux, que é responsável por gerenciar serviços como segurança, gerenciamento de memória, processos, rede e \textit{drivers}.
 
 \subsubsection{Android Runtime}
 O Android Runtime (ART) é um processo responsável pela compilação de códigos de alto nível (DEX bytecode) em códigos de maquina.
-O processo usa uma técnica de compilação chamada AOT (Ahead of Time), sua principal diferença em relação ao Dalvik é que ela ocorre antes 
+O processo usa uma técnica de compilação chamada AOT (\textit{Ahead of Time}), sua principal diferença em relação ao Dalvik é que ela ocorre antes 
 da execução do aplicativo e não durante a execução. Com isso, há um aumento na velocidade de execução ao custo de um processo que ocupa mais memoria.
 
 \subsubsection{Native C/C++ Libraries}
 Vários componentes e diversos serviços do sistema operacional Android são implementados em código nativo,
  o que exige bibliotecas nativas desenvolvidas em C e C++.
-O framework Android oferece uma camada de abstração chamada de HAL (Hardware abstraction layer) para expor as funcionalidades de algumas dessas bibliotecas,
+O \textit{framework} Android oferece uma camada de abstração chamada de HAL (\textit{Hardware abstraction layer}) para expor as funcionalidades de algumas dessas bibliotecas,
  tal abstração permite a manipulação de vídeos, imagens, sons, animações, GPS, etc.
 
 \subsubsection{Java API Framework}
@@ -706,7 +705,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
 
 \newpage
 \subsection{Gerenciamento de memória}
-Em aplicativos moveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações, por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memoria a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} no componente \textit{activity} para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema, esses estados são controlados pelo ciclo de vida.
+Em aplicativos moveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações, por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memória a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} nos componentes que possuem ciclos de vida, como \nameref{activity} e \nameref{fragment}, para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema.
 
 \begin{figure}[h]
 \centering
@@ -717,7 +716,7 @@ Em aplicativos moveis os recursos do sistema são fatores importantes para garan
 \end{figure}
 
 \subsection{Ciclo de vida}
-À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \textit{Activity} no aplicativo transitam entre diferentes estados no ciclo de vida. A classe Activity fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
+À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \nameref{activity} no aplicativo transitam entre diferentes estados no ciclo de vida. A classe \textit{activity} fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
 
 O Diagrama a seguir mostra quando os \textit{callback} são executados durante a mudança do ciclo de vida da \textit{activity}.
 \begin{figure}[h]
@@ -731,7 +730,7 @@ O Diagrama a seguir mostra quando os \textit{callback} são executados durante a
 \newpage
 \begin{itemize}
 \item{OnCreate} \\
-     É chamado assim que uma \textit{activity} é iniciada, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de inflação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity} para liberar recursos para \textit{activities} com maior prioridade.
+     É chamado assim que uma \nameref{activity} ou \nameref{fragment} é iniciado, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de inflação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity} para liberar recursos para uma \textit{activity} com maior prioridade.
      
      \newpage
      \item{OnStart} \\
@@ -780,12 +779,9 @@ Nesta sessão será abordado os  recursos necessários para iniciar o desenvolvi
 
 
 
-
-
-
 \section{Configuração}
 \subsection{Gradle}
-Gralde é um sistema de automação de compilação de código aberto utilizado para configuração de projetos. Foi projetado para suportar \textit{builds}\footnote{Processo de compilação de um programa} incrementais e determinar que partes do projeto precisam ser atualizadas, atualizando somente as dependências necessárias.
+Gradle é um sistema de automação de compilação de código aberto utilizado para configuração de projetos. Foi projetado para suportar \textit{builds}\footnote{Processo de compilação de um programa} incrementais e determinar que partes do projeto precisam ser atualizadas, atualizando somente as dependências necessárias.
 No projeto Android, o arquivo de configuração do Gradle pode ser encontrado no diretório abaixo. \begin{lstlisting}[
     basicstyle=\small,
 ]
@@ -795,7 +791,7 @@ No projeto Android, o arquivo de configuração do Gradle pode ser encontrado no
  No build.gradle, o campo \textit{dependencies} nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projetos utilizaremos as dependências abaixo.
  
    \paragraph{Google Play Services}
-   As bibliotecas criadas pela Google disponiveis em \url{https://developers.google.com/android/guides/setup}, oferecem aos desenvolvedores os últimos recursos e funcionalidades mantidas pela Google, como por exemplo, GPS e mapas.
+   As bibliotecas criadas pela Google disponíveis em \url{https://developers.google.com/android/guides/setup}, oferecem aos desenvolvedores os últimos recursos e funcionalidades mantidas pela Google, como por exemplo, GPS e mapas.
        \begin{lstlisting}[
     basicstyle=\small,
 ] 
@@ -893,7 +889,7 @@ implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
 Nesta sessão, serão abordadas as etapas do desenvolvimento da solução proposta nesse documento, desde a criação do subsistema que irá gerenciar todo conteúdo até o aplicativo Android. 
 
 \subsection{Arquitetura Geral}
-Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são populados com informações relevantes ao aplicativo através de uma pagina \textit{web} administrativa. O processo de desenvolvimento dessa pagina será abstraído neste documento.\\
+Para possibilitar a entrega de conteúdo dinâmico no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são populados com informações relevantes ao aplicativo através de uma pagina \textit{web} administrativa. O processo de desenvolvimento dessa pagina será abstraído neste documento.\\
 
 
 \begin{figure}[h]
@@ -905,7 +901,7 @@ Para possibilitar a entrega de conteúdo dinâmica no aplicativo, foi escolhida 
 \end{figure}
 
 \subsection{Arquitetura do Aplicativo}
-\textit{Model-View-Controller} (MVC),  \textit{Model-View-Presenter} (MVP) e \textit{Model-View-ViewModel} (MVVM) são três padrões de arquitetura populares no desenvolvimento de aplicativos Android. Todos esses padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter. o Padrão MVC é usado em projetos de pequeno porte, pois o possui um acoplamento maior do que os outros padrões como MVP e MVVM, que são padrões para projetos de médio e grande porte respectivamente. Neste projeto usaremos MVC.\\
+\textit{Model-View-Controller} (MVC),  \textit{Model-View-Presenter} (MVP) e \textit{Model-View-ViewModel} (MVVM) são três padrões de arquitetura populares no desenvolvimento de aplicativos Android. Todos esses padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter. O padrão MVC é usado em projetos de pequeno porte, pois o possui um acoplamento maior do que os outros padrões como MVP e MVVM, que são padrões para projetos de médio e grande porte. Neste projeto usaremos MVC.\\
 
 \subsubsection{MVC}
 A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{model}, \textit{view} e \textit{controller}. Por questões da arquitetura do sistema operacional Android e sua SDK, não é possível implementar um padrão arquitetural MVC da forma convencional, pois \textit{fragments} e \textit{activities} assumem papeis da camada \textit{controller} e \textit{view} simultaneamente.
@@ -926,20 +922,20 @@ A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{
 
 
 \subsection{Banco de dados}
-Para a prestância da dados foi escolhido o banco de dados mais popular entre os desenvolvedores mobile, o \textit{Firebase Realtime Database}. O \textit{Firebase}, através da sua SDK, oferece um desenvolvimento simplificado, facilitando processos comuns em aplicações \textit{mobile}, como autenticação, leitura e escrita de dados.
+Para a persistência da dados foi escolhido o banco de dados mais popular entre os desenvolvedores mobile, o \textit{Firebase Realtime Database}. O \textit{Firebase}, através da sua SDK, oferece um desenvolvimento simplificado, facilitando processos comuns em aplicações \textit{mobile}, como autenticação, leitura e escrita de dados.
  Os diagramas a seguir representam as entidades que serão utilizadas neste projeto.
 
 
 \subsubsection{Entidades}
 \begin{enumerate}
- \item{Material} \\ A classe \textit{MaterialModel} representa a estrutura de um material reciclável, como por exemplo, ferro, plástico e papel. Esta classe possui os seguintes atributos:
+ \item{Material} \\ A classe \textit{MaterialModel} representa a estrutura de um material reciclável. Por exemplo, ferro, plástico e papel. Esta classe possui os seguintes atributos:
  
  \begin{itemize}
   \item{Cod}\\ Identificador único do material.
    \item{PopularName}\\ Nome popular do material.
      \item{Name}\\ Nome cientifico do material.
        \item{Content}\\ informações detalhadas do material.
-         \item{Type}\\ Tipo de material
+         \item{Type}\\ Tipo de material.
            \item{Image}\\ Imagem ilustrativa do material.
 \end{itemize}
   
@@ -970,7 +966,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \end{figure}
 
 
-  \item{Product} \\ A classe \textit{ProductModel} representa a estrutura de um produto, como por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
+  \item{Product} \\ A classe \textit{ProductModel} representa a estrutura de um produto. Por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
   
      \begin{itemize}
   \item{Cod}\\ Identificador único do produto.
@@ -989,7 +985,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \end{figure}
 
 
-  \item{Location}  \\ A classe \textit{LocationModel} representa a estrutura de uma localização no mapa, como por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
+  \item{Location}  \\ A classe \textit{LocationModel} representa a estrutura de uma localização no mapa. Por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
   
        \begin{itemize}
   \item{UniqueID}\\ Identificador único de uma localização.
@@ -1015,7 +1011,7 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
      \item{Data}\\ Um conjunto pré formatado de dados a serem inseridos no gráfico.
        \item{Label}\\ Etiquetas que descreve os dados apresentados no gráfico.
          \item{Type}\\ O tipo de gráfico.
-         \item{Title}\\ O titulo do gráfico.
+         \item{Title}\\ O título do gráfico.
          \item{Page}\\  O identificador único da pagina em que será apresentado o gráfico.
 \end{itemize}
   
@@ -1028,12 +1024,12 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \end{figure}
 
 
-  \item{Discard}   \\ A classe \textit{DiscardModel} representa a estrutura de um método de descarte de materiais, por exemplo, lixão, aterro e centro de reuso. Esta classe possui os seguintes atributos:
+  \item{Discard}   \\ A classe \textit{DiscardModel} representa a estrutura de um método de descarte de materiais. Por exemplo, lixão, aterro e centro de reuso. Esta classe possui os seguintes atributos:
   
   \begin{itemize}
   \item{Cod}\\ Identificador único de um gráfico.
        \item{Title}\\Titulo do tipo descarte.
-         \item{Desc}\\ Descrição do tipo de descarte.
+         \item{Desc}\\ Descrição do descarte.
   
     
 \end{itemize}
@@ -1050,8 +1046,8 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
   \begin{itemize}
   \item{Cod}\\ Identificador único de um gráfico.
        \item{Number}\\Número da pagina.
-         \item{Type}\\ Categoria da página
-         . \item{Type}\\ Título da página
+         \item{Type}\\ Categoria da página.
+          \item{Type}\\ Título da página.
 \end{itemize}
 \begin{figure}[h]
 \centering
@@ -1065,13 +1061,13 @@ Para a prestância da dados foi escolhido o banco de dados mais popular entre os
 \item{DataWrapper}   \\ A classe \textit{DataWrapper} engloba todos os dados que serão utilizados na aplicação, essa classe foi criada para facilitar a requisição de dados em uma única requisição ao servidor. Vale ressaltar que dados como imagens e vídeos são enviados para o aplicativo de acordo com a necessidade, logo, não há sobrecarga ao realizar uma única requisição.
 \newline
   \begin{itemize}
-  \item{GraphList}\\ Todos os gráficos .
-       \item{PageList}\\  Todas as páginas 
-         \item{VideoList}\\ Todos os vídeos
-         . \item{LocationList}\\ Todas as localizações pesquisadas pelo usuario.
-         \item{ProductList}\\  Todos os produtos
-         \item{DiscardList}\\ Todos os métodos de descarte 
-         \item{MaterialList}\\  Todos os materiais
+  \item{GraphList}\\ Todos os gráficos.
+       \item{PageList}\\  Todas as páginas.
+         \item{VideoList}\\ Todos os vídeos.
+         \item{LocationList}\\ Todas as localizações pesquisadas pelo usuário.
+         \item{ProductList}\\  Todos os produtos.
+         \item{DiscardList}\\ Todos os métodos de descarte.
+         \item{MaterialList}\\  Todos os materiais.
          
 \end{itemize}
 \begin{figure}[h]
@@ -1136,7 +1132,7 @@ A alteração e inclusão de novos usuários é feita diretamente pelo painel ad
 \end{figure}
 
 \subsubsection{Tela de materiais} \label{tela_material}
-A tela de materiais é responsável por inserir e modificar materiais recicláveis, como por exemplo, plástico, metais e papeis. As informações do material podem ser escritas em HTML, tornando menu mais flexível.
+A tela de materiais é responsável por inserir e modificar materiais recicláveis, como, por exemplo, plástico, metais e papeis. As informações do material podem ser escritas em HTML, tornando menu mais flexível.
 \begin{figure}[h]
 \centering
    \caption{Material - Todos}
@@ -1155,7 +1151,7 @@ A tela de materiais é responsável por inserir e modificar materiais recicláve
 
 \newpage
 \subsubsection{Tela de produtos} \label{tela_produtos}
-A área de produtos permite adicionar produtos de uso diário, como por exemplo, telefones, brinquedos e utensílios domésticos. 
+A área de produtos permite adicionar produtos de uso diário, como, por exemplo, telefones, brinquedos e utensílios domésticos. 
 
 \begin{figure}[h]
 \centering
@@ -1195,7 +1191,7 @@ A área de estatísticas permite adicionar gráficos do tipo \textit{PieChart} o
 
 \newpage
 \subsubsection{Tela de vídeos} \label{tela_video}
-Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao tema através de um link. O vídeo fica disponível na sessão do vídeos do aplicativo.
+Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao tema através de um \textit{link}. O vídeo fica disponível na sessão do vídeo do aplicativo.
 
 \begin{figure}[h]
 \centering
@@ -1253,7 +1249,7 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
 \end{figure}
 \newpage
 \subsection{Aplicativo}
-Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e arquivos \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os arquivos \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
+Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e \textit{Java}, os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, os \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo.
 
 \subsubsection{ActivitySplash} \label{splash_activity}
 A \nameref{splash_activity} também conhecida como \textit{splash screen} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados. O método \textit{getData} pode ser acessado pelo \textit{singleton} da classe \nameref{DataRequestManager.java} que é recuperado a partir do método estático \textit{getInstance}. 
@@ -1515,7 +1511,7 @@ public class ActivitySplash extends AppCompatActivity implements ICustomDialogCl
 </androidx.constraintlayout.widget.ConstraintLayout>
 \end{lstlisting}
 \subsubsection{ActivityMain} \label{main_activity}
-Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a \nameref{main_activity}, essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu de um \textit{BottomNavigationView}. Para melhorar a experiencia do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo método \textit{onPageSelected}. Por padrão a \nameref{main_activity} possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usaremos o \nameref{main_fragment}.
+Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a \nameref{main_activity}, essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu (\textit{BottomNavigationView}). Para melhorar a experiência do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo \textit{onPageSelected}. Por padrão a \nameref{main_activity} possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usaremos o \nameref{main_fragment}.
 
 \newpage
 
@@ -1704,7 +1700,7 @@ label={activity_main.xml}]
 
 \newpage
 \subsubsection{FragmentMain} \label{main_fragment}
-O \nameref{main_fragment} é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
+O \nameref{main_fragment} é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface gráfica. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
 
 \begin{figure}[h]
 \centering
@@ -2143,8 +2139,8 @@ label={fragment_main.xml}]
 
 \newpage
 \subsubsection{FragmentMaterialMenu} \label{FragmentMaterialMenu}
-Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref{fragment} e exibe o \nameref{FragmentMaterialMenu}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da interface \textit{OnClickListener} é acionado e a informação do tipo de material é passada para próxima tela através do \nameref{Intent}.
-
+Ao selecionar a opção de materiais, o \nameref{main_fragment} troca o \nameref{fragment} e exibe o \nameref{FragmentMaterialMenu}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da \textit{interface} \textit{OnClickListener} é acionado e a informação do material é passada para próxima tela através do \nameref{Intent}.
+\
     \begin{figure}[htb]    
  \centering
   \begin{minipage}{0.45\textwidth}
@@ -2763,7 +2759,7 @@ label={fragment_material_menu.xml}]
 \subsubsection{ActivityMaterial} \label{ActivityMaterial}
 A \textit{ActivityMaterial} é utilizada para exibir um \nameref{RecyclerView} de materiais recicláveis e um campo de busca para filtrar os resultados carregados.
 
-Essa \nameref{activity} é criada a partir de um \nameref{Intent} que recebe como parâmetro o tipo do material, com esse parâmetro a lista de todos os materiais é filtrada e o \nameref{RecyclerView} é construído a partir da classe \nameref{MaterialAdapter.java} e do \nameref{fig:include_material}.
+Essa \nameref{activity} é criada a partir de um \nameref{Intent} que recebe como parâmetro o tipo do material, com esse parâmetro todos os materiais são filtrados e o \nameref{RecyclerView} é construído a partir da classe \nameref{MaterialAdapter.java} e do \nameref{fig:include_material}.
 
     \begin{figure}[htb]    
  \centering
@@ -3365,7 +3361,7 @@ label={ActivityStatistics.xml}]
 
 \newpage
 \subsubsection{FragmentStatistics} \label{FragmentStatistics}
-Quando uma categoria do \nameref{TabLayout} é selecionada a \nameref{ActivityStatistics} cria um novo \textit{FragmentStatistics} com o argumento identificador da página no seu \nameref{Bundle}.
+Quando uma categoria do \nameref{TabLayout} é selecionada a \nameref{ActivityStatistics} cria um \textit{FragmentStatistics} com o argumento identificador da página no seu \nameref{Bundle}.
 Para exibir o conteúdo do \nameref{fragment} utilizamos \nameref{RecyclerView}, \nameref{ChartAdapter.java} e o \nameref{CustomChart.java} para realizar as transformações necessárias.
   
 
@@ -3881,27 +3877,6 @@ private void LoadVideos(int PageID) {
 caption={ActivityVideos.java},
 title={ActivityVideos.java},
 label={ActivityVideos.java}]
-package com.flaviotps.apptcc.Activities;
-
-import android.os.Bundle;
-
-import com.crashlytics.android.Crashlytics;
-import com.flaviotps.apptcc.Adapter.CustomFragmentManagerAdapter;
-import com.flaviotps.apptcc.Adapter.CustomFragmentManagerAdapter.Page;
-import com.flaviotps.apptcc.Data.DataRequestManager;
-import com.flaviotps.apptcc.Data.PageModel;
-import com.flaviotps.apptcc.Data.VideoModel;
-import com.flaviotps.apptcc.Fragments.FragmentVideos;
-import com.flaviotps.apptcc.R;
-import com.ogaclejapan.smarttablayout.SmartTabLayout;
-
-import java.util.List;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
-import io.fabric.sdk.android.Fabric;
 
 public class ActivityVideos extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
@@ -4251,7 +4226,7 @@ label={FragmentVideos.xml}]
 
 \newpage
 \subsubsection{ActivityLocation}
-Essa \nameref{activity} utiliza um \nameref{ViewPager}, \nameref{TabLayout} e \nameref{fragment} para disponibilizar uma lista de vídeos usando um \nameref{RecyclerView}. As informações são carregadas diretamente do \textit{Youtube} através de uma URL e uma classe auxiliar, a \nameref{Helper.java}. Os vídeos podem ser reproduzidos ao clicar em suas imagens ou descrição.
+Essa \nameref{activity} utiliza um \nameref{MapView} e \nameref{RecyclerView} para disponibilizar uma lista de pontos de interesse e exibi-los no mapa. As localizações são carregadas diretamente da \nameref{API} do Google.
 
     \begin{figure}[htb]    
  \centering
