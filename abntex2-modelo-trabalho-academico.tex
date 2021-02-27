@@ -327,7 +327,7 @@
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
 
- O Brasil produz lixo em quantidades semelhantes a de países desenvolvidos, porém suas políticas e infraestrutura de descarte são equivalentes à de países pobres. A falta de infraestrutura para o recolhimento do lixo é o principal vilão quando se trata de reciclagem, somente 2\% de todo lixo produzido é reciclado.
+ O Brasil produz lixo em quantidades semelhantes a de países desenvolvidos, porém suas políticas e infraestrutura de descarte são equivalentes a de países pobres. A falta de infraestrutura para o recolhimento do lixo é o principal vilão quando se trata de reciclagem, somente 2\% de todo lixo produzido é reciclado.
 	Segundo o IBGE em 2015, 77.1\% dos brasileiros possuem um telefone celular e 64.7\% possuem acesso à internet. Logo, o presente trabalho tem como objetivo facilitar o acesso às informações por meio do uso da tecnologia móvel para incentivar aqueles que tem acesso à infraestrutura a descartar corretamente os materiais. Os acessos às informações serão disponibilizados através de um aplicativo que será desenvolvido ao longo desse projeto para que os usuários possam ter um melhor entendimento dos problemas econômicos e sociais causados pelo descarte do lixo não reciclado de modo que esses usuários possam desenvolver uma consciência ambiental sobre o descarte do lixo doméstico.
 
 
@@ -499,7 +499,7 @@ Para tanto, é necessário conscientizar a população para que produza menos li
 
 \subsection{Produção Mais Limpa (P+L)}
 A Produção Mais Limpa (P+L) consiste em uma estratégia de cunho ambiental que age diretamente na administração da produção e operações, podendo proporcionar significativos ganhos ambientais e econômicos às organizações e sociedade \cite{saqf}.
-A metodologia busca, busca atender as necessidades da sociedade de maneira sustentável, buscando o uso racional de recursos naturais e insumos disponíveis. Nesse sentido a P+L age como uma estratégia para melhoria de todo o processo industrial, tendo como principal a diminuição na emissão de resíduos, a possibilidade de reciclagem e o reuso \cite{ascf}. 
+A metodologia busca atender as necessidades da sociedade de maneira sustentável, buscando o uso racional de recursos naturais e insumos disponíveis. Nesse sentido a P+L age como uma estratégia para melhoria de todo o processo industrial, tendo como principal objetivo a diminuição na emissão de resíduos, a possibilidade de reciclagem e o reuso \cite{ascf}. 
 A P+L consiste, portanto na tomada de ações preventivas alinhadas aos processos produtivos com o intuito de garantir a aplicação contínua de uma estratégia ambiental de sucesso.  A P+L pode ser aplicada em processos produtivos, desenvolvimento de produtos ou mesmo em serviços, uma vez que considera todo o ciclo de vida em função da diminuição dos impactos ambientais. As aplicações de práticas ambientais que envolvem toda a empresa são consideradas intermediárias e exemplos dessas práticas são a prevenção da poluição e produção mais limpa. A prevenção da poluição é uma abordagem de gestão ambiental que reduz a fonte de poluição por meio da eficiência no uso de recursos como energia, materiais e água. A prevenção da poluição é usada com mais frequência para redução de custos buscando melhorar o desempenho financeiro da empresa \cite{hnpt}.
 Portanto Santos e Araújo (2020) reforçam que a ferramenta é útil para o desenvolvimento sustentável por meio da aplicação contínua de uma estratégia que vise a preservação ambiental de modo a reduzir os riscos para os seres humanos e natureza.
 
@@ -594,9 +594,7 @@ Para utilizar a Recicloteca é preciso acessar a página na internet \href{http:
      \label{fig:reciclotecahome}
 \end{figure}
 
-\newpage
 Ao clicar em pesquisa escolar, o usuário é redirecionado para uma página que contém uma série de vídeos animados separados por diversas categorias, como mostra a \autoref{fig:reciclotecaescola}. Esses vídeos são feitos com uma linguagem fácil e uma animação que mantêm o interesse das crianças.
-
 
 \begin{figure}[h]
 \centering
@@ -658,7 +656,7 @@ Para utilizar o aplicativo é preciso efetuar a transferência na Google Play ou
 % ----------------------------------------------------------
 Neste capítulo serão apresentadas as principais características referentes ao sistema operacional Android e ao desenvolvimento de aplicativos mobile.
 \section{Desenvolvimento Mobile}
-Existem diversas plataformas de sistemas operacionais mobile em uso nos \textit{smartphones} atuais. Grande parte desse mercado é dominado pelas plataformas Android e iOS, como mostra a \autoref{fig:plataformas_mobile}. Neste projeto utilizamos a plataforma Android devido a sua alta taxa de adesão.
+Existem diversas plataformas de sistemas operacionais mobile em uso nos \textit{smartphones} atuais. Grande parte desse mercado é dominado pelas plataformas Android e iOS, como mostra a \autoref{fig:plataformas_mobile}. Neste projeto utilizamos a plataforma Android devido a sua alta taxa de adesão e o pouco tempo hábil para o desenvolvimento em outras plataformas.
 
 \begin{figure}[h]
 \centering
@@ -722,7 +720,7 @@ Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto comp
 
 \subsection{Componentes Android}
 \subsubsection{Activity}  \label{activity}
-É um componente que fornece uma tela a qual o usuário pode interagir, um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usa-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
+É um componente que fornece uma tela a qual o usuário pode interagir. Um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usá-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
 
 \subsubsection{Fragment} \label{fragment}
 Esse componente permite a criação de interfaces ou módulos de interface reutilizáveis e auto-gerenciáveis. esse componente só existe dentro de uma \textit{activity}. Logo, apesar de possuir seu próprio ciclo de vida, alterações no ciclo da vida da \textit{activity} afetam o ciclo de vida do \textit{fragment}.  
@@ -764,7 +762,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
 \end{figure}
 
 \subsubsection{RecyclerView} \label{RecyclerView}
-\textit{RecyclerView} é um componente que permite a exibição de listas com alta performance utilizando a reciclagem das células da lista. Essa célula é conhecida como \textit{ViewHolder}. A construção de cada célula é feita através da implementação da classe abstrata \textit{RecyclerView.Adapdater}.
+\textit{RecyclerView} é um componente que permite a exibição de listas com alta performance utilizando a reciclagem das células da lista. Essa célula é conhecida como \textit{ViewHolder}. A construção de cada célula é feita através da implementação da classe abstrata \textit{RecyclerView.Adapter}.
 
 
 
@@ -785,7 +783,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
 
 \newpage
 \subsection{Gerenciamento de memória}
-Em aplicativos móveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações. Por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memória a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} nos componentes que possuem ciclos de vida, como \nameref{activity} e \nameref{fragment}, para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema.
+Em aplicativos móveis os recursos do sistema são fatores importantes para garantir o desempenho de todas as aplicações. Por isso, o sistema operacional \textit{Android} controla como seus recursos serão distribuídos. Aplicativos que estão abertos em segundo plano ou \textit{activities} empilhadas podem ter telas destruídas e variáveis removidas da memória a qualquer momento. Para solucionar esse problema o sistema operacional oferece um conjunto de \textit{callbacks} nos componentes que possuem ciclos de vida, como \nameref{activity} e \nameref{fragment}, para que o desenvolvedor possa controlar os comportamentos durante as mudanças de estado do sistema. A \autoref{fig:backstack} demonstra o processo de empilhamento durante a criação e destruição de várias \textit{activities}.
 
 \begin{figure}[h]
 \centering
@@ -961,7 +959,7 @@ implementation files('libs/YouTubeAndroidPlayerApi.jar')
    
 \end{lstlisting}
 \item{Fabric} \\
-   A biblioteca Fabric, também conhecida como Crashlytics, disponível em \url{https://fabric.io/kits/android/crashlytics/install}, ajuda a rastrear, priorizar e corrigir problemas de instabilidade que podem prejudicar a qualidade do aplicativo e a experiencia do usuário.
+   A biblioteca Fabric, também conhecida como Crashlytics, disponível em \url{https://fabric.io/kits/android/crashlytics/install}, ajuda a rastrear, priorizar e corrigir problemas de instabilidade que podem prejudicar a qualidade do aplicativo e a experiência do usuário.
    \begin{lstlisting}[
     basicstyle=\small,
 ]
@@ -1323,7 +1321,7 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
 Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e \textit{Java}. Os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, enquanto os \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo. O código fonte está disponível em \url{https://github.com/flaviotps/Reciclando_App}
 
 \subsubsection{Tela de carregamento} \label{splash_activity}
-A \nameref{splash_activity} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade, caso haja conexão com a internet o método \textit{getData} procura por atualizações, caso não haja conexão, os últimos dados carregados serão utilizados.
+A \nameref{splash_activity} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade. Caso haja conexão com a internet o método \textit{getData} procura por atualizações. Caso não haja conexão, os últimos dados carregados serão utilizados.
 As animações de carregamento foram desenvolvidas utilizando a biblioteca Lottie.
 
 
