@@ -157,12 +157,6 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\titulo{Criação e uso de um aplicativo móvel como estratégia de educação ambiental}
-\autor{Flávio Telles Paschoal Santos}
-\local{Rio das Ostras}
-\data{2021}
-\orientador{Carlos Bazilio}
-\coorientador{Flávio Machado}
 \instituicao{%
   UNIVERSIDADE FEDERAL FLUMINENSE
   \par
@@ -170,6 +164,13 @@
   INSTITUTO DE CIÊNCIA E TECNOLOGIA
   \par
  CURSO DE BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO}
+ 
+\titulo{Desenvolvimento e uso de um aplicativo móvel como estratégia de educação ambiental}
+\autor{Flávio Telles Paschoal Santos}
+\local{Rio das Ostras}
+\data{2021}
+\orientador{Carlos Bazilio}
+\coorientador{Flávio Machado}
 \tipotrabalho{Trabalho de conclusão de curso (Bacharelado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
@@ -280,8 +281,8 @@
    Trabalho aprovado. \imprimirlocal, 15 de fevereiro de 2020:
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
+   \assinatura{\textbf{Flávio Machado} \\ Coorientador}
    \assinatura{\textbf{Professor} \\ Convidado 1}
-   \assinatura{\textbf{Professor} \\ Convidado 2}
    %\assinatura{\textbf{Professor} \\ Convidado 3}
    %\assinatura{\textbf{Professor} \\ Convidado 4}
       
@@ -376,7 +377,7 @@ According to IBGE in 2015, 77.1 \% of Brazilians have a cell phone and 64.7 \% h
    \item[CSS] \textit{Cascading Style Sheets}
    \item[DEX] \textit{Dalvik Executable}
    \item[GPS] \textit{Global Position System}
-   \item[HAL] \textit{Hardware Lbstraction Layer}
+   \item[HAL] \textit{Hardware Abstraction Layer}
    \item[HTTP] \textit{Hypertext Transfer Protocol}
    \item[IDE] \textit{Integrated Development Environment}   
    \item[JDK] \textit{Java Development Kit}
@@ -605,7 +606,7 @@ Ao clicar em pesquisa escolar, o usuário é redirecionado para uma página que 
 \end{figure}
 
 \newpage
-Outra sessão relevante para esse projeto é a ''Passo-a-passo'' que pode ser acessada no menu da página principal, como mostra a \autoref{fig:reciclotecareciclagem}. Esta sessão contém vídeos e artigos ensinando como reaproveitar itens que seriam descartados, dando origem a um novo produto ou a uma nova matéria-prima com o objetivo de diminuir a produção de rejeitos e o seu acúmulo na natureza.
+Outra sessão relevante para esse projeto é a passo a passo que pode ser acessada no menu da página principal, como mostra a \autoref{fig:reciclotecareciclagem}. Esta sessão contém vídeos e artigos ensinando como reaproveitar itens que seriam descartados, dando origem a um novo produto ou a uma nova matéria-prima com o objetivo de diminuir a produção de rejeitos e o seu acúmulo na natureza.
 
 
 \begin{figure}[h]
@@ -984,7 +985,8 @@ Para possibilitar a entrega de conteúdo dinâmico no aplicativo, foi escolhida 
 \end{figure}
 
 \subsection{Arquitetura do Aplicativo}
-\textit{Model-View-Controller} (MVC),  \textit{Model-View-Presenter} (MVP) e \textit{Model-View-ViewModel} (MVVM) são três padrões de arquitetura populares no desenvolvimento de aplicativos Android. Todos esses padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter. O padrão MVC é usado em projetos de pequeno porte, pois possui um acoplamento maior do que os outros padrões como MVP e MVVM, que são padrões para projetos de médio e grande porte. Neste projeto usamos MVC.\\
+Os padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos fracamente acoplados, fáceis de testar e manter.
+Neste projeto usamos \textit{Model-View-Controller} (MVC).
 
 \subsubsection{MVC}
 A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{model}, \textit{view} e \textit{controller}. Por questões da arquitetura do sistema operacional Android e sua SDK, não é possível implementar um padrão arquitetural MVC da forma convencional, pois \textit{fragments} e \textit{activities} assumem papéis da camada \textit{controller} e \textit{view} simultaneamente.
@@ -1496,7 +1498,7 @@ A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disp
   \begin{minipage}{0.45\textwidth}
     \centering
     \caption{Coleta}
-    \includegraphics[scale=0.35]{media/tela_location_1.jpg}
+    \includegraphics[scale=0.35]{media/tela_location_1.jpeg}
     \legend{Fonte: Autor}
      \label{fig:tela_location_1}
   \end{minipage}
@@ -1504,7 +1506,7 @@ A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disp
   \begin{minipage}{0.45\textwidth}
     \centering
     \caption{Coleta}
-    \includegraphics[scale=0.35]{media/tela_location_2.jpg}
+    \includegraphics[scale=0.35]{media/tela_location_2.jpeg}
     \legend{Fonte: Autor}
      \label{fig:tela_location_2}
   \end{minipage}
@@ -1513,10 +1515,13 @@ A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disp
 
 % ----------------------------------------------------------
 \chapter{Conclusão}
+Este trabalho apresentou um aplicativo voltado a educação ambiental.  Utilizando tecnologias como Android, GPS e Firebase. Para atingir o objetivo de desenvolvimento de um aplicativo que demonstra através de vídeos, gráficos e textos o impacto que os resíduos descartados de forma incorreta podem causar, foi necessário passar pelas etapas de modelagem do sistema e obter novos conhecimentos, tanto na linguagem Java quanto no ecossistema de desenvolvimento da Google. Também foi necessário fazer o levantamento de dados para serem inseridos no aplicativo, tais como dados estatísticos, informações sobre os materiais e vídeos. A versão final do aplicativo encontra-se disponível na Google Play através do link \href{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}
 
 % ----------------------------------------------------------
 \chapter{Trabalhos futuros}
+O aplicativo desenvolvido apresenta as funções necessárias para atender o propósito do trabalho, mas devido à constante evolução do ecossistema da Google, o aplicativo precisará passar pela adequação da arquitetura, migração para linguagem Kotlin e novas diretrizes da Google.
 
+Outras funcionalidades também serão implementadas, como a funcionalidade "Aprenda", destinada ao entendimento de nomenclaturas e padrões utilizados no descarte e identificação de resíduos.
 
 
 % ----------------------------------------------------------
@@ -1547,10 +1552,10 @@ A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disp
 % Apêndices
 % ----------------------------------------------------------
 
-\begin{apendicesenv}
-% Imprime uma página indicando o início dos apêndices
-\partapendices
-\end{apendicesenv}
+%\begin{apendicesenv}
+%% Imprime uma página indicando o início dos apêndices
+%\partapendices
+%\end{apendicesenv}
 
 
 
