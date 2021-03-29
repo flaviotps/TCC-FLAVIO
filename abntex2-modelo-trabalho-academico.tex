@@ -157,13 +157,13 @@
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
-\instituicao{%
-  UNIVERSIDADE FEDERAL FLUMINENSE
-  \par
-   \par
-  INSTITUTO DE CIÊNCIA E TECNOLOGIA
-  \par
- CURSO DE BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO}
+
+\renewcommand{\imprimircapa}{
+\include{modelocapa}
+}
+
+\renewcommand{\imprimirfolhaderosto}{
+\include{folhaderosto}}
  
 \titulo{Desenvolvimento e uso de um aplicativo móvel como estratégia de educação ambiental}
 \autor{Flávio Telles Paschoal Santos}
@@ -174,7 +174,7 @@
 \tipotrabalho{Trabalho de conclusão de curso (Bacharelado)}
 % O preambulo deve conter o tipo do trabalho, o objetivo, 
 % o nome da instituição e a área de concentração 
-\preambulo{}
+\preambulo{Trabalho de conclusão de curso submetido ao Curso de Bacharelado em Ciência da Computação da Universidade Federal Fluminense, para a obtenção do Grau de Bacharel em Ciência da Computação.}
 % ---
 
 
@@ -245,6 +245,7 @@
 % (o * indica que haverá a ficha bibliográfica)
 % ---
 \imprimirfolhaderosto
+
 % ---
 
 
@@ -278,7 +279,7 @@
     \vspace*{\fill}
    \end{center}
         
-   Trabalho aprovado. \imprimirlocal, 15 de fevereiro de 2020:
+   Trabalho aprovado. \imprimirlocal, 15 de fevereiro de 2021:
 
    \assinatura{\textbf{\imprimirorientador} \\ Orientador} 
    \assinatura{\textbf{Flávio Machado} \\ Coorientador}
@@ -327,9 +328,8 @@
 % resumo em português
 \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
 \begin{resumo}
-
- O Brasil produz lixo em quantidades semelhantes a de países desenvolvidos, porém suas políticas e infraestrutura de descarte são equivalentes a de países pobres. A falta de infraestrutura para o recolhimento do lixo é o principal vilão quando se trata de reciclagem, somente 2\% de todo lixo produzido é reciclado.
-	Segundo o IBGE em 2015, 77.1\% dos brasileiros possuem um telefone celular e 64.7\% possuem acesso à internet. Logo, o presente trabalho tem como objetivo facilitar o acesso às informações por meio do uso da tecnologia móvel para incentivar aqueles que tem acesso à infraestrutura a descartar corretamente os materiais. Os acessos às informações serão disponibilizados através de um aplicativo que será desenvolvido ao longo desse projeto para que os usuários possam ter um melhor entendimento dos problemas econômicos e sociais causados pelo descarte do lixo não reciclado de modo que esses usuários possam desenvolver uma consciência ambiental sobre o descarte do lixo doméstico.
+No Brasil, em 2018, foram geradas 79 milhões de toneladas de resíduos sólidos urbanos, o que equivale a quantidades semelhantes a de países desenvolvidos, porém suas políticas e infraestrutura de descarte são equivalentes a de países pobres. A falta de infraestrutura para o recolhimento do lixo é o principal vilão quando se trata de reciclagem, somente 2\% de todo lixo produzido é reciclado.
+	Segundo o IBGE em 2015, 77.1\% dos brasileiros possuem um telefone celular e 64.7\% possuem acesso à internet. Logo, o presente trabalho visa facilitar o acesso às informações por meio do uso da tecnologia móvel Android para incentivar aqueles que tem acesso à infraestrutura a descartar corretamente os materiais. Os acessos às informações serão disponibilizados através de um aplicativo que será desenvolvido ao longo desse projeto para que os usuários possam ter um melhor entendimento dos problemas econômicos e sociais causados pelo descarte do lixo não reciclado de modo que esses usuários possam desenvolver uma consciência ambiental sobre o descarte do lixo doméstico.
 
 
  \textbf{Palavras-chave}: Reciclagem, Tecnologia móvel.
@@ -513,11 +513,11 @@ O desenvolvimento econômico, o crescimento populacional, a urbanização e a re
 
 Entretanto, boa parte dos resíduos produzidos atualmente não possui destinação sanitária e ambientalmente adequada. Embora tenha havido progresso ao longo dos anos, com novas  maneiras de reaproveitar esses materiais (principalmente plásticos, papéis, metais e vidros),  os resíduos ainda são depositados em vazadouros a céu aberto, os chamados lixões e/ou aterros. Muito desses componentes quando não descartados ou tratados de forma adequadas demoram anos e até séculos para se decompor. O acúmulo desses resíduos tem um grande impacto ambiental, destruindo ecossistemas e espécies no seu processo de decomposição. Além disso, o acúmulo desses resíduos tem um grande impacto na saúde e na economia, já que, quando não descartados de forma correta atuam como facilitadores na disseminação de doenças, o que gera um aumento significativo dos gastos com a saúde.
 
-Assim, Iniciativas para a redução da quantidade de material descartado em aterros, como a coleta seletiva e o manejo adequado dos resíduos através da reciclagem,  são importantes estratégias de preservação do meio ambiente, de promoção e proteção da saúde.
- O impacto econômico positivo que vem da reciclagem, vai além da redução de gastos convencionais com a saúde. Através dessa prática, é possível obter renda extra com produtos reciclados, diminuir a extração de matéria prima, tornar os produtos mais baratos  e incentivar empresas a investirem neste ramo do empreendedorismo social e assim gerar mais empregos diretos e indiretos.
+Assim, iniciativas para a redução da quantidade de material descartado em aterros, como a coleta seletiva e o manejo adequado dos resíduos através da reciclagem,  são importantes estratégias de preservação do meio ambiente, de promoção e proteção da saúde.
+ O impacto econômico positivo que vem da reciclagem, vai além da redução de gastos convencionais com a saúde. Através dessa prática, é possível obter renda extra com produtos reciclados, diminuir a extração de matéria prima, tornar os produtos mais baratos  e incentivar empresas a investirem neste ramo do empreendedorismo social e assim gerar mais empregos diretos.
 \section{Objetivo}
 \subsection{Objetivo geral}
-O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile (\textit{software}). Essa tecnologia permitirá usuários interessados em adquirir novos conhecimentos sobre o processo, a composição e o impacto dos resíduos produzidos em todo o mundo.
+O objetivo principal desse projeto é o desenvolvimento de um aplicativo mobile (\textit{software}) que venha auxiliar na educação ambiental. Essa tecnologia permitirá usuários interessados em adquirir novos conhecimentos sobre o processo, a composição e o impacto dos resíduos produzidos em todo o mundo.
 
 \subsection{Objetivos específicos}
 \begin{itemize}
