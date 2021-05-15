@@ -301,21 +301,21 @@
 % ---
 % Dedicatória
 % ---
-\begin{dedicatoria}
-   \vspace*{\fill}
-   \centering
-   \noindent
-   \textit{ A fazer.} \vspace*{\fill}
-\end{dedicatoria}
+%\begin{dedicatoria}
+%   \vspace*{\fill}
+%   \centering
+%   \noindent
+%   \textit{ A fazer.} \vspace*{\fill}
+%\end{dedicatoria}
 % ---
 
 % ---
 % Agradecimentos
 % ---
-\begin{agradecimentos}
+%\begin{agradecimentos}
 
 
-\end{agradecimentos}
+%\end{agradecimentos}
 % ---
 
 
@@ -666,28 +666,28 @@ Existem diversas plataformas de sistemas operacionais \textit{mobile} em uso nos
 \begin{figure}[h]
 \centering
    \caption{Divisão das plataformas mobile}
-   \includegraphics[scale=0.4]{media/grafico_plataformas.png}
+   \includegraphics[scale=0.85]{media/grafico_plataformas2.png}
    \legend{Fonte: gs.statcounter.com}
      \label{fig:plataformas_mobile}
 \end{figure}
 
 \newpage
 \section{SDK}
-Nessa sessão falaremos dos principais \textit{Software Development Kit} (SDK) envolvidos no desenvolvimento de aplicativos Android nativo.
+Nessa sessão serão indicados os principais \textit{Software Development Kit} (SDK) envolvidos no desenvolvimento de aplicativos Android nativo.
 
 \begin{itemize}
 \item{Android SDK} \\
-O kit de desenvolvimento de software Android (Android SDK) é um pacote com diversas ferramentas e tecnologias utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
+O \textit{kit} de desenvolvimento de \textit{software} Android (Android SDK) é um pacote com diversas ferramentas e tecnologias utilizadas pelos desenvolvedores parar criar aplicativos para plataforma Android de forma nativa. o SDK inclui as principais bibliotecas, emuladores e ofuscadores.
   
      \item{Java SDK} \\
-O kit de desenvolvimento de software Java (JDK) é um conjunto de utilitários e tecnologias que permitem o desenvolvimento de programas capazes de rodar em uma máquina virtual Java (JVM).
+O \textit{kit} de desenvolvimento de \textit{software} Java (JDK) é um conjunto de utilitários e tecnologias que permitem o desenvolvimento de programas capazes de rodar em uma máquina virtual Java (JVM).
 \end{itemize}
 
 
 \section{Android O.S}
-O Google em parceria com outras empresas lançaram o desafio de criar um plataforma móvel em que todos os participantes da aliança pudessem utilizar em seus \textit{hardwares} e que fosse de acesso economicamente viável à população tirando o peso do custo de desenvolvimento de um sistema móvel completo. Assim nasceu o Android, uma pilha de softwares para dispositivos móveis que inclui um sistema operacional, um middleware e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (Software Development Kit), uma IDE (Integrated Development Environment) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin. \cite{rbhag}
+O Google em parceria com outras empresas lançaram o desafio de criar um plataforma móvel, na qual todos os participantes da aliança pudessem utilizar em seus \textit{hardwares} e que fosse de acesso economicamente viável à população, tirando o peso do custo de desenvolvimento de um sistema móvel completo. Assim nasceu o Android, uma pilha de \textit{softwares} para dispositivos móveis que inclui um sistema operacional, um \textit{middleware} e um conjunto de aplicações chaves. Os desenvolvedores podem criar aplicações para a plataforma usando o Android SDK (\textit{Software Development Kit}), uma IDE (\textit{Integrated Development Environment}) e uma linguagem suportada pela SDK. As aplicações para essa plataforma são comumente escritas usando a linguagem de programação Java ou Kotlin. \cite{rbhag}
 
-Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia.
+Os aplicativos gerados são executados sobre o Dalvik ou ART,  máquinas virtuais customizadas para dispositivos com restrições de recursos, como pouca capacidade computacional, baixa capacidade de armazenamento e baterias com baixo nível de energia. Portanto, tais restrições devem fazer parte do projeto.
 
 \newpage
 \subsection{Arquitetura}
@@ -696,7 +696,7 @@ A arquitetura do sistema operacional Android é dividida em camadas, onde cada c
 \begin{figure}[h]
 \centering
    \caption{Arquitetura Android}
-   \includegraphics[scale=0.20]{media/android-stack_2x.png}
+   \includegraphics[scale=0.25]{media/android-stack_2x.png}
    \legend{Fonte: developer.android.com}
      \label{fig:arquitetura}
 \end{figure}
@@ -717,7 +717,7 @@ da execução do aplicativo e não durante a execução. Com isso, há um aument
 \subsubsection{Native C/C++ Libraries}
 Vários componentes e diversos serviços do sistema operacional Android são implementados em código nativo,
  o que exige bibliotecas nativas desenvolvidas em C e C++.
-O \textit{framework} Android oferece uma camada de abstração chamada de HAL (\textit{Hardware abstraction layer}) para expor as funcionalidades de algumas dessas biblioteca.
+O \textit{framework} Android oferece uma camada de abstração chamada de HAL (\textit{Hardware abstraction layer}) para expor as funcionalidades de algumas dessas bibliotecas.
 Tal abstração permite a manipulação de vídeos, imagens, sons, animações, GPS, etc.
 
 \subsubsection{Java API Framework}
@@ -727,12 +727,12 @@ Além das bibliotecas os desenvolvedores tem a sua disposição um conjunto comp
 \subsubsection{Activity}  \label{activity}
 É um componente que fornece uma tela a qual o usuário pode interagir. Um aplicativo pode ter várias activities de entrada que podem chamar inúmeras activities dependendo da interação do usuário. Para usá-las de forma correta, é necessário entender conceitos como seu ciclo de vida, gerenciamento na memória e seus métodos. 
 
-\subsubsection{Fragment} \label{fragment}
+\subsubsection{\nameref{fig:fragments_preview}} \label{fragment} 
 Esse componente permite a criação de interfaces ou módulos de interface reutilizáveis e auto-gerenciáveis. esse componente só existe dentro de uma \textit{activity}. Logo, apesar de possuir seu próprio ciclo de vida, alterações no ciclo da vida da \textit{activity} afetam o ciclo de vida do \textit{fragment}.  
 
 \begin{figure}[h]
 \centering
-   \caption{Fragments}
+   \caption{Fragment}
    \includegraphics[scale=0.4]{media/fragments.png}
    \legend{Fonte: www.viralandroid.com}
      \label{fig:fragments_preview}
@@ -746,7 +746,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
 
 
 \newpage
-\subsubsection{ViewPager} \label{ViewPager}
+\subsubsection{\nameref{fig:viewpager}} \label{ViewPager}
 \textit{ViewPager} é um gerenciador de tela que permite o usuário navegar para esquerda e para direita através de páginas de dados.
 \begin{figure}[h]
 \centering
@@ -756,7 +756,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
      \label{fig:viewpager}
 \end{figure}
 
-\subsection{TabLayout} \label{TabLayout}
+\subsection{\nameref{fig:tabs}} \label{TabLayout}
 \textit{TabLayout} é um componente de interface gráfica  implementado junto com o \nameref{ViewPager} que permite que o usuário troque rapidamente entre as páginas.
 \begin{figure}[h]
 \centering
@@ -766,7 +766,7 @@ O \textit{Bundle} é uma estrutura de chave e valor utilizada para passar valore
      \label{fig:tabs}
 \end{figure}
 
-\subsubsection{RecyclerView} \label{RecyclerView}
+\subsubsection{\nameref{fig:recyclerview}} \label{RecyclerView}
 \textit{RecyclerView} é um componente que permite a exibição de listas com alta performance utilizando a reciclagem das células da lista. Essa célula é conhecida como \textit{ViewHolder}. A construção de cada célula é feita através da implementação da classe abstrata \textit{RecyclerView.Adapter}.
 
 
@@ -799,12 +799,12 @@ Em aplicativos móveis os recursos do sistema são fatores importantes para gara
 \end{figure}
 
 \subsection{Ciclo de vida}
-À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \nameref{activity} no aplicativo transitam entre diferentes estados no ciclo de vida. A classe \textit{activity} fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
+À medida que o usuário navega no aplicativo, sai dele e retorna a ele, as instâncias \nameref{activity} no aplicativo transitam entre diferentes estados no \nameref{fig:lifecycle}. A classe \textit{activity} fornece uma quantidade de \textit{callbacks} que permite que o desenvolvedor saiba sobre a mudança do estado.
 
 O Diagrama a seguir mostra quando os \textit{callback} são executados durante a mudança do ciclo de vida da \textit{activity}.
 \begin{figure}[h]
 \centering
-   \caption{Ciclo de vida - Activity}
+   \caption{Ciclo de vida}
    \includegraphics[scale=0.70]{media/activity_lifecycle.png}
    \legend{Fonte: developer.android.com}
      \label{fig:lifecycle}
@@ -813,7 +813,7 @@ O Diagrama a seguir mostra quando os \textit{callback} são executados durante a
 \newpage
 \begin{itemize}
 \item{OnCreate} \\
-     É chamado assim que uma \nameref{activity} ou \nameref{fragment} é iniciado, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de inflação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity} para liberar recursos para uma \textit{activity} com maior prioridade.
+     É chamado assim que uma \nameref{activity} ou \nameref{fragment} é iniciado, boa parte da inicialização é feita nesse \textit{callback}, incluindo o processo de criação da interface de usuário. O \textit{onCreate} é executado uma vez durante a inicialização e só será chamado novamente caso o sistema operacional decida destruir a \textit{activity}, para liberar recursos para uma \textit{activity} com maior prioridade.
      
      \newpage
      \item{OnStart} \\
@@ -848,13 +848,13 @@ A \textit{Application Programming Interface} (API) permite a comunicação e con
 
 \section{Firebase}
 \subsection{Firebase Realtime Database} \label{Firebase Realtime Database}
-O \textit{Firebase Realtime Database} é um banco de dados hospedado na nuvem. Com ele é possível armazenar os dados em um formato \nameref{JSON} e sincronizar dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver off-line.
+O \footnote{https://firebase.google.com/}{\textit{Firebase Realtime Database}} é um banco de dados hospedado na nuvem. Com ele é possível armazenar os dados em um formato \nameref{JSON} e sincronizar dados entre os seus usuários em tempo real, permitindo que os dados continuem disponíveis quando o aplicativo estiver \textit{off-line}.
 
 \subsection{Firebase Authentication}
-O objetivo do \textit{Firebase Authentication} é facilitar o desenvolvimento de um sistema de autenticação seguro e melhorar a experiência de login e ambientação para os usuários finais. Ele oferece uma solução de identidade completa, compatível com contas de e-mail/senha, autenticação por telefone, login do Google, Twitter, Facebook, GitHub e outros.
+O objetivo do \textit{Firebase Authentication} é facilitar o desenvolvimento de um sistema de autenticação seguro e melhorar a experiência de \textit{login} e ambientação para os usuários finais. Ele oferece uma solução de identidade completa, compatível com contas de e-mail/senha, autenticação por telefone, \textit{login} do Google, Twitter, Facebook, GitHub e outros.
 \end{chapter}
 \begin{chapter}{Projeto}
-Neste capítulo serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android
+Neste capítulo serão apresentadas as instalações e configurações iniciais das ferramentas e bibliotecas utilizadas no desenvolvimento de aplicativos Android.
 \section{Instalação} Nesta seção serão abordados os recursos necessários para iniciar o desenvolvimento desse projeto.
 \begin{enumerate}
   \item{Android Studio} \\
@@ -862,7 +862,7 @@ Neste capítulo serão apresentadas as instalações e configurações iniciais 
   \item{SDK e JDK} \\ Para iniciar o desenvolvimento Android foi instalado o Android SDK, que por sua vez necessita do JDK, já que o código gerado pelo SDK roda em uma máquina virtual Java customizada, a ART.
   O JDK esta disponível em \url{https://www.oracle.com/technetwork/java/javase/downloads/index.html} e o SDK em \url{https://developer.android.com/studio}.
   \item{GIT} \\
-  Para realizar o controle de versão do aplicativo usamos o GIT, um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de software, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo. 
+  Para realizar o controle de versão do aplicativo usamos o GIT, um sistema de controle de versões distribuído, usado principalmente no desenvolvimento de \textit{software}, mas pode ser usado para registrar o histórico de edições de qualquer tipo de arquivo. 
   GIT está disponível em \url{https://www.git-scm.com/}.
   
 \end{enumerate}
@@ -878,7 +878,7 @@ No projeto Android, o arquivo de configuração do Gradle pode ser encontrado no
 /app/build.gradle
 \end{lstlisting}
 \subsection{Dependências}
- No build.gradle, o campo \textit{dependencies} nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projeto utilizamos as dependências abaixo.
+ No build.gradle, o campo \textit{dependencies} nos permite baixar bibliotecas externas, adicionar arquivos jar ou módulos em nosso projeto Android. Neste projeto utilizamos as seguintes dependências:
  
  
    \begin{itemize}
@@ -915,7 +915,7 @@ implementation 'com.github.PhilJay:MPAndroidChart:v3.0.3'
   
 \end{lstlisting}
 \item{Firebase} \\
-O Firebase, disponível em \url{https://firebase.google.com} é um conjunto de soluções criadas pela Google para agilizar e melhorar o desenvolvimento de aplicações. Neste projeto usamos somente o \textit{Firebase Realtime Database} , que é um banco de dados hospedado na nuvem. Os dados são armazenados como \nameref{JSON} e sincronizados em tempo real com todos os clientes conectados
+O Firebase, disponível em \url{https://firebase.google.com} é um conjunto de soluções criadas pela Google para agilizar e melhorar o desenvolvimento de aplicações. Neste projeto usamos somente o \textit{Firebase Realtime Database}, que é um banco de dados hospedado na nuvem. Os dados são armazenados como \nameref{JSON} e sincronizados em tempo real com todos os clientes conectados
         \begin{lstlisting}[
     basicstyle=\small,
 ]
@@ -976,7 +976,7 @@ implementation 'com.crashlytics.sdk.android:crashlytics:2.9.9'
 \section{Desenvolvimento}
 Nesta seção, serão abordadas as etapas do desenvolvimento da solução proposta nesse documento, desde a criação do subsistema que irá gerenciar todo conteúdo até o aplicativo Android. 
 
-\subsection{Arquitetura Geral}
+\subsection{\nameref{fig:arquitetura_geral}}
 Para possibilitar a entrega de conteúdo dinâmico no aplicativo, foi escolhida uma arquitetura cliente-servidor onde o aplicativo consome dados em servidores da Google através de uma API ou SDK. Esses servidores são preenchidos com informações relevantes ao aplicativo através de uma página \textit{web} administrativa hospedada nos servidores do Firebase. O processo de desenvolvimento dessa página será abstraído neste documento.\\
 
 
@@ -993,7 +993,7 @@ Os padrões de arquitetura ajudam os desenvolvedores a desenvolver aplicativos f
 Neste projeto usamos \textit{Model-View-Controller} (MVC).
 
 \subsubsection{MVC}
-A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{model}, \textit{view} e \textit{controller}. Por questões da arquitetura do sistema operacional Android e sua SDK, não é possível implementar um padrão arquitetural MVC da forma convencional, pois \textit{fragments} e \textit{activities} assumem papéis da camada \textit{controller} e \textit{view} simultaneamente.
+A arquitetura \nameref{fig:arquitetura_mvc} consiste na divisão do aplicativo em três camadas,  \textit{model}, \textit{view} e \textit{controller}. Por questões da arquitetura do sistema operacional Android e sua SDK, não é possível implementar um padrão arquitetural MVC da forma convencional, pois \textit{fragments} e \textit{activities} assumem papéis da camada \textit{controller} e \textit{view} simultaneamente.
 
 \begin{itemize}
   \item{Model}\\ Essa camada fica responsável pelo acesso aos repositórios para salvar e entregar dados a camada controladora.
@@ -1003,7 +1003,7 @@ A arquitetura MVC consiste na divisão do aplicativo em três camadas,  \textit{
 
 \begin{figure}[h]
 \centering
-   \caption{Arquitetura do aplicativo}
+   \caption{MVC}
    \includegraphics[scale=0.40]{media/MVC.png}
    \legend{Fonte: www.simform.com}
      \label{fig:arquitetura_mvc}
@@ -1017,7 +1017,7 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
 
 \subsubsection{Entidades}
 \begin{enumerate}
- \item{Material} \\ A classe \textit{MaterialModel} representa a estrutura de um material reciclável. Por exemplo, ferro, plástico e papel. Esta classe possui os seguintes atributos:
+ \item{Material} \\ A classe \textit{\nameref{fig:materialmodel}} representa a estrutura de um material reciclável. Por exemplo, ferro, plástico e papel. Esta classe possui os seguintes atributos:
  
  \begin{itemize}
   \item{Cod}\\ Identificador único do material.
@@ -1030,14 +1030,14 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Material}
+   \caption{MaterialModel}
    \includegraphics[scale=1.0]{media/materialModel.png}
    \legend{Fonte: Autor}
      \label{fig:materialmodel}
 \end{figure}
 
 
-  \item{Vídeo}  \\ A classe \textit{VideoModel} representa a estrutura de um vídeo que será disponibilizado através de uma \textit{url} do \textit{YouTube}. Esta classe possui os seguintes atributos:
+  \item{Vídeo}  \\ A classe \textit{\nameref{fig:videomodel}} representa a estrutura de um vídeo que será disponibilizado através de uma \textit{url} do \textit{YouTube}. Esta classe possui os seguintes atributos:
    \begin{itemize}
   \item{Cod}\\ Identificador único do vídeo.
    \item{Url}\\ Endereço do vídeo no YouTube.
@@ -1048,14 +1048,14 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Vídeo}
+   \caption{VídeoModel}
    \includegraphics[scale=1.0]{media/VideoModel.png}
    \legend{Fonte: Autor}
      \label{fig:videomodel}
 \end{figure}
 
 
-  \item{Product} \\ A classe \textit{ProductModel} representa a estrutura de um produto. Por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
+  \item{Produto} \\ A classe \textit{\nameref{fig:productModel}} representa a estrutura de um produto. Por exemplo, telefones, brinquedos e produtos descartáveis em geral. Esta classe possui os seguintes atributos:
   
      \begin{itemize}
   \item{Cod}\\ Identificador único do produto.
@@ -1067,14 +1067,15 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Product}
+   \caption{ProductModel}
    \includegraphics[scale=1.0]{media/ProductModel.png}
    \legend{Fonte: Autor}
      \label{fig:productModel}
 \end{figure}
 
+\newpage
 
-  \item{Location}  \\ A classe \textit{LocationModel} representa a estrutura de uma localização no mapa. Por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
+  \item{Localização}  \\ A classe \textit{\nameref{fig:locationModel}} representa a estrutura de uma localização no mapa. Por exemplo, centros de reciclagem, lixões e aterros. Esta classe possui os seguintes atributos:
   
        \begin{itemize}
   \item{UniqueID}\\ Identificador único de uma localização.
@@ -1086,14 +1087,14 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Location}
+   \caption{LocationModel}
    \includegraphics[scale=0.85]{media/LocationModel.png}
    \legend{Fonte: Autor}
      \label{fig:locationModel}
 \end{figure}
 
 \newpage
-  \item{Chart}   \\ A classe \textit{ChartModel} representa a estrutura de um gráfico do tipo \textit{PieChart} ou \textit{BarChart}. Esta classe possui os seguintes atributos:
+  \item{Gráfico}   \\ A classe \textit{\nameref{fig:chartModel}} representa a estrutura de um gráfico do tipo \textit{PieChart} ou \textit{BarChart}. Esta classe possui os seguintes atributos:
   
   \begin{itemize}
   \item{UniqueID}\\ Identificador único de um gráfico.
@@ -1106,14 +1107,14 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Chart}
+   \caption{ChartModel}
    \includegraphics[scale=1.0]{media/chartModel.png}
    \legend{Fonte: Autor}
      \label{fig:chartModel}
 \end{figure}
 
 
-  \item{Discard}   \\ A classe \textit{DiscardModel} representa a estrutura de um método de descarte de materiais. Por exemplo, lixão, aterro e centro de reuso. Esta classe possui os seguintes atributos:
+  \item{Descarte}   \\ A classe \textit{\nameref{fig:discardModel}} representa a estrutura de um método de descarte de materiais. Por exemplo, lixão, aterro e centro de reuso. Esta classe possui os seguintes atributos:
   
   \begin{itemize}
   \item{Cod}\\ Identificador único de um gráfico.
@@ -1125,13 +1126,13 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
   
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Discard}
+   \caption{DiscardModel}
    \includegraphics[scale=1.0]{media/discardModel.png}
    \legend{Fonte: Autor}
      \label{fig:discardModel}
 \end{figure}
 
-  \item{Page}   \\ A classe \textit{PageModel} representa a estrutura de uma página que pertence a uma categoria. Esta classe possui os seguintes atributos:
+  \item{Página}   \\ A classe \textit{\nameref{fig:pageModel}} representa a estrutura de uma página que pertence a uma categoria. Esta classe possui os seguintes atributos:
   \begin{itemize}
   \item{Cod}\\ Identificador único de um gráfico.
        \item{Number}\\Número da página.
@@ -1140,14 +1141,14 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
 \end{itemize}
 \begin{figure}[h]
 \centering
-   \caption{Entidade - Page}
+   \caption{PageModel}
    \includegraphics[scale=1.0]{media/PageModel.png}
    \legend{Fonte: Autor}
      \label{fig:pageModel}
 \end{figure}
 
 \newpage
-\item{DataWrapper}   \\ A classe \textit{DataWrapper} engloba todos os dados que serão utilizados na aplicação. Essa classe foi criada para facilitar a requisição de dados em uma única requisição ao servidor. Vale ressaltar que dados como imagens e vídeos são enviados para o aplicativo de acordo com a necessidade. Logo, não há sobrecarga ao realizar uma única requisição.
+\item{Dados Englobados}   \\ A classe \textit{\nameref{fig:datawrapper}} engloba todos os dados que serão utilizados na aplicação. Essa classe foi criada para facilitar a requisição de dados em uma única requisição ao servidor. Vale ressaltar que dados como imagens e vídeos são enviados para o aplicativo de acordo com a necessidade. Logo, não há sobrecarga ao realizar uma única requisição.
 \newline
   \begin{itemize}
   \item{GraphList}\\ Todos os gráficos.
@@ -1161,7 +1162,7 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
 \end{itemize}
 \begin{figure}[h]
 \centering
-   \caption{Entidade - DataWrapper}
+   \caption{DataWrapper}
    \includegraphics[scale=1.0]{media/DataWrapperModel.png}
    \legend{Fonte: Autor}
      \label{fig:datawrapper}
@@ -1170,7 +1171,7 @@ Para a persistência da dados foi escolhido o banco de dados mais popular entre 
 
 \newpage
 \subsubsection{Diagrama de classe}
-As imagens a seguir representam as dependências entre as entidades.
+A \autoref{fig:datawrapper_simp} e \autoref{fig:datawrapper_comp} representam as dependências entre as entidades.
 
 \begin{figure}[h]
 \centering
@@ -1190,10 +1191,9 @@ As imagens a seguir representam as dependências entre as entidades.
 
 \newpage
 \subsection{Sistema Administrativo} \label{Sistema Administrativo}
-Para disponibilizar dados para o aplicativo mobile foi desenvolvido um sistema administrativo responsável por inserir ou modificar o conteúdo exibido. O sistema foi desenvolvido usando tecnologias web, como HTML, \textit{JavaScript} e CSS. Nesta seção serão abordadas as principais funcionalidades do sistema, abstraindo parte da implementação. O código fonte está disponível em \url{https://github.com/flaviotps/Reciclando_site}
+Para disponibilizar dados para o aplicativo mobile foi desenvolvido um sistema administrativo responsável por inserir ou modificar o conteúdo exibido. O sistema foi desenvolvido usando tecnologias web, como HTML, \textit{JavaScript} e CSS. Nesta seção serão abordadas as principais funcionalidades do sistema, abstraindo parte da implementação. O código fonte está disponível em \url{https://github.com/flaviotps/Reciclando_site}.
 
-\newpage
-\subsubsection{Tela de autenticação} \label{tela_auth}
+\subsubsection{\nameref{fig:tela_login_site_1}} \label{tela_auth}
 Para controlar o acesso ao sistema foi desenvolvido um sistema de autenticação por e-mail utilizando o \textit{firebase authentication}. Dessa forma somente usuários cadastrados e com perfis de acesso podem realizar alterações e inclusões de conteúdo pelo sistema administrativo. 
 A alteração e inclusão de novos usuários é feita diretamente pelo painel administrativo do \textit{firebase}.
 
@@ -1207,7 +1207,7 @@ A alteração e inclusão de novos usuários é feita diretamente pelo painel ad
 \end{figure}
 
 \subsubsection{Tela de materiais} \label{tela_material}
-A tela de materiais é responsável por inserir e modificar materiais recicláveis, como, por exemplo, plástico, metais e papéis. As informações do material podem ser escritas em HTML, tornando menu mais flexível.
+A \autoref{fig:tela_material_site_1} e \autoref{fig:tela_material_site_2} apresentam as telas que são responsáveis por inserir e modificar materiais recicláveis, como, por exemplo, plástico, metais e papéis. As informações do material podem ser escritas em HTML, tornando menu mais flexível.
 \begin{figure}[h]
 \centering
    \caption{Material - Todos}
@@ -1226,7 +1226,7 @@ A tela de materiais é responsável por inserir e modificar materiais recicláve
 
 \newpage
 \subsubsection{Tela de produtos} \label{tela_produtos}
-A área de produtos permite adicionar produtos de uso diário, como, por exemplo, telefones, brinquedos e utensílios domésticos. 
+A \autoref{fig:tela_produto_site_1} e \autoref{fig:tela_produto_site_2} apresentam a área que permite adicionar produtos de uso diário, como, por exemplo, telefones, brinquedos e utensílios domésticos. 
 
 \begin{figure}[h]
 \centering
@@ -1246,7 +1246,7 @@ A área de produtos permite adicionar produtos de uso diário, como, por exemplo
 
 \newpage
 \subsubsection{Tela de estatísticas} \label{tela_stats}
-A área de estatísticas permite adicionar gráficos do tipo \textit{PieChart} ou \textit{BarChart}. Os dados exibidos devem seguir uma sintaxe para que sejam exibidos corretamente.
+A \autoref{fig:tela_graficos_site_1} e \autoref{fig:tela_graficos_site_2} apresentam a área de estatísticas, que permitem adicionar gráficos do tipo \textit{PieChart} ou \textit{BarChart}. Os dados exibidos devem seguir uma sintaxe para que sejam exibidos corretamente.
 
 \begin{figure}[h]
 \centering
@@ -1266,7 +1266,7 @@ A área de estatísticas permite adicionar gráficos do tipo \textit{PieChart} o
 
 \newpage
 \subsubsection{Tela de vídeos} \label{tela_video}
-Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao tema através de um \textit{link}. O vídeo fica disponível na seção do vídeo do aplicativo.
+A \autoref{fig:tela_video_site_1} e \autoref{fig:tela_video_site_2} apresentam área de vídeos. Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao tema através de um \textit{link}. O vídeo fica disponível na seção do vídeos do aplicativo. 
 
 \begin{figure}[h]
 \centering
@@ -1286,7 +1286,7 @@ Nesta área é possível adicionar vídeos do \textit{youtube} relacionados ao t
 
 \newpage
 \subsubsection{Tela de páginas} \label{tela_paginas}
-Nesta área é possível criar páginas. As áreas de vídeos e gráficos fazem uso desse recurso para organização do conteúdo.
+ A \autoref{fig:tela_pagina_site_1} e \autoref{fig:tela_pagina_site_2} apresentam a área onde é possível criar páginas. As áreas de vídeos e gráficos fazem uso desse recurso para organização do conteúdo.
 
 \begin{figure}[h]
 \centering
@@ -1305,7 +1305,7 @@ Nesta área é possível criar páginas. As áreas de vídeos e gráficos fazem 
 \end{figure}
 \newpage
 \subsubsection{Tela de descartes} \label{tela_descarte}
-Nesta área é possível criar formas de descarte para materiais. A área de produtos faz uso desse recurso.
+A \autoref{fig:tela_descarte_site_1} e \autoref{fig:tela_descarte_site_2} apresentam a área onde é possível criar formas de descarte para materiais. A área de produtos faz uso desse recurso.
 
 \begin{figure}[h]
 \centering
@@ -1324,10 +1324,10 @@ Nesta área é possível criar formas de descarte para materiais. A área de pro
 \end{figure}
 \newpage
 \subsection{Aplicativo}
-Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e \textit{Java}. Os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, enquanto os \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo. O código fonte está disponível em \url{https://github.com/flaviotps/Reciclando_App}
+Durante o processo de desenvolvimento foi utilizado arquivos \textit{XML} e \textit{Java}. Os arquivos \textit{Java} são responsáveis por capturar os eventos do sistema e modelar as entidades, enquanto os \textit{XML} ficam responsáveis por desenhar a interface gráfica do aplicativo. O código fonte está disponível em \url{https://github.com/flaviotps/Reciclando_App}.
 
 \subsubsection{Tela de carregamento} \label{splash_activity}
-A \nameref{splash_activity} foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade. Caso haja conexão com a internet o método \textit{getData} procura por atualizações. Caso não haja conexão, os últimos dados carregados serão utilizados.
+A tela de carregamento, representada pela \autoref{fig:tela_splash_1_app} e \autoref{fig:tela_splash_2_app}, foi desenvolvida para carregar os dados que serão utilizados no aplicativo de forma paralela. Nesta etapa há uma verificação de conectividade. Caso haja conexão com a internet o método \textit{getData} procura por atualizações. Caso não haja conexão, os últimos dados carregados serão utilizados.
 As animações de carregamento foram desenvolvidas utilizando a biblioteca Lottie.
 
 
@@ -1353,7 +1353,7 @@ As animações de carregamento foram desenvolvidas utilizando a biblioteca Lotti
 
 \newpage
 \subsubsection{Tela Principal} \label{main_activity}
-Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a Tela Principal. Essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu (\textit{BottomNavigationView}). Para melhorar a experiência do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo \textit{onPageSelected}. Por padrão a Tela Principal possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usamos o \nameref{main_fragment}.
+Após o carregamento dos dados na \nameref{splash_activity} o usuário é redirecionado para a \nameref{fig:activity_main_app}. Essa \nameref{activity} é responsável por criar vários \nameref{fragment} que levam o usuário para diferentes partes do aplicativo através de um menu (\textit{BottomNavigationView}). Para melhorar a experiência do usuário foi utilizado também um \nameref{ViewPager} que é configurado no método \textit{setupViewPager}, o que possibilita uma troca de conteúdo rápido de acordo com as ações do usuário que são controladas pelo método \textit{onNavigationItemSelected} ou pelo \textit{onPageSelected}. Por padrão a Tela Principal possui somente o \textit{BottomNavigationView} e \nameref{ViewPager}, o \nameref{fragment} padrão é adicionado em tempo de execução. Neste caso, usamos o \nameref{main_fragment}.
 
 
 \begin{figure}[h]
@@ -1366,7 +1366,7 @@ Após o carregamento dos dados na \nameref{splash_activity} o usuário é redire
 
 \newpage
 \subsubsection{Tela Menu Principal} \label{main_fragment}
-A Tela Menu Principal é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface gráfica. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
+A \nameref{fig:fragment_main_app} é responsável por criar o menu principal do aplicativo e controlar as ações do usuário através da interface \textit{OnClickListener}, que responde aos cliques do usuário na interface gráfica. Esse \nameref{fragment} pode realizar alterações no \nameref{ViewPager} da \nameref{main_activity} e abrir novas telas.
 
 \begin{figure}[h]
 \centering
@@ -1378,30 +1378,23 @@ A Tela Menu Principal é responsável por criar o menu principal do aplicativo e
 
 \newpage
 \subsubsection{Tela Menu de Materiais} \label{FragmentMaterialMenu}
-Ao selecionar a opção de materiais, o \nameref{main_activity} troca o \nameref{fragment} e exibe o Tela Menu de Materiais, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da \textit{interface} \textit{OnClickListener} é acionado e a informação do material é passada para próxima tela através do \nameref{Intent}.
+Ao selecionar a opção de materiais, o \nameref{main_activity} troca o \nameref{fragment} e exibe o \nameref{fig:tela_menu_material_1}, que é o \nameref{fragment} responsável por exibir o menu de materiais específicos e controlar as ações do usuário neste menu. Ao clicar em um dos menus disponíveis o método \textit{onClick} da \textit{interface} \textit{OnClickListener} é acionado e a informação do material é passada para próxima tela através do \nameref{Intent}.
 \
     \begin{figure}[htb]    
  \centering
   \begin{minipage}{0.45\textwidth}
     \centering
     \caption{Tela Menu de Materiais}
-    \includegraphics[scale=0.35]{media/tela_menu_material_1.jpg}
+    \includegraphics[scale=0.45]{media/tela_menu_material_1.jpg}
     \legend{Fonte: Autor}
      \label{fig:tela_menu_material_1}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \caption{Tela Menu de Materiais}
-    \includegraphics[scale=0.35]{media/tela_menu_material_2.jpg}
-    \legend{Fonte: Autor}
-     \label{fig:tela_menu_material_2}
-  \end{minipage}
 \end{figure}
 
 \newpage
 \subsubsection{Tela de Materiais} \label{ActivityMaterial}
-A Tela de Materiais é utilizada para exibir um \nameref{RecyclerView} de materiais recicláveis e um campo de busca para filtrar os resultados carregados.
+A tela de materiais, ilustrada pela \autoref{fig:tela_material_act_1} e \autoref{fig:tela_material_act_2}, é utilizada para exibir um \nameref{RecyclerView} de materiais recicláveis e um campo de busca para filtrar os resultados carregados.
 
 Essa \nameref{activity} é criada a partir de um \nameref{Intent} que recebe como parâmetro o tipo do material. Com esse parâmetro todos os materiais são filtrados e o \nameref{RecyclerView} é construído.
 
@@ -1426,30 +1419,24 @@ Essa \nameref{activity} é criada a partir de um \nameref{Intent} que recebe com
 
 \newpage
 \subsubsection{Tela Detalhes de Materiais} \label{ActivityMaterialDetails}
-Quando um item da \nameref{ActivityMaterial} é selecionado a Tela Detalhes de Materiais é aberta através de um \nameref{Intent} que leva os dados do material a ser exibido. Essa \nameref{activity} exibe o conteúdo dos dados do material em HTML através de um \nameref{WebView}.
+Quando um item da \nameref{ActivityMaterial} é selecionado a tela de detalhes de materiais, representada pela \autoref{fig:tela_material__details_act_1}, é aberta através de um \nameref{Intent} que leva os dados do material a ser exibido. Essa \nameref{activity} exibe o conteúdo dos dados do material em HTML através de um \nameref{WebView}.
 
     \begin{figure}[htb]    
  \centering
   \begin{minipage}{0.45\textwidth}
     \centering
     \caption{Tela Detalhes de Materiais}
-    \includegraphics[scale=0.35]{media/tela_material__details_act_1.jpg}
+    \includegraphics[scale=0.45]{media/tela_material__details_act_1.jpg}
     \legend{Fonte: Autor}
      \label{fig:tela_material__details_act_1}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.45\textwidth}
-    \centering
-    \caption{Tela Detalhes de Materiais}
-    \includegraphics[scale=0.35]{media/tela_material__details_act_2.jpg}
-    \legend{Fonte: Autor}
-     \label{fig:tela_material__details_act_2}
-  \end{minipage}
 \end{figure}
 
+\newpage
 \subsubsection{Tela de Estatísticas}
 \label{ActivityStatistics}
-A Tela de Estatísticas também faz uso do \nameref{ViewPager} com \nameref{fragment} para alternar o conteúdo exibido. Neste caso utilizamos um \nameref{TabLayout} para alternar entre o conteúdo. O \nameref{TabLayout} é construído a partir de informações carregadas no \nameref{Sistema Administrativo}, o que possibilita a criação de categorias de forma dinâmica. Quando uma categoria do \nameref{TabLayout} é selecionada a Tela de Estatísticas cria um \nameref{fragment} com o argumento identificador da página no seu \nameref{Bundle} e exibe o conteúdo através de um \nameref{RecyclerView}.
+A tela de estatísticas, ilustrada na \autoref{fig:tela_stats_1} e \autoref{fig:tela_stats_2}, também faz uso do \nameref{ViewPager} com \nameref{fragment} para alternar o conteúdo exibido. Neste caso utilizamos um \nameref{TabLayout} para alternar entre o conteúdo. O \nameref{TabLayout} é construído a partir de informações carregadas no \nameref{Sistema Administrativo}, o que possibilita a criação de categorias de forma dinâmica. Quando uma categoria do \nameref{TabLayout} é selecionada a Tela de Estatísticas cria um \nameref{fragment} com o argumento identificador da página no seu \nameref{Bundle} e exibe o conteúdo através de um \nameref{RecyclerView}.
   
     \begin{figure}[htb]    
  \centering
@@ -1472,7 +1459,7 @@ A Tela de Estatísticas também faz uso do \nameref{ViewPager} com \nameref{frag
 
 \newpage
 \subsubsection{Tela de Vídeos}
-A Tela de Vídeos utiliza um \nameref{ViewPager}, \nameref{TabLayout} e \nameref{fragment} para disponibilizar uma lista de vídeos usando um \nameref{RecyclerView}. As informações são carregadas diretamente do \textit{Youtube}. Os vídeos podem ser reproduzidos ao clicar em suas imagens ou descrição.
+A tela de vídeos, ilustrada na \autoref{fig:tela_videos_1} e \autoref{fig:tela_videos_2}, utiliza um \nameref{ViewPager}, \nameref{TabLayout} e \nameref{fragment} para disponibilizar uma lista de vídeos usando um \nameref{RecyclerView}. As informações são carregadas diretamente do \textit{Youtube}. Os vídeos podem ser reproduzidos ao clicar em suas imagens ou descrição.
 
     \begin{figure}[htb]    
  \centering
@@ -1495,7 +1482,7 @@ A Tela de Vídeos utiliza um \nameref{ViewPager}, \nameref{TabLayout} e \nameref
 
 \newpage
 \subsubsection{Tela de Locais}
-A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disponibilizar uma lista de pontos de interesse e exibi-los no mapa. As localizações são carregadas diretamente da \nameref{API} do Google.
+A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disponibilizar uma lista de pontos de interesse e exibi-los no mapa. As localizações são carregadas diretamente da \nameref{API} do Google. A \autoref{fig:tela_location_1} e \autoref{fig:tela_location_2} ilustram essa tela.
 
     \begin{figure}[htb]    
  \centering
@@ -1517,18 +1504,39 @@ A Tela de Locais utiliza um \nameref{MapView} e \nameref{RecyclerView} para disp
 \end{figure}
 \end{chapter}
 
+\newpage
+
+\subsubsection{Tela de produtos}
+A \autoref{fig:produtos_app} ilustra a tela de produtos, onde uma lista de produtos com informações de descarte adequado é exibida. É possível filtrar um produto por nome ou sinônimos.
+
+
+
+\begin{figure}[htb]    
+ \centering
+  \begin{minipage}{0.55\textwidth}
+    \centering
+    \caption{Tela de Produtos}
+    \includegraphics[scale=0.35]{media/produtos_app.jpeg}
+    \legend{Fonte: Autor}
+     \label{fig:produtos_app}
+  \end{minipage}
+  \hfill
+\end{figure}
+
+
 % ----------------------------------------------------------
 \chapter{Conclusão}
-Este trabalho apresentou o desenvolvimento de um aplicativo voltado a educação ambiental utilizando tecnologias como Android, GPS e Firebase. Para atingir o objetivo de desenvolvimento de um aplicativo que demonstra através de vídeos, gráficos e textos o impacto que os resíduos descartados de forma incorreta podem causar, foi necessário passar pelas etapas de modelagem do sistema e obter novos conhecimentos. Tanto na linguagem Java quanto no ecossistema de desenvolvimento da Google. Também foi necessário fazer o levantamento de dados para serem inseridos no aplicativo, tais como dados estatísticos, informações sobre os materiais, vídeos e aprender como disponibilizar esses dados para o aplicativo usando o conceito de API e o padrão JSON.
+Este trabalho apresentou o desenvolvimento de um aplicativo voltado a educação ambiental utilizando tecnologias como Android, GPS e Firebase. Para atingir o objetivo de desenvolvimento de um aplicativo que demonstra, através de vídeos, gráficos e textos, o impacto que os resíduos descartados de forma incorreta podem causar, foi necessário passar pelas etapas de modelagem do sistema e obter novos conhecimentos. Tanto na linguagem Java quanto no ecossistema de desenvolvimento da Google. Também foi necessário fazer o levantamento de dados para serem inseridos no aplicativo, tais como dados estatísticos, informações sobre os materiais, vídeos e aprender como disponibilizar esses dados para o aplicativo usando o conceito de API e o padrão JSON.
+
 As principais dificuldades encontradas durante o desenvolvimento do projeto foi a integração com as ferramentas da Google, como o Firebase e Google Maps. Devido à quantidade de opções disponíveis nessa infraestrutura, o processo de escolha e entendimento das ferramentas se torna confuso para quem está iniciando o desenvolvimento com tais ferramentas.
-A versão final do aplicativo encontra-se disponível na Google Play através do link \href{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}
+A versão final do aplicativo encontra-se disponível na Google Play através do \textit{link} \href{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}{https://play.google.com/store/apps/details?id=com.flaviotps.reciclando}.
 
 % ----------------------------------------------------------
 \section{Trabalhos futuros}
 O aplicativo desenvolvido apresenta as funções necessárias para atender o propósito do trabalho. Mas devido à constante evolução do ecossistema da Google, o aplicativo precisará passar pela migração para linguagem Kotlin e novas diretrizes da Google, para que seja compatível com as futuras versões do Android.
 
 Outras funcionalidades também serão implementadas, como a funcionalidade destinada ao entendimento de nomenclaturas e padrões utilizados no descarte e identificação de resíduos. Como por exemplo, as cores características dos contêineres de coleta seletiva de lixo e a classificação numérica dos tipos de plásticos. 
-
+Essa funcionalidade será inserida no menu "Aprenda", localizado na \nameref{main_fragment} do aplicativo.
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
